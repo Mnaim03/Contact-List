@@ -16,8 +16,8 @@ The contact list application allows users to:
 
 ## 🖥️ Team Components
 - Vincenzo Ragone [v.ragone8@studenti.unisa.it](mailto:v.ragone8@studenti.unisa.it)
-- Silvio Ventura[s.ventura4@studenti.unisa.it](mailto:s.ventura4@studenti.unisa.it)
-- Cristian Senape[c.senape@studenti.unisa.it](mailto:c.senape@studenti.unisa.it)
+- Silvio Ventura [s.ventura4@studenti.unisa.it](mailto:s.ventura4@studenti.unisa.it)
+- Cristian Senape [c.senape@studenti.unisa.it](mailto:c.senape@studenti.unisa.it)
 - Mohamad Naim [m.naim@studenti.unisa.it](mailto:m.naim@studenti.unisa.it)
     
 
