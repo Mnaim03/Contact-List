@@ -1,4 +1,4 @@
-package com.example;
+package it.university.group27;
 
 
 public class Main{
