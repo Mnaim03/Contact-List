@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.TreeSet;
 
 public class Rubrica {
@@ -20,7 +23,19 @@ public class Rubrica {
             System.out.println(contatto);
         }
     }
-    public void salvaVCard(String nomefile) throws IOException{
+
+    @Override
+    public String toString(){
+        StringBuffer sb = new StringBuffer("La mia rubrica: "+"\n");
+        for(Contatto c : contatti){
+            sb.append(c.toString()+"\n");
+        }
+        return sb.toString();
+    }
+
+
+
+    public void salvaVCard(String nomefile) throws IOException {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomefile))) {
             //Scorro i contatti nella rubrica
             for (Contatto tmp : contatti) {
@@ -32,17 +47,18 @@ public class Rubrica {
                 bw.write("FN:" + tmp.getNome() + " " + tmp.getCognome());
                 bw.newLine();
                 // Aggiungi i numeri di telefono
-                for (String numero : contatto.getNumeroTelefono()) {
-                    writer.write("TEL;TYPE=CELL:" + numero);
-                    writer.newLine();
+                for (String numero : tmp.getNumeroTelefono()) {
+                    bw.write("TEL;TYPE=CELL:" + numero);
+                    bw.newLine();
                 }
                 // Aggiungi gli indirizzi email
-                for (String email : contatto.getEmail()) {
-                    writer.write("EMAIL;TYPE=INTERNET:" + email);
-                    writer.newLine();
+                for (String email : tmp.getEmail()) {
+                    bw.write("EMAIL;TYPE=INTERNET:" + email);
+                    bw.newLine();
                 }
-                writer.write("END:VCARD");
-                writer.newLine();
+                bw.write("END:VCARD");
+                bw.newLine();
+                bw.newLine();
             }
         }
     }

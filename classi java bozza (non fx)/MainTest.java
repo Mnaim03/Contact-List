@@ -1,5 +1,5 @@
 public class MainTest {
-    public static void main(String[] args) {
+    public static void main(String[] args)throws Exception{
 
         Rubrica rubrica = new Rubrica();
 
@@ -11,9 +11,9 @@ public class MainTest {
 
         rubrica.addContatto(c1);
         rubrica.addContatto(c2);
+        System.out.println(rubrica);
+        rubrica.salvaVCard("vCardFile.vcf");
 
-        rubrica.salvaVcard("vCardFile.vcf");
-        
 
     }
 }
