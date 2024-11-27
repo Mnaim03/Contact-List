@@ -4,17 +4,16 @@ public class MainTest {
         Rubrica rubrica = new Rubrica();
 
         Contatto c1 = new Contatto("momo","naim");
-        c1.addNumero("6");
-        c1.addNumero("7");
+        Contatto c2 = new Contatto("enzo","ragone");
+        c1.addNumero("1");
+        c2.addNumero("2");
+        c2.addNumero("3");
 
-        Contatto c2 = new Contatto("momo","naim");
-        c2.addNumero("7");
-        c2.addNumero("7");
+        rubrica.addContatto(c1);
+        rubrica.addContatto(c2);
 
-        rubrica.addContatto(  c1  );
-        rubrica.addContatto(  c2  );
-
-        rubrica.stampaContatti();
+        rubrica.salvaVcard("vCardFile.vcf");
+        
 
     }
 }
