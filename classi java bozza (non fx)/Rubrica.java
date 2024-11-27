@@ -62,4 +62,22 @@ public class Rubrica {
             }
         }
     }
+    public Rubrica leggiVCard(String nomefile) {
+        try(Scanner sc = new Scanner(new BufferedReader(new FileReader(nomefile)))){
+            Rubrica r = new Rubrica();
+            
+                sc.useDelimeter("[\n]");
+
+                while(sc.hasNext()){
+                    String FN;
+                    while(FN.startsWith("FN")){
+                        FN=s.next();
+                    }
+                    String nome_cognome[] = FN.substring(4).split(" ");
+                    
+                    Contatto c = new Contatto(nome_cognome[0],nome_cognome[1]);
+                    
+                }
+        }
+    }
 }
