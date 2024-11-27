@@ -76,10 +76,11 @@ public class Contatto implements Comparable<Contatto> {
 
     @Override
     public boolean equals(Object o) {
+        if(o==null) return false;
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if ( getClass() != o.getClass()) return false;
         Contatto that = (Contatto) o;
-        return Objects.equals(numeroTelefono, that.numeroTelefono);  // Solo il numero di telefono determina l'uguaglianza
+        return this.numeroTelefono.equals(that.numeroTelefono);  // Solo il numero di telefono determina l'uguaglianza
     }
 
     

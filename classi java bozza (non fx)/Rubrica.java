@@ -41,17 +41,17 @@ public class Rubrica {
             for (Contatto tmp : contatti) {
                 bw.write("BEGIN:VCARD");
                 bw.newLine();
-                bw.write("VERSION:3.0");
+                bw.write("VERSION:2.1");
                 bw.newLine();
                 //Inizio dettagli del contatto
                 bw.write("FN:" + tmp.getNome() + " " + tmp.getCognome());
                 bw.newLine();
-                // Aggiungi i numeri di telefono
+                // Aggiungi i numeri di telefono del contatto
                 for (String numero : tmp.getNumeroTelefono()) {
                     bw.write("TEL;TYPE=CELL:" + numero);
                     bw.newLine();
                 }
-                // Aggiungi gli indirizzi email
+                // Aggiungi gli indirizzi email del contatto
                 for (String email : tmp.getEmail()) {
                     bw.write("EMAIL;TYPE=INTERNET:" + email);
                     bw.newLine();
