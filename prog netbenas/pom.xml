@@ -87,11 +87,6 @@
                     <artifactId>javafx-fxml</artifactId>
                     <version>11</version>
                 </dependency>
-                    <dependency>
-                        <groupId>net.sf.vcard4j</groupId>
-                        <artifactId>vcard4j-core</artifactId>
-                        <version>0.10.0</version>
-                    </dependency>
             </dependencies>
         </profile>
     </profiles>

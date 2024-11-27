@@ -1,3 +1,5 @@
+import input.AnagraficaStudenti;
+
 public class MainTest {
     public static void main(String[] args)throws Exception{
 
@@ -13,7 +15,8 @@ public class MainTest {
         rubrica.addContatto(c1);
         System.out.println(rubrica);
         rubrica.salvaVCard("vCardFile.vcf");
-
+        Rubrica r = Rubrica.leggiVCard("vCardFile.vcf");
+        System.out.println("prova leggiVCard:\n"+ r );
 
 
     }
