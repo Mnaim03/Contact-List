@@ -20,4 +20,7 @@ public class Rubrica {
             System.out.println(contatto);
         }
     }
+    public void salvaCSV(String nomefile){
+        
+    }
 }

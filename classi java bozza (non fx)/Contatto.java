@@ -1,13 +1,14 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 
 public class Contatto implements Comparable<Contatto> {
     private String nome;
     private String cognome;
-    private ArrayList<String> numeroTelefono;
-    private ArrayList<String> email;
+    private List<String> numeroTelefono;
+    private List<String> email;
 
     public Contatto(String nome, String cognome ) {
         this.nome = nome;
@@ -26,11 +27,25 @@ public class Contatto implements Comparable<Contatto> {
         if(email.size()<3) email.add(mail);
     }
 
+    public void removeNumero(int index){
+         numeroTelefono.remove(numeroTelefono.get(index));
+    }
+    public void removeEmail(int index){
+        email.remove(email.get(index));
+    }
+
+    public void modificaNumero(int index,String numero){
+        numeroTelefono.set(index,numero);
+    }
+    public void modificaEmail(int index,String mail){
+        email.set(index,mail);
+    }
+
     // Getters
     public String getNome() { return nome; }
     public String getCognome() { return cognome; }
-    public ArrayList<String> getNumeroTelefono() { return numeroTelefono; }
-    public ArrayList<String> getEmail() { return email; }
+    public List<String> getNumeroTelefono() { return numeroTelefono; }
+    public List<String> getEmail() { return email; }
 
     @Override
     public int compareTo(Contatto altro) {
@@ -53,7 +68,7 @@ public class Contatto implements Comparable<Contatto> {
         }
 
 
-        //se non si verifaca nessuna
+        
         return 1;
 
 
@@ -67,14 +82,21 @@ public class Contatto implements Comparable<Contatto> {
         return Objects.equals(numeroTelefono, that.numeroTelefono);  // Solo il numero di telefono determina l'uguaglianza
     }
 
-    @Override
-    public int hashCode() {
-        if (numeroTelefono != null) {return Objects.hash(numeroTelefono); } // Solo il numero di telefono nel hashCode}
-          return cognome.hashCode();
-    }
-
+    
     @Override
     public String toString() {
-        return cognome + " " + nome ;
+        StringBuffer sb = new StringBuffer("Nome: "+nome+" Cognome: "+cognome+"\n");
+        int i = 0;
+        int j = 0;
+        for (String s : numeroTelefono) {
+            i++;
+            sb.append(" Numero di telefono " + i +" : " + s);
+        }
+        sb.append("\n");
+        for (String e : email) {
+            j++;
+            sb.append(" Email " + j +" : " + e);
+        }
+        return sb.toString();
     }
 }
