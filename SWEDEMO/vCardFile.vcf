@@ -1,0 +1,16 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:ez-vcard 0.12.1
+FN:momo naim
+TEL;TYPE=cell:111111
+TEL;TYPE=cell:111121
+EMAIL:momo@naim
+END:VCARD
+BEGIN:VCARD
+VERSION:3.0
+PRODID:ez-vcard 0.12.1
+FN:enzo ragone
+TEL;TYPE=cell:3333333
+TEL;TYPE=cell:3333332
+EMAIL:enzo@ragone
+END:VCARD

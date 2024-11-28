@@ -2,6 +2,13 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.TreeSet;
+import ezvcard.Ezvcard;
+import ezvcard.VCard;
+import ezvcard.property.Telephone;
+import ezvcard.property.Email;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Rubrica {
     private TreeSet<Contatto> contatti;
@@ -35,7 +42,7 @@ public class Rubrica {
 
 
 
-    public void salvaVCard(String nomefile) throws IOException {
+    /*public void salvaVCard(String nomefile) throws IOException {
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(nomefile))) {
             //Scorro i contatti nella rubrica
             for (Contatto tmp : contatti) {
@@ -61,5 +68,14 @@ public class Rubrica {
                 bw.newLine();
             }
         }
+    }*/
+
+    public void salvaVCF(String filename){
+
+
     }
+
+
 }
+
+
