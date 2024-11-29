@@ -14,7 +14,7 @@ import java.util.Set;
  */
 public interface InterfaceRubrica {
     public void addContatto(Contatto contatto); 
-    public void removeContatto(Contatto contatto);
+    public Contatto removeContatto(Contatto contatto);
     public void stampaContatti();
     public void salvaVCF(String filename) throws IOException;
     public Rubrica leggiVCF(String filename) throws IOException;

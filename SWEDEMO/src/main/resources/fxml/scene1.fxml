@@ -218,7 +218,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </Button>
-                                    <Button fx:id="deleteButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" text="Delete" textAlignment="CENTER">
+                                    <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteLista" prefHeight="37.0" prefWidth="118.0" text="Delete" textAlignment="CENTER">
                                        <font>
                                           <Font size="18.0" />
                                        </font>

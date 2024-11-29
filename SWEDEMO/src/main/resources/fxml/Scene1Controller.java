@@ -99,17 +99,38 @@ public class Scene1Controller implements Initializable {
         contatti = FXCollections.observableArrayList(); //non posso istanziare con parola chiave new
         tableView.setItems(contatti);
         nomeClm.setCellValueFactory(new PropertyValueFactory("nome"));
+        surnameClm.setCellValueFactory(new PropertyValueFactory("cognome"));
     }
     
     public void aggiornaLista(InterfaceRubrica rubrica){
         
-        contatti.clear();
+        contatti.clear(); //
         for(Contatto c : rubrica.getContatti()) contatti.add(c); //caricata l'observableList
     
     }
 
     @FXML
     private void addLista(ActionEvent event) {
-        contatti.add(new Contatto(nameField.getText(),surnameField.getText()));
+        
+        Contatto c = new Contatto(nameField.getText(),surnameField.getText());
+        rubrica.addContatto(c);
+        contatti.add(c);
+        nameField.setText("");
+        surnameField.setText("");
+        phone1Field.setText("");
+        phone2Field.setText("");
+        phone3Field.setText("");
+        email1Field.setText("");
+        email2Field.setText("");
+        email3Field.setText("");
     }
+
+    @FXML
+    private void deleteLista(ActionEvent event) {
+        contatti.remove(rubrica.removeContatto(tableView.getSelectionModel().getSelectedItem()));
+        aggiornaLista(rubrica);
+        System.out.println(rubrica);
+    }
+    
+    
 }

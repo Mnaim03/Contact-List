@@ -25,8 +25,12 @@ public class Rubrica implements InterfaceRubrica{
         contatti.add(contatto);
     }
 
-    public void removeContatto(Contatto contatto) {
-        contatti.remove(contatto);
+    public Contatto removeContatto(Contatto contatto) {
+        if(contatti.contains(contatto)) {
+            contatti.remove(contatto);
+            return contatto;
+        }
+        else return null;
     }
 
     public void stampaContatti() {
