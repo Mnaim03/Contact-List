@@ -9,18 +9,19 @@ import com.example.InterfaceRubrica;
 import com.example.Rubrica;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * FXML Controller class
@@ -38,7 +39,11 @@ public class Scene1Controller implements Initializable {
     @FXML
     private TextField searchBarField;
     @FXML
-    private ListView<Contatto> list;
+    private TableView<Contatto> tableView;
+    @FXML
+    private TableColumn<Contatto,String> nomeClm;
+    @FXML
+    private TableColumn<Contatto,String> surnameClm;
     @FXML
     private TextField nameField;
     @FXML
@@ -82,40 +87,29 @@ public class Scene1Controller implements Initializable {
     @FXML
     private Button deleteButton;
     
-    private ObservableList<Contatto>contatti;
+    private Rubrica rubrica;
     
-    private InterfaceRubrica rubrica ; 
+    private ObservableList<Contatto>contatti;
 
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        rubrica = new Rubrica(); //contenente la rubrica totale
         
         contatti = FXCollections.observableArrayList(); //non posso istanziare con parola chiave new
-        list.setItems(contatti);
-        list.setCellFactory(param -> new ListCell<Contatto>() { //sottoclasse che estende ListCell
-            //param è il contatto che passi 
-            @Override
-            protected void updateItem(Contatto item, boolean empty) {
-                super.updateItem(item, empty); //sennò la lista potrebbe contenere dati obsoleti?
-                if (item != null && !empty) {
-                    // Mostra solo nome e cognome
-                    setText(item.getNome() + " " + item.getCognome());
-                } else {
-                    setText(null);
-                }
-            }
-        });
+        tableView.setItems(contatti);
+        nomeClm.setCellValueFactory(new PropertyValueFactory("nome"));
+    }
+    
+    public void aggiornaLista(InterfaceRubrica rubrica){
+        
+        contatti.clear();
+        for(Contatto c : rubrica.getContatti()) contatti.add(c); //caricata l'observableList
+    
     }
 
-    public void aggiornaLista(InterfaceRubrica rubrica){
-        this.rubrica = rubrica ; //ho la rubrica caricata coi contatti.
-        
-        for(Contatto c : this.rubrica.getContatti())
-            contatti.add(c); //caricata l'observableList
+    @FXML
+    private void addLista(ActionEvent event) {
+        contatti.add(new Contatto(nameField.getText(),surnameField.getText()));
     }
-   
-    
 }

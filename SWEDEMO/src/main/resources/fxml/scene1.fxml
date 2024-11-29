@@ -47,26 +47,20 @@
                <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="323.0">
                      <children>
-                        <VBox alignment="TOP_CENTER" prefHeight="772.0" prefWidth="314.0" AnchorPane.topAnchor="25.0">
-                           <children>
-                              <HBox alignment="CENTER">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="30.0" HBox.hgrow="NEVER">
+                        <HBox alignment="CENTER" />
+                        <TextField fx:id="searchBarField" layoutX="36.0" layoutY="72.0" prefHeight="37.0" prefWidth="247.0" promptText="     search ...">
+                           <font>
+                              <Font name="System Italic" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="36.0" layoutY="73.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="30.0">
                                     </Button>
-                                    <TextField fx:id="searchBarField" prefHeight="37.0" prefWidth="247.0" promptText="search ...">
-                                       <font>
-                                          <Font name="System Italic" size="18.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
-                              </HBox>
-                              <ListView fx:id="list" prefHeight="624.0" prefWidth="284.0">
-                                 <VBox.margin>
-                                    <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                                 </VBox.margin>
-                              </ListView>
-                           </children>
-                        </VBox>
+                        <TableView fx:id="tableView" layoutX="36.0" layoutY="117.0" prefHeight="521.0" prefWidth="250.0">
+                          <columns>
+                            <TableColumn fx:id="nomeClm" prefWidth="125.0" text="NOME" />
+                            <TableColumn fx:id="surnameClm" prefWidth="125.0" text="COGNOME" />
+                          </columns>
+                        </TableView>
                      </children>
                   </AnchorPane>
                   <Line endX="-102.70053100585938" endY="709.053466796875" startX="-100.0" startY="-2.16448974609375" stroke="#00000042" />
@@ -214,7 +208,7 @@
                               <Line endX="513.5924072265625" startX="-100.0" stroke="#00000043" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="609.0" spacing="20.0">
                                  <children>
-                                    <Button fx:id="saveButton" mnemonicParsing="false" prefHeight="37.0" prefWidth="118.0" text="Save">
+                                    <Button fx:id="saveButton" mnemonicParsing="false" onAction="#addLista" prefHeight="37.0" prefWidth="118.0" text="Save">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
