@@ -12,9 +12,10 @@ import ezvcard.property.Email;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Set;
 
-public class Rubrica {
-    private TreeSet<Contatto> contatti;
+public class Rubrica implements InterfaceRubrica{
+    private Set<Contatto> contatti;
 
     public Rubrica() {
         this.contatti = new TreeSet<>();
@@ -32,6 +33,9 @@ public class Rubrica {
         for (Contatto contatto : contatti) {
             System.out.println(contatto);
         }
+    }
+    public Set<Contatto> getContatti(){
+        return contatti;
     }
     
     public Rubrica ricercaContatti(String stringa){
@@ -90,7 +94,7 @@ public class Rubrica {
     
     //Lettura da file .vcf contenente le VCard 
     
-    public static Rubrica leggiVCF(String filename) throws IOException{
+    public Rubrica leggiVCF(String filename) throws IOException{
         
         Rubrica r = new Rubrica();
         try(FileReader fr = new FileReader(filename)){

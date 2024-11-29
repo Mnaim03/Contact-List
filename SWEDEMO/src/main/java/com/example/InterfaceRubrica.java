@@ -4,10 +4,19 @@
  */
 package com.example;
 
+import ezvcard.VCard;
+import java.io.IOException;
+import java.util.Set;
+
 /**
  *
  * @author silve
  */
 public interface InterfaceRubrica {
-    
+    public void addContatto(Contatto contatto); 
+    public void removeContatto(Contatto contatto);
+    public void stampaContatti();
+    public void salvaVCF(String filename) throws IOException;
+    public Rubrica leggiVCF(String filename) throws IOException;
+    public Set<Contatto> getContatti();
 }
