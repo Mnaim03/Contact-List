@@ -13,20 +13,29 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Set;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class Rubrica implements InterfaceRubrica{
     private Set<Contatto> contatti;
-
+    private ObservableList<Contatto> listContatti;
     public Rubrica() {
         this.contatti = new TreeSet<>();
+        listContatti = FXCollections.observableArrayList();
     }
 
     public void addContatto(Contatto contatto) {
         contatti.add(contatto);
+        listContatti.add(contatto);
     }
 
     public void removeContatto(Contatto contatto) {
         contatti.remove(contatto);
+        listContatti.remove(contatto);
+    }
+    
+    public ObservableList<Contatto> getListaOsservabile(){
+    return listContatti; 
     }
 
     public void stampaContatti() {

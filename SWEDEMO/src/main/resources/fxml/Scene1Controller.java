@@ -96,8 +96,7 @@ public class Scene1Controller implements Initializable {
         // TODO
         rubrica = new Rubrica(); //contenente la rubrica totale
         
-        contatti = FXCollections.observableArrayList(); //non posso istanziare con parola chiave new
-        tableView.setItems(contatti);
+        tableView.setItems(rubrica.getListaOsservabile());
         nomeClm.setCellValueFactory(new PropertyValueFactory("nome"));
     }
     
@@ -110,6 +109,18 @@ public class Scene1Controller implements Initializable {
 
     @FXML
     private void addLista(ActionEvent event) {
-        contatti.add(new Contatto(nameField.getText(),surnameField.getText()));
+        rubrica.addContatto(new Contatto(nameField.getText(),surnameField.getText()));
+        System.out.println(rubrica.getContatti().size());
+    }
+
+    @FXML
+    private void deleteLista(ActionEvent event) {
+        System.out.println( tableView.getSelectionModel().getSelectedItem());
+        Contatto daRimuovere = tableView.getSelectionModel().getSelectedItem();
+        rubrica.removeContatto(daRimuovere);
+        System.out.println(rubrica.getListaOsservabile().toString());
+        
+        
+        
     }
 }
