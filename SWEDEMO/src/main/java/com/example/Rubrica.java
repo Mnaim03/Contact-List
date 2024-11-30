@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.ObservableSet;
 
 public class Rubrica implements InterfaceRubrica{
     private Set<Contatto> contatti;
