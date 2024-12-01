@@ -1,16 +1,21 @@
-package com.example;
+package com.example.Contact;
 
+import com.example.Exceptions.InvalidEmailException;
+import com.example.Exceptions.InvalidNumberException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
+import com.example.interfaces.CheckerNumber;
 
-public class Contatto implements Comparable<Contatto> {
+public class Contatto implements Comparable<Contatto>{
     private String nome;
     private String cognome;
-    private List<String> numeroTelefono;
-    private List<String> email;
+    private List<ContactNumero> numeroTelefono;
+    private List<ContactEmail> email;
+    private static final int MAX_NUMERI = 3;
+    private static final int MAX_EMAIL = 3;
 
     public Contatto(String nome, String cognome ) {
         this.nome = nome;
@@ -19,14 +24,19 @@ public class Contatto implements Comparable<Contatto> {
         this.email = new ArrayList<>();
     }
 
-    public void addNumero(String numero){
-        if(numeroTelefono.contains(numero)) return;
-        if(numeroTelefono.size()<3) numeroTelefono.add(numero);
+    public void addNumero(ContactNumero numero) throws InvalidNumberException{
+        if(numeroTelefono.contains(numero) || numeroTelefono.size()>MAX_NUMERI || !numero.isValidNumber())
+            throw new InvalidNumberException("Il numero non è valido!");
+        
+       
+        numeroTelefono.add(numero);
     }
 
-    public void addEmail(String mail){
-        if(email.contains(mail)) return;
-        if(email.size()<3) email.add(mail);
+    public void addEmail(ContactEmail mail) throws InvalidEmailException{
+        if(email.contains(mail) || email.size()>MAX_EMAIL || !mail.isValidEmail()) 
+            throw new InvalidEmailException("La mail non è valida!");
+        
+        email.add(mail);
     }
 
     public void removeNumero(int index){
@@ -36,18 +46,18 @@ public class Contatto implements Comparable<Contatto> {
         email.remove(email.get(index));
     }
 
-    public void modificaNumero(int index,String numero){
+    public void modificaNumero(int index,ContactNumero numero){
         numeroTelefono.set(index,numero);
     }
-    public void modificaEmail(int index,String mail){
+    public void modificaEmail(int index,ContactEmail mail){
         email.set(index,mail);
     }
 
     // Getters
     public String getNome() { return nome; }
     public String getCognome() { return cognome; }
-    public List<String> getNumeroTelefono() { return numeroTelefono; }
-    public List<String> getEmail() { return email; }
+    public List<ContactNumero> getNumeriDiTelefono() { return numeroTelefono; }
+    public List<ContactEmail> getEmail() { return email; }
 
     @Override
     public int compareTo(Contatto altro) {
@@ -76,14 +86,7 @@ public class Contatto implements Comparable<Contatto> {
 
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if(o==null) return false;
-        if (this == o) return true;
-        if ( getClass() != o.getClass()) return false;
-        Contatto that = (Contatto) o;
-        return this.numeroTelefono.equals(that.numeroTelefono);  // Solo il numero di telefono determina l'uguaglianza
-    }
+  
 
 
     @Override
@@ -91,12 +94,12 @@ public class Contatto implements Comparable<Contatto> {
         StringBuffer sb = new StringBuffer("Nome: "+nome+" Cognome: "+cognome+"\n");
         int i = 0;
         int j = 0;
-        for (String s : numeroTelefono) {
+        for (ContactNumero s : numeroTelefono) {
             i++;
             sb.append(" Numero di telefono " + i +" : " + s);
         }
         sb.append("\n");
-        for (String e : email) {
+        for (ContactEmail e : email) {
             j++;
             sb.append(" Email " + j +" : " + e);
         }
