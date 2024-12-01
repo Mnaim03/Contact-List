@@ -157,27 +157,25 @@ public class Scene1Controller implements Initializable {
         }
         rubrica.addContatto(contattoDigitato);
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni inserimento col treeSet , per mantenere l'ordine lessicografico
-        showAlert(0);
+        clearAllFields();
     }
     
     /**
      * Metodo privato , usato dal metodo addLista , per aggiungere i numeri di cellulari digitati al nuovo contatto in fase di creazione
      * @param c 
      */
-  private void aggiungiCellAlContattoDigitato(Contatto c) {
-    // Verifica se il campo phone1Field non è vuoto
-  TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
-  for(TextField field: phoneFields){
-  if(field.getText() != null && !field.getText().trim().isEmpty()){
-      ContactNumero numero = new ContactNumero(field.getText().trim());
-      try{
-      c.addNumero(numero);
-      }catch(InvalidNumberException ex){
-      
-      }
+    private void aggiungiCellAlContattoDigitato(Contatto c) {
+        // Verifica se il campo phone1Field non è vuoto
+        TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
+        for(TextField field: phoneFields){
+            if(field.getText() != null && !field.getText().trim().isEmpty()){
+            ContactNumero numero = new ContactNumero(field.getText().trim());
+            try{
+                c.addNumero(numero);
+                }catch(InvalidNumberException ex){}
                                         
-     }
-    }
+            }
+        }
   }
 
     
@@ -189,13 +187,22 @@ public class Scene1Controller implements Initializable {
             ContactEmail email = new ContactEmail(field.getText().trim());
             try{
             c.addEmail(email);
-            }catch(InvalidEmailException ex){
-            
-            }   
+            }catch(InvalidEmailException ex){}
         }
     }
-}
-    
+    }
+
+    private void clearAllFields(){
+        nameField.clear();
+        surnameField.clear();
+        phone1Field.clear();
+        phone2Field.clear();
+        phone3Field.clear();
+        email1Field.clear();
+        email2Field.clear();
+        email3Field.clear();
+        descriptionField.clear();
+    }
 
     @FXML
     private void deleteLista(ActionEvent event) {
@@ -204,8 +211,7 @@ public class Scene1Controller implements Initializable {
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni rimozione
     }
     
-    
-    
+
     /**
      * Verifica se il contatto digitato è già presente nella rubrica.
      * Restituisce 1 se già presente , 0 altrimenti 
@@ -219,6 +225,7 @@ public class Scene1Controller implements Initializable {
         
         
     }
+
     /****
      * @brief: Funzione che , ricevuto in input un flag(che se 1 indica che il contatto digitato è già presente, se 0 viceversa), mostra un alert
      * customizzato a seconda dello stato del flag passato. Se il flag è 0 , il contatto digitato non è già presente in rubrica , dunque si procede con il 
@@ -250,8 +257,6 @@ public class Scene1Controller implements Initializable {
     saveButton.disableProperty().bind(abilitato.not());
     
     }
-    
-    
     
     /***
      * @brief apre una nuova finestra , contenente i dettagli del contatto selezionato
