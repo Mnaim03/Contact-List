@@ -1,4 +1,9 @@
 package com.example;
+import com.example.Contact.ContactEmail;
+import com.example.Contact.ContactNumero;
+import com.example.Contact.Contatto;
+import com.example.Exceptions.InvalidEmailException;
+import com.example.Exceptions.InvalidNumberException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
@@ -17,19 +22,26 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 
-public class Rubrica implements InterfaceRubrica{
+public class Rubrica {
     private Set<Contatto> contatti;
     private ObservableList<Contatto> listContatti;
+    
     public Rubrica() {
         this.contatti = new TreeSet<>();
         listContatti = FXCollections.observableArrayList();
     }
-
+    
+/**
+ * Aggiunge un nuovo contatto alla rubrica. COntemporaneamente tiene aggiornata la lista e il treeSet
+ */
     public void addContatto(Contatto contatto) {
         contatti.add(contatto);
         listContatti.add(contatto);
     }
-
+/**
+ * @brief rimuove un contatto dalla rubrica 
+ * @param contatto 
+ */
     public void removeContatto(Contatto contatto) {
         contatti.remove(contatto);
         listContatti.remove(contatto);
@@ -38,16 +50,18 @@ public class Rubrica implements InterfaceRubrica{
     public ObservableList<Contatto> getListaOsservabile(){
     return listContatti; 
     }
-
-    public void stampaContatti() {
-        for (Contatto contatto : contatti) {
-            System.out.println(contatto);
-        }
-    }
+    /**
+     * @brief metodo getter
+     * @return il set dei contatti della rubrica al momento della chiamata
+     */
     public Set<Contatto> getContatti(){
         return contatti;
     }
-    
+    /**
+     * @brief  
+     * @param stringa la sottostringa del nome o del cognome digitata
+     * @return la nuova rubrica contenente tutti i contatti corrispondenti alla ricerca
+     */
     public Rubrica ricercaContatti(String stringa){
     Rubrica restituita = new Rubrica(); 
     String nomecognome; 
@@ -87,24 +101,37 @@ public class Rubrica implements InterfaceRubrica{
     }
     
     private void aggiungiNumeriDiTelefonoAVCard(Contatto c,VCard card){
-        for(String numero : c.getNumeroTelefono()){
-       Telephone telefono = new Telephone(numero);
+        for(ContactNumero numero : c.getNumeriDiTelefono()){
+       Telephone telefono = new Telephone(numero.getAssociatedNumber());
+       if(numero.isNumeroDiCasa()) telefono.getTypes().add(TelephoneType.HOME);
+       else{
        telefono.getTypes().add(TelephoneType.CELL);
+       }
        card.addTelephoneNumber(telefono);
         }
     }
     
+    
+    
+    /**
+     * Metodo invocato in fase di creazione di una vCard. Aggiunge tutte le email  del contatto alla vCard 
+    */
     private void aggiungiEmailsAVCard(Contatto c , VCard card){
-        for(String tmp : c.getEmail()){
-        Email email = new Email(tmp);
-        card.addEmail(email);    
+        for(ContactEmail tmp : c.getEmail()){
+            Email vCardEmail = new Email(tmp.getAssociatedEmail());
+            card.addEmail(vCardEmail);
         }
+    
+    
     }
+    
+    
+    
     
     
     //Lettura da file .vcf contenente le VCard 
     
-    public Rubrica leggiVCF(String filename) throws IOException{
+    public Rubrica leggiVCF(String filename) throws IOException,InvalidEmailException,InvalidNumberException{
         
         Rubrica r = new Rubrica();
         try(FileReader fr = new FileReader(filename)){
@@ -127,11 +154,11 @@ public class Rubrica implements InterfaceRubrica{
             j++; 
             }
             Contatto c = new Contatto(nome,cognome);
-            for(String numero : numeri){
+            for(ContactNumero numero : c.getNumeriDiTelefono()){
             c.addNumero(numero);
             }
             
-            for(String email : emails){
+            for(ContactEmail email : c.getEmail()){
             c.addEmail(email);
             }
             

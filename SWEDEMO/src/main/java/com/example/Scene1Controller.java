@@ -1,8 +1,12 @@
 package com.example;
 
-import com.example.Contatto;
-import com.example.InterfaceRubrica;
+import com.example.Contact.ContactEmail;
+import com.example.Contact.ContactNumero;
+import com.example.Contact.Contatto;
+import com.example.Exceptions.InvalidEmailException;
+import com.example.Exceptions.InvalidNumberException;
 import com.example.Rubrica;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.binding.BooleanBinding;
@@ -10,7 +14,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -21,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -105,6 +113,17 @@ public class Scene1Controller implements Initializable {
         updateSearchResults(newValue);
         
     });
+        
+        
+        //Quando fai doppio click su un contatto della tabella , apre una nuova schermata contente i dettagli del contatto cliccato
+          tableView.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) { // Doppio clic sulla riga
+                Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
+                if (contattoSelezionato != null) {
+                    apriFinestraDettagli(contattoSelezionato);
+                }
+            }
+        });
        
     }
     
@@ -140,32 +159,42 @@ public class Scene1Controller implements Initializable {
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni inserimento col treeSet , per mantenere l'ordine lessicografico
         showAlert(0);
     }
-    private void aggiungiCellAlContattoDigitato(Contatto c){
-     if (phone1Field.getText() != null && !phone1Field.getText().isEmpty()) {
-        c.addNumero(phone1Field.getText());
-     } 
-    if (phone2Field.getText() != null && !phone2Field.getText().isEmpty()) {
-        c.addNumero(phone2Field.getText());
-    }
-    if (phone3Field.getText() != null && !phone3Field.getText().isEmpty()) {
-        c.addNumero(phone3Field.getText());
-    }
-    }
     
-    
-    private void aggiungiEmailsAlContattoDigitato(Contatto c){
-    
-        if (email1Field.getText() != null && !email1Field.getText().isEmpty()) {
-        c.addNumero(phone1Field.getText());
-     } 
-    if (email2Field.getText() != null && !email2Field.getText().isEmpty()) {
-        c.addNumero(email2Field.getText());
+    /**
+     * Metodo privato , usato dal metodo addLista , per aggiungere i numeri di cellulari digitati al nuovo contatto in fase di creazione
+     * @param c 
+     */
+  private void aggiungiCellAlContattoDigitato(Contatto c) {
+    // Verifica se il campo phone1Field non è vuoto
+  TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
+  for(TextField field: phoneFields){
+  if(field.getText() != null && !field.getText().trim().isEmpty()){
+      ContactNumero numero = new ContactNumero(field.getText().trim());
+      try{
+      c.addNumero(numero);
+      }catch(InvalidNumberException ex){
+      
+      }
+                                        
+     }
     }
-    if (email3Field.getText() != null && !email3Field.getText().isEmpty()) {
-        c.addNumero(email3Field.getText());
-    }
+  }
+
     
+   private void aggiungiEmailsAlContattoDigitato(Contatto c) {
+    TextField[] emailFields = {email1Field, email2Field, email3Field};
+    
+    for (TextField field : emailFields) {
+        if (field.getText() != null && !field.getText().trim().isEmpty()) {
+            ContactEmail email = new ContactEmail(field.getText().trim());
+            try{
+            c.addEmail(email);
+            }catch(InvalidEmailException ex){
+            
+            }   
+        }
     }
+}
     
 
     @FXML
@@ -203,10 +232,13 @@ public class Scene1Controller implements Initializable {
     if(flag==1){
     alert.setHeaderText("Contatto già presente!");
     alert.setContentText("Esiste già un contatto "+nameField.getText()+" "+surnameField.getText()+ "con le informazioni che hai digitato");
-    }else{
+    }else if(flag==0){
     
     alert.setHeaderText("Operazione completata!");
     alert.setContentText("Contatto"+" " +nameField.getText()+" "+surnameField.getText()+" aggiunto con successo !");
+    }else
+    {
+        alert.setContentText("La mail digitata non è corretta");
     }
         
     // Mostra l'alert e attendi la chiusura
@@ -217,5 +249,35 @@ public class Scene1Controller implements Initializable {
     BooleanBinding abilitato = nameField.textProperty().isNotEmpty().or(surnameField.textProperty().isNotEmpty());
     saveButton.disableProperty().bind(abilitato.not());
     
+    }
+    
+    
+    
+    /***
+     * @brief apre una nuova finestra , contenente i dettagli del contatto selezionato
+     * @param[in] contatto , il contatto su cui si è fatto doppio click sulla table view 
+     * 
+     */
+    private void apriFinestraDettagli(Contatto contatto) {
+        try {
+            // Carica il file FXML della finestra di dettaglio
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/scenaVisualizzaSingoloContatto.fxml"));
+            Parent root = loader.load();
+
+            // Ottieni il controller della finestra di dettaglio
+            ControllerSingleContact controller = loader.getController();
+
+            // Passa il contatto selezionato al controller della finestra di dettaglio
+            controller.setContatto(contatto);
+
+            // Crea una nuova finestra
+            Stage stage = new Stage();
+            stage.setTitle("Dettagli Contatto");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
