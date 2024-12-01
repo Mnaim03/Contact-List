@@ -36,7 +36,6 @@ public class Rubrica {
  */
     public void addContatto(Contatto contatto) {
         contatti.add(contatto);
-        listContatti.add(contatto);
     }
 /**
  * @brief rimuove un contatto dalla rubrica 
@@ -44,7 +43,6 @@ public class Rubrica {
  */
     public void removeContatto(Contatto contatto) {
         contatti.remove(contatto);
-        listContatti.remove(contatto);
     }
     
     public ObservableList<Contatto> getListaOsservabile(){

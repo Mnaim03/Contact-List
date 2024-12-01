@@ -21,7 +21,8 @@ public class ContactEmail implements CheckerEmail{
     public String getAssociatedEmail(){
     return email; 
     }
-    
+
+    //da rivedere
     @Override
     public boolean isValidEmail(){
      return email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");

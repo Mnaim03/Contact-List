@@ -19,7 +19,8 @@ public class ContactNumero implements CheckerNumber {
     public ContactNumero(String numeroTelefono){
     this.numeroTelefono = numeroTelefono; 
     }
-    
+
+    //da rivedere
     @Override
     public boolean isValidNumber(){
         return numeroTelefono.matches("\\+?[0-9\\- ]{7,15}");

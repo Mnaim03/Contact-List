@@ -9,6 +9,8 @@ import com.example.Rubrica;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -157,24 +159,22 @@ public class Scene1Controller implements Initializable {
         }
         rubrica.addContatto(contattoDigitato);
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni inserimento col treeSet , per mantenere l'ordine lessicografico
-        showAlert(0);
+        clearAllFields();
     }
     
     /**
      * Metodo privato , usato dal metodo addLista , per aggiungere i numeri di cellulari digitati al nuovo contatto in fase di creazione
      * @param c 
      */
-  private void aggiungiCellAlContattoDigitato(Contatto c) {
-    // Verifica se il campo phone1Field non è vuoto
-  TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
-  for(TextField field: phoneFields){
-  if(field.getText() != null && !field.getText().trim().isEmpty()){
-      ContactNumero numero = new ContactNumero(field.getText().trim());
-      try{
-      c.addNumero(numero);
-      }catch(InvalidNumberException ex){
-      
-      }
+    private void aggiungiCellAlContattoDigitato(Contatto c) {
+        // Verifica se il campo phone1Field non è vuoto
+        TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
+        for(TextField field: phoneFields){
+            if(!field.getText().equals("")){
+                ContactNumero numero = new ContactNumero(field.getText().trim());
+                try{
+                    c.addNumero(numero);
+                    }catch(InvalidNumberException ex){}
                                         
      }
     }
@@ -185,17 +185,28 @@ public class Scene1Controller implements Initializable {
     TextField[] emailFields = {email1Field, email2Field, email3Field};
     
     for (TextField field : emailFields) {
-        if (field.getText() != null && !field.getText().trim().isEmpty()) {
+        if (!field.getText().equals("")) {
             ContactEmail email = new ContactEmail(field.getText().trim());
             try{
             c.addEmail(email);
             }catch(InvalidEmailException ex){
             
-            }   
+            }
         }
     }
 }
-    
+
+    private void clearAllFields(){
+      nameField.clear();
+      surnameField.clear();
+      phone1Field.clear();
+      phone2Field.clear();
+      phone3Field.clear();
+      email1Field.clear();
+      email2Field.clear();
+      email3Field.clear();
+      descriptionField.clear();
+    }
 
     @FXML
     private void deleteLista(ActionEvent event) {
@@ -246,9 +257,13 @@ public class Scene1Controller implements Initializable {
 }
     
     private void initBindings(){
-    BooleanBinding abilitato = nameField.textProperty().isNotEmpty().or(surnameField.textProperty().isNotEmpty());
-    saveButton.disableProperty().bind(abilitato.not());
-    
+
+    BooleanBinding unione = Bindings.createBooleanBinding(()->nameField.getText().equals("") &&
+                                                            surnameField.getText().equals("") &&
+                                                            (tableView.getSelectionModel().selectedItemProperty() == null),
+                                                            nameField.textProperty(), surnameField.textProperty(), tableView.getSelectionModel().selectedItemProperty());
+
+    saveButton.disableProperty().bind(unione);
     }
     
     
@@ -256,8 +271,8 @@ public class Scene1Controller implements Initializable {
     /***
      * @brief apre una nuova finestra , contenente i dettagli del contatto selezionato
      * @param[in] contatto , il contatto su cui si è fatto doppio click sulla table view 
-     * 
-     */
+
+
     private void apriFinestraDettagli(Contatto contatto) {
         try {
             // Carica il file FXML della finestra di dettaglio
@@ -280,4 +295,30 @@ public class Scene1Controller implements Initializable {
             e.printStackTrace();
         }
     }
+
+     *
+     */
+
+    private void apriFinestraDettagli(Contatto contatto){
+        //carico i campi del contatto
+        nameField.setText(contatto.getNome());
+        surnameField.setText(contatto.getCognome());
+        phone1Field.setText(contatto.getNumeriDiTelefono().get(0).getAssociatedNumber());
+        phone2Field.setText(contatto.getNumeriDiTelefono().get(1).getAssociatedNumber());
+        phone3Field.setText(contatto.getNumeriDiTelefono().get(2).getAssociatedNumber());
+        email1Field.setText(contatto.getEmail().get(0).getAssociatedEmail());
+        email2Field.setText(contatto.getEmail().get(1).getAssociatedEmail());
+        email3Field.setText(contatto.getEmail().get(2).getAssociatedEmail());
+        //descriptionField.setText(contatto.getDescrizione());
+
+
+
+    }
+
+    @FXML
+    private void activeSave(ActionEvent event) {
+        clearAllFields();
+        tableView.getSelectionModel().clearSelection();
+    }
+
 }

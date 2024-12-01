@@ -25,15 +25,15 @@ public class Contatto implements Comparable<Contatto>{
     }
 
     public void addNumero(ContactNumero numero) throws InvalidNumberException{
-        if(numeroTelefono.contains(numero) || numeroTelefono.size()>MAX_NUMERI || !numero.isValidNumber())
-            throw new InvalidNumberException("Il numero non è valido!");
+        if(numeroTelefono.contains(numero) || numeroTelefono.size()>MAX_NUMERI)
+           throw new InvalidNumberException("Il numero non è valido!");
         
        
         numeroTelefono.add(numero);
     }
 
     public void addEmail(ContactEmail mail) throws InvalidEmailException{
-        if(email.contains(mail) || email.size()>MAX_EMAIL || !mail.isValidEmail()) 
+        if(email.contains(mail) || email.size()>MAX_EMAIL)
             throw new InvalidEmailException("La mail non è valida!");
         
         email.add(mail);
