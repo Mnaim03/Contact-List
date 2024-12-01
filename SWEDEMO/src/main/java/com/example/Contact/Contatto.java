@@ -47,6 +47,7 @@ public class Contatto implements Comparable<Contatto>{
     }
 
     public void modificaNumero(int index,ContactNumero numero){
+        if(numero.equals(getNumeriDiTelefono().get(index)))
         numeroTelefono.set(index,numero);
     }
     public void modificaEmail(int index,ContactEmail mail){
@@ -76,11 +77,14 @@ public class Contatto implements Comparable<Contatto>{
         // I nuemri di telefono uguali possono trovarsi in posizioni diverse
 
         if (this.numeroTelefono.size() == altro.numeroTelefono.size()) {
-            if(this.numeroTelefono.containsAll(altro.numeroTelefono) ) return 0;
+        boolean condNumeri=this.numeroTelefono.containsAll(altro.numeroTelefono);
+        if(condNumeri) {
+            if (this.email.size() == altro.email.size()){
+                boolean condEmail=this.email.containsAll(altro.email);
+                if (condEmail) return 0;
+            }
         }
-
-
-
+        }
         return 1;
 
 

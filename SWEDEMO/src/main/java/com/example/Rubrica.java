@@ -4,6 +4,7 @@ import com.example.Contact.ContactNumero;
 import com.example.Contact.Contatto;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
+import com.example.interfaces.InterfaceRubrica;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.FileReader;
@@ -22,7 +23,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 
-public class Rubrica {
+public class Rubrica implements InterfaceRubrica{
     private Set<Contatto> contatti;
     private ObservableList<Contatto> listContatti;
     
@@ -73,6 +74,15 @@ public class Rubrica {
         }
     } 
     return restituita; 
+    }
+    
+    public Flag isPresent(Contatto c){
+        for(Contatto tmp : contatti){
+        if(tmp.compareTo(c)==0) return Flag.CONTACT_EXISTS; 
+        }
+        return Flag.CONTACT_DOESNT_EXISTS; 
+        
+        
     }
     
 

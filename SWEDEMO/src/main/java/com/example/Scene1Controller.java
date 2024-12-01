@@ -6,12 +6,17 @@ import com.example.Contact.Contatto;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
 import com.example.Rubrica;
+import com.example.interfaces.InterfaceRubrica;
 
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Comparator;
+import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
@@ -26,6 +31,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
@@ -102,10 +108,11 @@ public class Scene1Controller implements Initializable {
     @FXML
     private Button deleteButton;
 
-    private Rubrica rubrica;
+    private InterfaceRubrica rubrica;  
 
     private ObservableList<Contatto>contatti;
-
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -128,6 +135,7 @@ public class Scene1Controller implements Initializable {
           tableView.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // Doppio clic sulla riga
                 Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
+                System.out.println(contattoSelezionato);
                 if (contattoSelezionato != null) {
                     apriFinestraDettagli(contattoSelezionato);
                     datiVBox.setVisible(true);
@@ -157,18 +165,33 @@ public class Scene1Controller implements Initializable {
      
      */
     private void addLista(ActionEvent event) {
+        applyButton.setVisible(false);
+        deleteButton.setVisible(false);
         Contatto contattoDigitato = new Contatto(nameField.getText(),surnameField.getText());
-        aggiungiCellAlContattoDigitato(contattoDigitato);
-        aggiungiEmailsAlContattoDigitato(contattoDigitato);
-        if(isPresent(contattoDigitato)==1){
-        showAlert(1);
+        
+        try {
+            aggiungiCellAlContattoDigitato(contattoDigitato);
+        } catch (InvalidNumberException ex) {
+            showAlert(Flag.INVALID_NUMBER);
+            return;
+        }
+        try {
+            aggiungiEmailsAlContattoDigitato(contattoDigitato);
+        } catch (InvalidEmailException ex) {
+            showAlert(Flag.INVALID_EMAIL);
+            return;
+        }
+        if(rubrica.isPresent(contattoDigitato)==Flag.CONTACT_EXISTS){
+        showAlert(Flag.CONTACT_EXISTS);
         return; 
         }
         rubrica.addContatto(contattoDigitato);
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni inserimento col treeSet , per mantenere l'ordine lessicografico
-        showAlert(0);
+        showAlert(Flag.AGGIUNTO);
         clearAllFields();
         datiVBox.setVisible(false);
+        System.out.println(rubrica);
+        System.out.println(rubrica.getListaOsservabile());
     }
         
     
@@ -176,35 +199,30 @@ public class Scene1Controller implements Initializable {
      * Metodo privato , usato dal metodo addLista , per aggiungere i numeri di cellulari digitati al nuovo contatto in fase di creazione
      * @param c 
      */
-    private void aggiungiCellAlContattoDigitato(Contatto c) {
-        // Verifica se il campo phone1Field non è vuoto
-        TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
-        for(TextField field: phoneFields){
-            if(!field.getText().equals("")){
-                ContactNumero numero = new ContactNumero(field.getText().trim());
-                try{
-                    c.addNumero(numero);
-                    }catch(InvalidNumberException ex){}
-                                        
-     }
+    private void aggiungiCellAlContattoDigitato(Contatto c) throws InvalidNumberException {
+    // Verifica se il campo phone1Field non è vuoto
+  TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
+  for(TextField field: phoneFields){
+  if(field.getText() != null && !field.getText().trim().isEmpty()){
+      ContactNumero numero = new ContactNumero(field.getText().trim());
+      if(!numero.isValidNumber()) throw new InvalidNumberException("Numero non valido");
+      c.addNumero(numero);
+
     }
-  }
+    }
+    }
 
     
-   private void aggiungiEmailsAlContattoDigitato(Contatto c) {
+   private void aggiungiEmailsAlContattoDigitato(Contatto c) throws InvalidEmailException {
     TextField[] emailFields = {email1Field, email2Field, email3Field};
-    
     for (TextField field : emailFields) {
-        if (!field.getText().equals("")) {
+        if (field.getText() != null && !field.getText().trim().isEmpty()) {
             ContactEmail email = new ContactEmail(field.getText().trim());
-            try{
+            if(!email.isValidEmail()) throw new InvalidEmailException("Email non valida");
             c.addEmail(email);
-            }catch(InvalidEmailException ex){
-            
-            }
         }
     }
-}
+    }
 
     private void clearAllFields(){
       nameField.clear();
@@ -221,8 +239,28 @@ public class Scene1Controller implements Initializable {
     @FXML
     private void deleteLista(ActionEvent event) {
         Contatto daRimuovere = tableView.getSelectionModel().getSelectedItem();
-        rubrica.removeContatto(daRimuovere);
-        rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni rimozione
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Conferma Operazione");
+        alert.setHeaderText("Sei sicuro di voler procedere?");
+        alert.setContentText("Clicca OK per confermare, oppure Annulla per annullare l'operazione.");
+
+        // Mostra l'alert e attendi la risposta dell'utente
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+           rubrica.removeContatto(daRimuovere);
+            rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni rimozione
+            showAlert(Flag.ELIMINATO);
+            tableView.getSelectionModel().clearSelection();
+            clearAllFields();
+            datiVBox.setVisible(false);
+        } else {
+            // L'utente ha cliccato Annulla o ha chiuso la finestra
+            System.out.println("Operazione annullata.");
+            showAlert(Flag.OPERAZIONE_ANNULLATA);
+            return;
+        }
+                
+        
     }
     
     
@@ -232,32 +270,52 @@ public class Scene1Controller implements Initializable {
      * Restituisce 1 se già presente , 0 altrimenti 
     
     */
-    private int isPresent(Contatto c){
-        for(Contatto tmp : rubrica.getContatti()){
-        if(tmp.compareTo(c)==0) return 1; 
-        }
-        return 0; 
-        
-        
-    }
+    
     /****
      * @brief: Funzione che , ricevuto in input un flag(che se 1 indica che il contatto digitato è già presente, se 0 viceversa), mostra un alert
      * customizzato a seconda dello stato del flag passato. Se il flag è 0 , il contatto digitato non è già presente in rubrica , dunque si procede con il 
      * messaggio di successo 
     
     */
-    private void showAlert(int flag) {
+    private void showAlert(Flag flag) {
     // Creazione di un alert di tipo informazione
     Alert alert = new Alert(AlertType.INFORMATION);
     alert.setTitle("Warning!");
-    if(flag==1){
+    if(flag==flag.CONTACT_EXISTS){
     alert.setHeaderText("Contatto già presente!");
     alert.setContentText("Esiste già un contatto "+nameField.getText()+" "+surnameField.getText()+ "con le informazioni che hai digitato");
-    }else if(flag==0){
-    
+    }
+    else if(flag==flag.AGGIUNTO){
     alert.setHeaderText("Operazione completata!");
     alert.setContentText("Contatto"+" " +nameField.getText()+" "+surnameField.getText()+" aggiunto con successo !");
-    }else
+    }
+    
+    else if(flag==flag.ELIMINATO) {
+    alert.setHeaderText("Operazione completata!");
+    alert.setContentText("Contatto rimosso con successo !");
+    }
+    
+    else if(flag==flag.MODIFICATO) {
+    alert.setHeaderText("Operazione completata!");
+    alert.setContentText("Contatto modificato con successo !");
+    }
+    
+    else if(flag==flag.INVALID_EMAIL) {
+    alert.setHeaderText("Errore!");
+    alert.setContentText("Email non valida!");
+    }
+    else if(flag==flag.INVALID_NUMBER) {
+    alert.setHeaderText("Errore!");
+    alert.setContentText("Numero non valido!");
+    }
+    else if(flag==flag.OPERAZIONE_ANNULLATA){
+    alert.setHeaderText("Operazione annullata!");
+    alert.setContentText("Contatto non eliminato!");
+    }
+    
+    
+    
+    else
     {
         alert.setContentText("La mail digitata non è corretta");
     }
@@ -273,6 +331,9 @@ public class Scene1Controller implements Initializable {
                                                                tableView.getSelectionModel().selectedItemProperty(), nameField.textProperty(), surnameField.textProperty());
 
     saveButton.visibleProperty().bind(unione.not());
+    
+    
+      
 
     }
     
@@ -309,27 +370,44 @@ public class Scene1Controller implements Initializable {
      *
      */
 
-    private void apriFinestraDettagli(Contatto contatto){
-        datiVBox.setVisible(true);
-        //carico i campi del contatto
-        nameField.setText(contatto.getNome());
-        surnameField.setText(contatto.getCognome());
-        phone1Field.setText(contatto.getNumeriDiTelefono().get(0).getAssociatedNumber());
-        phone2Field.setText(contatto.getNumeriDiTelefono().get(1).getAssociatedNumber());
-        phone3Field.setText(contatto.getNumeriDiTelefono().get(2).getAssociatedNumber());
-        email1Field.setText(contatto.getEmail().get(0).getAssociatedEmail());
-        email2Field.setText(contatto.getEmail().get(1).getAssociatedEmail());
-        email3Field.setText(contatto.getEmail().get(2).getAssociatedEmail());
-        //descriptionField.setText(contatto.getDescrizione());
+    private void apriFinestraDettagli(Contatto contatto) {
+    datiVBox.setVisible(true);
+    applyButton.setVisible(true);
+    deleteButton.setVisible(true);
+    nameField.setText(contatto.getNome());
+    surnameField.setText(contatto.getCognome());
+    
+    phone1Field.setText(contatto.getNumeriDiTelefono().size() > 0 ? contatto.getNumeriDiTelefono().get(0).getAssociatedNumber() : "");
+    phone2Field.setText(contatto.getNumeriDiTelefono().size() > 1 ? contatto.getNumeriDiTelefono().get(1).getAssociatedNumber() : "");
+    phone3Field.setText(contatto.getNumeriDiTelefono().size() > 2 ? contatto.getNumeriDiTelefono().get(2).getAssociatedNumber() : "");
 
+    email1Field.setText(contatto.getEmail().size() > 0 ? contatto.getEmail().get(0).getAssociatedEmail() : "");
+    email2Field.setText(contatto.getEmail().size() > 1 ? contatto.getEmail().get(1).getAssociatedEmail() : "");
+    email3Field.setText(contatto.getEmail().size() > 2 ? contatto.getEmail().get(2).getAssociatedEmail() : "");
 
-    }
+    // Puoi gestire altri campi qui
+}
 
 
     @FXML
     private void activeSave(ActionEvent event) {
         datiVBox.setVisible(true);
+        applyButton.setVisible(false);
+        deleteButton.setVisible(false);
         clearAllFields();
         tableView.getSelectionModel().clearSelection();
     }
+
+    @FXML
+    private void eseguiModifica(ActionEvent event) {
+        Contatto daModificare = tableView.getSelectionModel().getSelectedItem();
+        String nome = daModificare.getNome();
+        String cognome = daModificare.getCognome();
+        List<ContactNumero> numTel = daModificare.getNumeriDiTelefono();
+        List<ContactEmail> emails = daModificare.getEmail();
+        
+        
+    }
+    
+    
 }
