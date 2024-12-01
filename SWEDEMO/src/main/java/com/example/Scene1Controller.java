@@ -137,31 +137,6 @@ public class Scene1Controller implements Initializable {
         }
         Rubrica rubricaNuova = rubrica.ricercaContatti(query);
         rubrica.getListaOsservabile().setAll(rubricaNuova.getContatti());
-        FXCollections.sort(rubrica.getListaOsservabile(),new Comparator<Contatto>(){
-                public int compare(Contatto c1,Contatto c2){
-                    int confrontoCognome = c1.getCognome().compareToIgnoreCase(c2.getCognome());
-                    if (confrontoCognome != 0) {
-                        return confrontoCognome;
-                    }
-                    // Se i cognomi sono uguali, confronta per nome
-                    int confrontoNome = c1.getNome().compareToIgnoreCase(c2.getNome());
-                    if (confrontoNome != 0) {
-                        return confrontoNome;
-                    }
-
-                    // Se anche i nomi sono uguali, usa il numero di telefono come discriminante
-                    // I nuemri di telefono uguali possono trovarsi in posizioni diverse
-
-                    if (c1.getNumeriDiTelefono().size() == c2.getNumeriDiTelefono().size()) {
-                        if(c1.getNumeriDiTelefono().containsAll(c2.getNumeriDiTelefono()) ) return 0;
-                    }
-
-
-
-        return 1;
-                    
-                }
-    });
         
     }
 
