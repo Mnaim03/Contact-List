@@ -6,6 +6,8 @@ import com.example.Contact.Contatto;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
 import com.example.Rubrica;
+
+import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Comparator;
@@ -31,6 +33,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 /**
@@ -42,6 +45,8 @@ public class Scene1Controller implements Initializable {
 
     @FXML
     private MenuItem saveFileButton;
+    @FXML
+    private VBox datiVBox;
     @FXML
     private MenuItem uploadFileButton;
     @FXML
@@ -105,6 +110,7 @@ public class Scene1Controller implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          initBindings();
+         datiVBox.setVisible(false);
         rubrica = new Rubrica(); //contenente la rubrica totale
             
         tableView.setItems(rubrica.getListaOsservabile());
@@ -124,6 +130,7 @@ public class Scene1Controller implements Initializable {
                 Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
                 if (contattoSelezionato != null) {
                     apriFinestraDettagli(contattoSelezionato);
+                    datiVBox.setVisible(true);
                 }
             }
         });
@@ -161,6 +168,7 @@ public class Scene1Controller implements Initializable {
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni inserimento col treeSet , per mantenere l'ordine lessicografico
         showAlert(0);
         clearAllFields();
+        datiVBox.setVisible(false);
     }
         
     
@@ -260,10 +268,12 @@ public class Scene1Controller implements Initializable {
     
     private void initBindings(){
 
-    BooleanBinding unione = Bindings.createBooleanBinding(()-> tableView.getSelectionModel().selectedItemProperty().isNotNull().getValue(),
-                                                               tableView.getSelectionModel().selectedItemProperty());
+    BooleanBinding unione = Bindings.createBooleanBinding(()-> (nameField.getText().isEmpty() && surnameField.getText().isEmpty()) ||
+                                                               tableView.getSelectionModel().selectedItemProperty().isNotNull().getValue(),
+                                                               tableView.getSelectionModel().selectedItemProperty(), nameField.textProperty(), surnameField.textProperty());
 
-    saveButton.disableProperty().bind(unione);
+    saveButton.visibleProperty().bind(unione.not());
+
     }
     
     
@@ -300,6 +310,7 @@ public class Scene1Controller implements Initializable {
      */
 
     private void apriFinestraDettagli(Contatto contatto){
+        datiVBox.setVisible(true);
         //carico i campi del contatto
         nameField.setText(contatto.getNome());
         surnameField.setText(contatto.getCognome());
@@ -312,13 +323,13 @@ public class Scene1Controller implements Initializable {
         //descriptionField.setText(contatto.getDescrizione());
 
 
-
     }
+
 
     @FXML
     private void activeSave(ActionEvent event) {
+        datiVBox.setVisible(true);
         clearAllFields();
         tableView.getSelectionModel().clearSelection();
     }
-
 }
