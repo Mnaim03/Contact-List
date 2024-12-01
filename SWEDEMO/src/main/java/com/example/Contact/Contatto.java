@@ -23,7 +23,13 @@ public class Contatto implements Comparable<Contatto>{
         this.numeroTelefono = new ArrayList<>();
         this.email = new ArrayList<>();
     }
-
+    public void setNome(String nome){
+        this.nome=nome;
+    }
+    public void setCognome(String cognome){
+        this.cognome=cognome;
+    }
+    
     public void addNumero(ContactNumero numero) throws InvalidNumberException{
         if(numeroTelefono.contains(numero) || numeroTelefono.size()>MAX_NUMERI)
            throw new InvalidNumberException("Il numero non è valido!");
@@ -46,11 +52,12 @@ public class Contatto implements Comparable<Contatto>{
         email.remove(email.get(index));
     }
 
-    public void modificaNumero(int index,ContactNumero numero){
-        if(numero.equals(getNumeriDiTelefono().get(index)))
+    public void setNumero(int index,ContactNumero numero){
+        if(!numero.equals(getNumeriDiTelefono().get(index)))
         numeroTelefono.set(index,numero);
     }
-    public void modificaEmail(int index,ContactEmail mail){
+    public void setEmail(int index,ContactEmail mail){
+        if(!email.equals(getEmail().get(index)))
         email.set(index,mail);
     }
 

@@ -333,7 +333,10 @@ public class Scene1Controller implements Initializable {
     saveButton.visibleProperty().bind(unione.not());
     
     
-      
+      BooleanBinding apply = Bindings.createBooleanBinding( () -> verificaCambiamenti(),nameField.textProperty() , surnameField.textProperty(),
+                                     phone1Field.textProperty(),phone2Field.textProperty(),phone3Field.textProperty(),email1Field.textProperty(),email2Field.textProperty(),
+                                                                    email3Field.textProperty());
+      applyButton.disableProperty().bind(apply.not());
 
     }
     
@@ -400,14 +403,80 @@ public class Scene1Controller implements Initializable {
 
     @FXML
     private void eseguiModifica(ActionEvent event) {
+        
         Contatto daModificare = tableView.getSelectionModel().getSelectedItem();
-        String nome = daModificare.getNome();
-        String cognome = daModificare.getCognome();
-        List<ContactNumero> numTel = daModificare.getNumeriDiTelefono();
+        if (daModificare == null) {
+            showAlert(Flag.OPERAZIONE_ANNULLATA);
+            return;
+        }
+
+        // Aggiorna nome e cognome
+        daModificare.setNome(nameField.getText());
+        daModificare.setCognome(surnameField.getText());
+
+        // Aggiorna numeri di telefono
+        List<ContactNumero> numeri = daModificare.getNumeriDiTelefono();
+        numeri.clear(); // Pulisci i vecchi numeri
+
+        TextField[] phoneFields = {phone1Field, phone2Field, phone3Field};
+        for (TextField field : phoneFields) {
+            if (field.getText() != null && !field.getText().trim().isEmpty()) {
+                numeri.add(new ContactNumero(field.getText().trim()));
+            }
+        }
+
+        // Aggiorna email
         List<ContactEmail> emails = daModificare.getEmail();
+        emails.clear(); // Pulisci le vecchie email
+
+        TextField[] emailFields = {email1Field, email2Field, email3Field};
+        for (TextField field : emailFields) {
+            if (field.getText() != null && !field.getText().trim().isEmpty()) {
+                emails.add(new ContactEmail(field.getText().trim()));
+            }
+        }
+
+        // Aggiorna la tabella con la lista modificata
+        applyButton.setVisible(false);
+        showAlert(Flag.MODIFICATO);
+        updateSearchResults(searchBarField.getText());
+        datiVBox.setVisible(false);
         
         
     }
-    
-    
+
+        
+
+   private boolean verificaCambiamenti() {
+    Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
+
+    if (contattoSelezionato == null) return false;
+
+    // Verifica cambiamenti nel nome e cognome
+    boolean isChangedNome = !contattoSelezionato.getNome().equals(nameField.getText());
+    boolean isChangedCognome = !contattoSelezionato.getCognome().equals(surnameField.getText());
+
+    // Verifica cambiamenti nei numeri di telefono
+    List<ContactNumero> numeri = contattoSelezionato.getNumeriDiTelefono();
+    boolean isChangedNumeri = 
+        (numeri.size() > 0 && !phone1Field.getText().equals(numeri.get(0).getAssociatedNumber())) ||
+        (numeri.size() > 1 && !phone2Field.getText().equals(numeri.get(1).getAssociatedNumber())) ||
+        (numeri.size() > 2 && !phone3Field.getText().equals(numeri.get(2).getAssociatedNumber())) ||
+        (numeri.size() < 3 && (!phone1Field.getText().isEmpty() || !phone2Field.getText().isEmpty() || !phone3Field.getText().isEmpty()));
+
+    // Verifica cambiamenti nelle email
+    List<ContactEmail> emails = contattoSelezionato.getEmail();
+    boolean isChangedEmails =
+        (emails.size() > 0 && !email1Field.getText().equals(emails.get(0).getAssociatedEmail())) ||
+        (emails.size() > 1 && !email2Field.getText().equals(emails.get(1).getAssociatedEmail())) ||
+        (emails.size() > 2 && !email3Field.getText().equals(emails.get(2).getAssociatedEmail())) ||
+        (emails.size() < 3 && (!email1Field.getText().isEmpty() || !email2Field.getText().isEmpty() || !email3Field.getText().isEmpty()));
+
+    // Restituisci true se ci sono cambiamenti
+    return isChangedNome || isChangedCognome || isChangedNumeri || isChangedEmails;
 }
+}
+
+    
+    
+
