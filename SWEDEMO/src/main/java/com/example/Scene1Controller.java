@@ -258,10 +258,8 @@ public class Scene1Controller implements Initializable {
     
     private void initBindings(){
 
-    BooleanBinding unione = Bindings.createBooleanBinding(()->nameField.getText().equals("") &&
-                                                            surnameField.getText().equals("") &&
-                                                            (tableView.getSelectionModel().selectedItemProperty() != null),
-                                                            nameField.textProperty(), surnameField.textProperty(), tableView.getSelectionModel().selectedItemProperty());
+    BooleanBinding unione = Bindings.createBooleanBinding(()-> tableView.getSelectionModel().selectedItemProperty().isNotNull().getValue(),
+                                                               tableView.getSelectionModel().selectedItemProperty());
 
     saveButton.disableProperty().bind(unione);
     }
@@ -318,6 +316,7 @@ public class Scene1Controller implements Initializable {
     @FXML
     private void activeSave(ActionEvent event) {
         clearAllFields();
+        tableView.getSelectionModel().clearSelection();
     }
 
 }
