@@ -111,6 +111,8 @@ public class Scene1Controller implements Initializable {
     private InterfaceRubrica rubrica;  
 
     private ObservableList<Contatto>contatti;
+
+    private Button deleteAllButton;
     
 
     /**
@@ -324,6 +326,10 @@ public class Scene1Controller implements Initializable {
             alert.setHeaderText("Operazione annullata!");
             alert.setContentText("Contatto non eliminato!");
         }
+        else if(flag==flag.ELIMINAZIONE_RUBRICA){
+            alert.setHeaderText("Operazione completata!");
+            alert.setContentText("Rubrica eliminata con successo !");
+        }
         else {
         alert.setContentText("La mail digitata non è corretta");
         }
@@ -458,7 +464,30 @@ public class Scene1Controller implements Initializable {
 
     // Restituisci true se ci sono cambiamenti
     return isChangedNome || isChangedCognome || isChangedNumeri || isChangedEmails;
-}
+    }
+
+    @FXML
+    private void deleteAll(ActionEvent event){
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Conferma Operazione");
+        alert.setHeaderText("Sei sicuro di voler procedere (Eliminazione rubrica)?");
+        alert.setContentText("Clicca OK per confermare, oppure Annulla per annullare l'operazione.");
+
+        // Mostra l'alert e attendi la risposta dell'utente
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+           rubrica.deleteAll();
+            showAlert(Flag.ELIMINAZIONE_RUBRICA);
+            clearAllFields();
+            datiVBox.setVisible(false);
+        } else {
+            // L'utente ha cliccato Annulla o ha chiuso la finestra
+           
+            showAlert(Flag.OPERAZIONE_ANNULLATA);
+            return;
+        }
+
+    }
 }
 
     

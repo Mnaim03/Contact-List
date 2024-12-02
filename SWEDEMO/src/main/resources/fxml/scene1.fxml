@@ -42,6 +42,7 @@
                             <TableColumn fx:id="surnameClm" prefWidth="125.0" text="COGNOME" />
                           </columns>
                         </TableView>
+                        <Button fx:id="deleteAllButton" layoutX="127.0" layoutY="650.0" mnemonicParsing="false" onAction="#deleteAll" text="Delete All" />
                      </children>
                   </AnchorPane>
                   <Line endX="-102.70053100585938" endY="709.053466796875" startX="-100.0" startY="-2.16448974609375" stroke="#00000042" />
