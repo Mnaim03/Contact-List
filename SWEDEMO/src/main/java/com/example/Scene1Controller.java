@@ -135,7 +135,6 @@ public class Scene1Controller implements Initializable {
           tableView.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // Doppio clic sulla riga
                 Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
-                System.out.println(contattoSelezionato);
                 if (contattoSelezionato != null) {
                     apriFinestraDettagli(contattoSelezionato);
                     datiVBox.setVisible(true);
@@ -190,8 +189,6 @@ public class Scene1Controller implements Initializable {
         showAlert(Flag.AGGIUNTO);
         clearAllFields();
         datiVBox.setVisible(false);
-        System.out.println(rubrica);
-        System.out.println(rubrica.getListaOsservabile());
     }
         
     
@@ -255,7 +252,7 @@ public class Scene1Controller implements Initializable {
             datiVBox.setVisible(false);
         } else {
             // L'utente ha cliccato Annulla o ha chiuso la finestra
-            System.out.println("Operazione annullata.");
+           
             showAlert(Flag.OPERAZIONE_ANNULLATA);
             return;
         }
