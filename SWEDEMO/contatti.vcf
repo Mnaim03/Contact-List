@@ -1,6 +1,5 @@
 BEGIN:VCARD
 VERSION:3.0
 PRODID:ez-vcard 0.12.1
-FN:enzo 
-TEL;TYPE=cell:123231321123
+FN:vincenzo ragone
 END:VCARD
