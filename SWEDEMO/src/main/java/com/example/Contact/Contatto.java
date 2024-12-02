@@ -45,22 +45,6 @@ public class Contatto implements Comparable<Contatto>{
         email.add(mail);
     }
 
-    public void removeNumero(int index){
-        numeroTelefono.remove(numeroTelefono.get(index));
-    }
-    public void removeEmail(int index){
-        email.remove(email.get(index));
-    }
-
-    public void setNumero(int index,ContactNumero numero){
-        if(!numero.equals(getNumeriDiTelefono().get(index)))
-        numeroTelefono.set(index,numero);
-    }
-    public void setEmail(int index,ContactEmail mail){
-        if(!email.equals(getEmail().get(index)))
-        email.set(index,mail);
-    }
-
     // Getters
     public String getNome() { return nome; }
     public String getCognome() { return cognome; }
