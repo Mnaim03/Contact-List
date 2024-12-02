@@ -112,18 +112,23 @@ public class Scene1Controller implements Initializable {
 
     private ObservableList<Contatto>contatti;
     
-    
+
+    /*
+    * commento
+    * */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         initBindings();
-         datiVBox.setVisible(false);
+        initBindings();
+        datiVBox.setVisible(false);
         rubrica = new Rubrica(); //contenente la rubrica totale
             
         tableView.setItems(rubrica.getListaOsservabile());
         nomeClm.setCellValueFactory(new PropertyValueFactory("nome"));
         surnameClm.setCellValueFactory(new PropertyValueFactory("cognome"));
+
         //Sezione searchBarField
+
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
         // Aggiorna la lista in base alla ricerca
         updateSearchResults(newValue);
@@ -143,26 +148,23 @@ public class Scene1Controller implements Initializable {
         });
        
     }
-    
-    
+
+    /*
+     * commento
+     * */
     private void updateSearchResults(String query){
         if(query==null){
-        rubrica.getListaOsservabile().addAll(rubrica.getContatti());
+            rubrica.getListaOsservabile().addAll(rubrica.getContatti());
         }
         Rubrica rubricaNuova = rubrica.ricercaContatti(query);
         rubrica.getListaOsservabile().setAll(rubricaNuova.getContatti());
         
     }
 
-   
-
+    /*
+     * commento
+     * */
     @FXML
-    /***
-     * Aggiunge , alla pressione del pulsante new , il contatto digitato nella rubrica.
-     * Sfruttando isPresent() , verifica se il contatto digitato è già presente nella rubrica.In tal caso viene mostrato un messaggio di errore
-     * altrimenti , viene aggiunto il contatto , notificato da un alert con messaggio di conferma di inserimento del contatto 
-     
-     */
     private void addLista(ActionEvent event) {
         applyButton.setVisible(false);
         deleteButton.setVisible(false);
@@ -174,53 +176,60 @@ public class Scene1Controller implements Initializable {
             showAlert(Flag.INVALID_NUMBER);
             return;
         }
+
         try {
             aggiungiEmailsAlContattoDigitato(contattoDigitato);
         } catch (InvalidEmailException ex) {
             showAlert(Flag.INVALID_EMAIL);
             return;
         }
+
         if(rubrica.isPresent(contattoDigitato)==Flag.CONTACT_EXISTS){
-        showAlert(Flag.CONTACT_EXISTS);
-        return; 
+            showAlert(Flag.CONTACT_EXISTS);
+            return;
         }
+
         rubrica.addContatto(contattoDigitato);
         rubrica.getListaOsservabile().setAll(rubrica.getContatti()); //Aggiorna la lista ad ogni inserimento col treeSet , per mantenere l'ordine lessicografico
         showAlert(Flag.AGGIUNTO);
         clearAllFields();
         datiVBox.setVisible(false);
     }
-        
-    
-    /**
-     * Metodo privato , usato dal metodo addLista , per aggiungere i numeri di cellulari digitati al nuovo contatto in fase di creazione
-     * @param c 
-     */
+
+    /*
+     * commento
+     * */
     private void aggiungiCellAlContattoDigitato(Contatto c) throws InvalidNumberException {
-    // Verifica se il campo phone1Field non è vuoto
-  TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
-  for(TextField field: phoneFields){
-  if(field.getText() != null && !field.getText().trim().isEmpty()){
-      ContactNumero numero = new ContactNumero(field.getText().trim());
-      if(!numero.isValidNumber()) throw new InvalidNumberException("Numero non valido");
-      c.addNumero(numero);
+        // Verifica se il campo phone1Field non è vuoto
+        TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
 
-    }
-    }
-    }
+        for(TextField field: phoneFields){
+            if(field.getText() != null && !field.getText().trim().isEmpty()){
+                ContactNumero numero = new ContactNumero(field.getText().trim());
 
-    
-   private void aggiungiEmailsAlContattoDigitato(Contatto c) throws InvalidEmailException {
-    TextField[] emailFields = {email1Field, email2Field, email3Field};
-    for (TextField field : emailFields) {
-        if (field.getText() != null && !field.getText().trim().isEmpty()) {
-            ContactEmail email = new ContactEmail(field.getText().trim());
-            if(!email.isValidEmail()) throw new InvalidEmailException("Email non valida");
-            c.addEmail(email);
+                if(!numero.isValidNumber()) throw new InvalidNumberException("Numero non valido");
+                c.addNumero(numero);
+            }
         }
     }
+
+    /*
+     * commento
+     * */
+    private void aggiungiEmailsAlContattoDigitato(Contatto c) throws InvalidEmailException {
+        TextField[] emailFields = {email1Field, email2Field, email3Field};
+        for (TextField field : emailFields) {
+            if (field.getText() != null && !field.getText().trim().isEmpty()) {
+                ContactEmail email = new ContactEmail(field.getText().trim());
+                if(!email.isValidEmail()) throw new InvalidEmailException("Email non valida");
+                c.addEmail(email);
+            }
+        }
     }
 
+    /*
+     * commento
+     * */
     private void clearAllFields(){
       nameField.clear();
       surnameField.clear();
@@ -233,6 +242,9 @@ public class Scene1Controller implements Initializable {
       descriptionField.clear();
     }
 
+    /*
+     * commento
+     * */
     @FXML
     private void deleteLista(ActionEvent event) {
         Contatto daRimuovere = tableView.getSelectionModel().getSelectedItem();
@@ -259,136 +271,92 @@ public class Scene1Controller implements Initializable {
                 
         
     }
-    
-    
-    
-    /**
-     * Verifica se il contatto digitato è già presente nella rubrica.
-     * Restituisce 1 se già presente , 0 altrimenti 
-    
-    */
-    
-    /****
-     * @brief: Funzione che , ricevuto in input un flag(che se 1 indica che il contatto digitato è già presente, se 0 viceversa), mostra un alert
-     * customizzato a seconda dello stato del flag passato. Se il flag è 0 , il contatto digitato non è già presente in rubrica , dunque si procede con il 
-     * messaggio di successo 
-    
-    */
+
+    /*
+     * commento
+     * */
     private void showAlert(Flag flag) {
-    // Creazione di un alert di tipo informazione
-    Alert alert = new Alert(AlertType.INFORMATION);
-    alert.setTitle("Warning!");
-    if(flag==flag.CONTACT_EXISTS){
-    alert.setHeaderText("Contatto già presente!");
-    alert.setContentText("Esiste già un contatto "+nameField.getText()+" "+surnameField.getText()+ "con le informazioni che hai digitato");
-    }
-    else if(flag==flag.AGGIUNTO){
-    alert.setHeaderText("Operazione completata!");
-    alert.setContentText("Contatto"+" " +nameField.getText()+" "+surnameField.getText()+" aggiunto con successo !");
-    }
-    
-    else if(flag==flag.ELIMINATO) {
-    alert.setHeaderText("Operazione completata!");
-    alert.setContentText("Contatto rimosso con successo !");
-    }
-    
-    else if(flag==flag.MODIFICATO) {
-    alert.setHeaderText("Operazione completata!");
-    alert.setContentText("Contatto modificato con successo !");
-    }
-    
-    else if(flag==flag.INVALID_EMAIL) {
-    alert.setHeaderText("Errore!");
-    alert.setContentText("Email non valida!");
-    }
-    else if(flag==flag.INVALID_NUMBER) {
-    alert.setHeaderText("Errore!");
-    alert.setContentText("Numero non valido!");
-    }
-    else if(flag==flag.OPERAZIONE_ANNULLATA){
-    alert.setHeaderText("Operazione annullata!");
-    alert.setContentText("Contatto non eliminato!");
-    }
-    
-    
-    
-    else
-    {
-        alert.setContentText("La mail digitata non è corretta");
-    }
-        
-    // Mostra l'alert e attendi la chiusura
-    alert.showAndWait();
-}
-    
-    private void initBindings(){
+        // Creazione di un alert di tipo informazione
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Warning!");
 
-    BooleanBinding unione = Bindings.createBooleanBinding(()-> (nameField.getText().isEmpty() && surnameField.getText().isEmpty()) ||
-                                                               tableView.getSelectionModel().selectedItemProperty().isNotNull().getValue(),
-                                                               tableView.getSelectionModel().selectedItemProperty(), nameField.textProperty(), surnameField.textProperty());
-
-    saveButton.visibleProperty().bind(unione.not());
-    
-    
-      BooleanBinding apply = Bindings.createBooleanBinding( () -> verificaCambiamenti(),nameField.textProperty() , surnameField.textProperty(),
-                                     phone1Field.textProperty(),phone2Field.textProperty(),phone3Field.textProperty(),email1Field.textProperty(),email2Field.textProperty(),
-                                                                    email3Field.textProperty());
-      applyButton.disableProperty().bind(apply.not());
-
-    }
-    
-    
-    
-    /***
-     * @brief apre una nuova finestra , contenente i dettagli del contatto selezionato
-     * @param[in] contatto , il contatto su cui si è fatto doppio click sulla table view 
-
-
-    private void apriFinestraDettagli(Contatto contatto) {
-        try {
-            // Carica il file FXML della finestra di dettaglio
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/scenaVisualizzaSingoloContatto.fxml"));
-            Parent root = loader.load();
-
-            // Ottieni il controller della finestra di dettaglio
-            ControllerSingleContact controller = loader.getController();
-
-            // Passa il contatto selezionato al controller della finestra di dettaglio
-            controller.setContatto(contatto);
-
-            // Crea una nuova finestra
-            Stage stage = new Stage();
-            stage.setTitle("Dettagli Contatto");
-            stage.setScene(new Scene(root));
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(flag==flag.CONTACT_EXISTS){
+            alert.setHeaderText("Contatto già presente!");
+            alert.setContentText("Esiste già un contatto "+nameField.getText()+" "+surnameField.getText()+ "con le informazioni che hai digitato");
         }
+        else if(flag==flag.AGGIUNTO){
+            alert.setHeaderText("Operazione completata!");
+            alert.setContentText("Contatto"+" " +nameField.getText()+" "+surnameField.getText()+" aggiunto con successo !");
+        }
+        else if(flag==flag.ELIMINATO) {
+            alert.setHeaderText("Operazione completata!");
+            alert.setContentText("Contatto rimosso con successo !");
+        }
+        else if(flag==flag.MODIFICATO) {
+            alert.setHeaderText("Operazione completata!");
+            alert.setContentText("Contatto modificato con successo !");
+        }
+        else if(flag==flag.INVALID_EMAIL) {
+            alert.setHeaderText("Errore!");
+            alert.setContentText("Email non valida!");
+        }
+        else if(flag==flag.INVALID_NUMBER) {
+            alert.setHeaderText("Errore!");
+            alert.setContentText("Numero non valido!");
+        }
+        else if(flag==flag.OPERAZIONE_ANNULLATA){
+            alert.setHeaderText("Operazione annullata!");
+            alert.setContentText("Contatto non eliminato!");
+        }
+        else {
+        alert.setContentText("La mail digitata non è corretta");
+        }
+        
+        // Mostra l'alert e attendi la chiusura
+        alert.showAndWait();
     }
 
-     *
-     */
-
-    private void apriFinestraDettagli(Contatto contatto) {
-    datiVBox.setVisible(true);
-    applyButton.setVisible(true);
-    deleteButton.setVisible(true);
-    nameField.setText(contatto.getNome());
-    surnameField.setText(contatto.getCognome());
+    /*
+     * commento
+     * */
+    private void initBindings(){
+        BooleanBinding saveButtonBinding = Bindings.createBooleanBinding(()-> (nameField.getText().isEmpty() && surnameField.getText().isEmpty()) ||
+                                                                    tableView.getSelectionModel().selectedItemProperty().isNotNull().getValue(),
+                                                                    tableView.getSelectionModel().selectedItemProperty(),
+                                                                    nameField.textProperty(),
+                                                                    surnameField.textProperty());
+        saveButton.visibleProperty().bind(saveButtonBinding.not());
     
-    phone1Field.setText(contatto.getNumeriDiTelefono().size() > 0 ? contatto.getNumeriDiTelefono().get(0).getAssociatedNumber() : "");
-    phone2Field.setText(contatto.getNumeriDiTelefono().size() > 1 ? contatto.getNumeriDiTelefono().get(1).getAssociatedNumber() : "");
-    phone3Field.setText(contatto.getNumeriDiTelefono().size() > 2 ? contatto.getNumeriDiTelefono().get(2).getAssociatedNumber() : "");
+    
+        BooleanBinding applyButtonBinding = Bindings.createBooleanBinding( () -> verificaCambiamenti(),nameField.textProperty() , surnameField.textProperty(),
+                                                                    phone1Field.textProperty(),phone2Field.textProperty(),
+                                                                    phone3Field.textProperty(),email1Field.textProperty(),
+                                                                    email2Field.textProperty(), email3Field.textProperty());
+        applyButton.disableProperty().bind(applyButtonBinding.not());
+    }
 
-    email1Field.setText(contatto.getEmail().size() > 0 ? contatto.getEmail().get(0).getAssociatedEmail() : "");
-    email2Field.setText(contatto.getEmail().size() > 1 ? contatto.getEmail().get(1).getAssociatedEmail() : "");
-    email3Field.setText(contatto.getEmail().size() > 2 ? contatto.getEmail().get(2).getAssociatedEmail() : "");
+    /*
+     * commento
+     * */
+    private void apriFinestraDettagli(Contatto contatto) {
+        datiVBox.setVisible(true);
+        applyButton.setVisible(true);
+        deleteButton.setVisible(true);
+        nameField.setText(contatto.getNome());
+        surnameField.setText(contatto.getCognome());
+    
+        phone1Field.setText(contatto.getNumeriDiTelefono().size() > 0 ? contatto.getNumeriDiTelefono().get(0).getAssociatedNumber() : "");
+        phone2Field.setText(contatto.getNumeriDiTelefono().size() > 1 ? contatto.getNumeriDiTelefono().get(1).getAssociatedNumber() : "");
+        phone3Field.setText(contatto.getNumeriDiTelefono().size() > 2 ? contatto.getNumeriDiTelefono().get(2).getAssociatedNumber() : "");
 
-    // Puoi gestire altri campi qui
-}
+        email1Field.setText(contatto.getEmail().size() > 0 ? contatto.getEmail().get(0).getAssociatedEmail() : "");
+        email2Field.setText(contatto.getEmail().size() > 1 ? contatto.getEmail().get(1).getAssociatedEmail() : "");
+        email3Field.setText(contatto.getEmail().size() > 2 ? contatto.getEmail().get(2).getAssociatedEmail() : "");
+    }
 
-
+    /*
+     * commento
+     * */
     @FXML
     private void activeSave(ActionEvent event) {
         datiVBox.setVisible(true);
@@ -398,9 +366,12 @@ public class Scene1Controller implements Initializable {
         tableView.getSelectionModel().clearSelection();
     }
 
+    /*
+     * commento
+     * */
     @FXML
     private void eseguiModifica(ActionEvent event) {
-        
+
         Contatto daModificare = tableView.getSelectionModel().getSelectedItem();
         if (daModificare == null) {
             showAlert(Flag.OPERAZIONE_ANNULLATA);
@@ -438,12 +409,12 @@ public class Scene1Controller implements Initializable {
         showAlert(Flag.MODIFICATO);
         updateSearchResults(searchBarField.getText());
         datiVBox.setVisible(false);
-        
-        
+
     }
 
-        
-
+    /*
+     * commento
+     * */
    private boolean verificaCambiamenti() {
     Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
 
