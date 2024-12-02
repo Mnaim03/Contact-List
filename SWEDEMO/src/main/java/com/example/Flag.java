@@ -23,7 +23,8 @@ public enum Flag {
         FILE_NULL,
         ERRORE_CARICAMENTO_FILE,
         ERRORE_SALVATAGGIO_FILE,
-        FILE_SALVATAGGIO
+        FILE_SALVATAGGIO,
+        NUMERO_DUPLICATO
 }
     
 

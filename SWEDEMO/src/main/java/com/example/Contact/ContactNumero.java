@@ -83,5 +83,21 @@ public class ContactNumero implements CheckerNumber {
     }
 
 
+    /**
+     *Verifica l'uguaglianza tra due ContactNumero.
+     * Tale metodo è utile per effettuare il controllo in un contatto di numeri duplicati.Infatti
+     * se riscontriamo numeri duplicati , lanciamo eccezione
+     * @return <code>true</code> se i due ContactNumero sono uguali, <code>false</code> altrimenti
+     *
+     */
+    public boolean equals(Object obj){
+        if(obj==null) return false;
+        if(obj==this) return true;
+        if(!(obj instanceof ContactNumero)) return false;
+        ContactNumero altroNumero = (ContactNumero) obj;
+      return  altroNumero.numeroTelefono.equals(this.numeroTelefono);
+
+    }
+
 
 }

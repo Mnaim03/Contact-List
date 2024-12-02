@@ -1,0 +1,253 @@
+\doxysection{com.\+example.\+Rubrica Class Reference}
+\hypertarget{classcom_1_1example_1_1_rubrica}{}\label{classcom_1_1example_1_1_rubrica}\index{com.example.Rubrica@{com.example.Rubrica}}
+Inheritance diagram for com.\+example.\+Rubrica\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classcom_1_1example_1_1_rubrica}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a21bad955398c119eeb3d63e25d2bb726}{add\+Contatto}} (\mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} contatto)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_aec5dc4b6ba975f2431ce0c9d667d4b88}{remove\+Contatto}} (\mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} contatto)
+\begin{DoxyCompactList}\small\item\em rimuove un contatto dalla rubrica \end{DoxyCompactList}\item 
+Observable\+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a70c3b3d9360a7b2c7f3538f0287b74ae}{get\+Lista\+Osservabile}} ()
+\item 
+Set$<$ \mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} $>$ \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a1521251a70c5df743f7a29e1b91e3c7d}{get\+Contatti}} ()
+\begin{DoxyCompactList}\small\item\em metodo getter \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classcom_1_1example_1_1_rubrica}{Rubrica}} \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_af58797790942a7d4329ce90c40b514e1}{ricerca\+Contatti}} (String stringa)
+\begin{DoxyCompactList}\small\item\em ~\newline
+ \end{DoxyCompactList}\item 
+\mbox{\hyperlink{enumcom_1_1example_1_1_flag}{Flag}} \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a0937983f30feb18b052b97cc55bcacdf}{is\+Present}} (\mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} c)
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a21888e53b4d3362f808b0cc4c31f12d2}{delete\+All}} ()
+\item 
+String \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a9b902a8045c42c8b77a14702a528d116}{to\+String}} ()
+\item 
+void \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a9cfc989371d23166a110979c1567ecdd}{salva\+VCF}} (String filename)  throws IOException 
+\item 
+\mbox{\hyperlink{classcom_1_1example_1_1_rubrica}{Rubrica}} \mbox{\hyperlink{classcom_1_1example_1_1_rubrica_a93cbe47e8476e85ab624fe6de6c5c489}{leggi\+VCF}} (String filename)  throws IOException, \mbox{\hyperlink{classcom_1_1example_1_1_exceptions_1_1_invalid_email_exception}{Invalid\+Email\+Exception}}, \mbox{\hyperlink{classcom_1_1example_1_1_exceptions_1_1_invalid_number_exception}{Invalid\+Number\+Exception}} 
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica}{com.\+example.\+interfaces.\+Interface\+Rubrica}}}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classcom_1_1example_1_1_rubrica_a21bad955398c119eeb3d63e25d2bb726}\index{com.example.Rubrica@{com.example.Rubrica}!addContatto@{addContatto}}
+\index{addContatto@{addContatto}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{addContatto()}{addContatto()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a21bad955398c119eeb3d63e25d2bb726} 
+void com.\+example.\+Rubrica.\+add\+Contatto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}}}]{contatto}{}\end{DoxyParamCaption})}
+
+Aggiunge un nuovo contatto alla rubrica. COntemporaneamente tiene aggiornata la lista e il tree\+Set 
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_a9bbf3657f10c2aad7607735d9d507d26}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a21888e53b4d3362f808b0cc4c31f12d2}\index{com.example.Rubrica@{com.example.Rubrica}!deleteAll@{deleteAll}}
+\index{deleteAll@{deleteAll}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{deleteAll()}{deleteAll()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a21888e53b4d3362f808b0cc4c31f12d2} 
+void com.\+example.\+Rubrica.\+delete\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Rimuove tutti i contatti dalla rubrica. 
+
+Il metodo elimina tutti i contatti dalla rubrica. 
+
+\begin{DoxyPrecond}{Precondition}
+c\textquotesingle{}è almeno un contatto in rubrica 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+La rubrica è vuota dopo l\textquotesingle{}esecuzione del metodo. 
+\end{DoxyPostcond}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_a0255081b5ebdf5e6a5499fd339e81f73}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a1521251a70c5df743f7a29e1b91e3c7d}\index{com.example.Rubrica@{com.example.Rubrica}!getContatti@{getContatti}}
+\index{getContatti@{getContatti}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{getContatti()}{getContatti()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a1521251a70c5df743f7a29e1b91e3c7d} 
+Set$<$ \mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} $>$ com.\+example.\+Rubrica.\+get\+Contatti (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+metodo getter 
+
+\begin{DoxyReturn}{Returns}
+il set dei contatti della rubrica al momento della chiamata 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_aaad7b1198ff39378cafadbf2e409462d}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a70c3b3d9360a7b2c7f3538f0287b74ae}\index{com.example.Rubrica@{com.example.Rubrica}!getListaOsservabile@{getListaOsservabile}}
+\index{getListaOsservabile@{getListaOsservabile}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{getListaOsservabile()}{getListaOsservabile()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a70c3b3d9360a7b2c7f3538f0287b74ae} 
+Observable\+List$<$ \mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}} $>$ com.\+example.\+Rubrica.\+get\+Lista\+Osservabile (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Restituisce una lista osservabile di contatti. 
+
+Il metodo consente di ottenere una lista dei contatti che può essere osservata per eventuali modifiche. 
+
+\begin{DoxyReturn}{Returns}
+Una lista osservabile di contatti. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_a8e71fafd92d68e65d82c30c282ffda90}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a0937983f30feb18b052b97cc55bcacdf}\index{com.example.Rubrica@{com.example.Rubrica}!isPresent@{isPresent}}
+\index{isPresent@{isPresent}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{isPresent()}{isPresent()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a0937983f30feb18b052b97cc55bcacdf} 
+\mbox{\hyperlink{enumcom_1_1example_1_1_flag}{Flag}} com.\+example.\+Rubrica.\+is\+Present (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}}}]{c}{}\end{DoxyParamCaption})}
+
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a93cbe47e8476e85ab624fe6de6c5c489}\index{com.example.Rubrica@{com.example.Rubrica}!leggiVCF@{leggiVCF}}
+\index{leggiVCF@{leggiVCF}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{leggiVCF()}{leggiVCF()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a93cbe47e8476e85ab624fe6de6c5c489} 
+\mbox{\hyperlink{classcom_1_1example_1_1_rubrica}{Rubrica}} com.\+example.\+Rubrica.\+leggi\+VCF (\begin{DoxyParamCaption}\item[{String}]{filename}{}\end{DoxyParamCaption}) throws IOException, \mbox{\hyperlink{classcom_1_1example_1_1_exceptions_1_1_invalid_email_exception}{Invalid\+Email\+Exception}}, \mbox{\hyperlink{classcom_1_1example_1_1_exceptions_1_1_invalid_number_exception}{Invalid\+Number\+Exception}}}
+
+Legge un file .vcf (v\+Card) e carica i contatti al suo interno nella rubrica. 
+
+Questo metodo esamina un file .vcf che contiene informazioni sui contatti e le carica all\textquotesingle{}interno della rubrica. Ogni contatto viene analizzato per estrarre i dati come nome, cognome, numeri di telefono ed email. In caso di errori nel file, vengono lanciate eccezioni specifiche per segnalarli. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Il percorso del file .vcf da leggere. Il file deve essere nel formato v\+Card standard. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Una nuova rubrica che contiene i contatti letti dal file VCF. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & Se si verifica un errore durante la lettura del file, come un file inesistente o accessibile. \\
+\hline
+{\em Invalid\+Email\+Exception} & Se una o più email nel file non sono valide. \\
+\hline
+{\em Invalid\+Number\+Exception} & Se uno o più numeri di telefono nel file non sono validi.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyPrecond}{Precondition}
+Il file specificato deve esistere e deve essere accessibile in lettura. 
+
+Il file deve essere formattato correttamente come file VCF. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Se il file è letto correttamente, i contatti vengono aggiunti alla rubrica. 
+
+Se ci sono errori nei dati (email o numeri non validi), viene sollevata l\textquotesingle{}eccezione corrispondente. 
+\end{DoxyPostcond}
+\begin{DoxySeeAlso}{See also}
+Invalid\+Email\+Exception Per informazioni sulle eccezioni relative alla validità delle email. 
+
+Invalid\+Number\+Exception Per informazioni sulle eccezioni relative alla validità dei numeri di telefono. 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_a36725ca667070f4003d67a07b1ef74a3}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_aec5dc4b6ba975f2431ce0c9d667d4b88}\index{com.example.Rubrica@{com.example.Rubrica}!removeContatto@{removeContatto}}
+\index{removeContatto@{removeContatto}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{removeContatto()}{removeContatto()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_aec5dc4b6ba975f2431ce0c9d667d4b88} 
+void com.\+example.\+Rubrica.\+remove\+Contatto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classcom_1_1example_1_1_contact_1_1_contatto}{Contatto}}}]{contatto}{}\end{DoxyParamCaption})}
+
+
+
+rimuove un contatto dalla rubrica 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contatto} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_a00a85a4f720770add880c6b70c0af5b1}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_af58797790942a7d4329ce90c40b514e1}\index{com.example.Rubrica@{com.example.Rubrica}!ricercaContatti@{ricercaContatti}}
+\index{ricercaContatti@{ricercaContatti}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{ricercaContatti()}{ricercaContatti()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_af58797790942a7d4329ce90c40b514e1} 
+\mbox{\hyperlink{classcom_1_1example_1_1_rubrica}{Rubrica}} com.\+example.\+Rubrica.\+ricerca\+Contatti (\begin{DoxyParamCaption}\item[{String}]{stringa}{}\end{DoxyParamCaption})}
+
+
+
+~\newline
+ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stringa} & la sottostringa del nome o del cognome digitata \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+la nuova rubrica contenente tutti i contatti corrispondenti alla ricerca 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_a0d3c707a97da0cfaf3db264611d1df3d}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a9cfc989371d23166a110979c1567ecdd}\index{com.example.Rubrica@{com.example.Rubrica}!salvaVCF@{salvaVCF}}
+\index{salvaVCF@{salvaVCF}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{salvaVCF()}{salvaVCF()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a9cfc989371d23166a110979c1567ecdd} 
+void com.\+example.\+Rubrica.\+salva\+VCF (\begin{DoxyParamCaption}\item[{String}]{filename}{}\end{DoxyParamCaption}) throws IOException}
+
+Esporta i contatti della rubrica in un file .vcf (v\+Card). 
+
+Questo metodo consente di esportare tutti i contatti presenti nella rubrica in un file con formato VCF (v\+Card). Il formato VCF è uno standard utilizzato per memorizzare informazioni sui contatti, come nome, numero di telefono, email e altre informazioni pertinenti. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & Il percorso del file in cui verranno salvati i contatti in formato .vcf. Il file verrà creato nella posizione specificata. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyPrecond}{Precondition}
+La rubrica non è vuota 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+Viene creato un nuovo file .vcf contenente i dati della rubrica nella posizione specificata 
+\end{DoxyPostcond}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em IOException} & Se si verifica un errore durante la scrittura del file, ad esempio se la destinazione non è accessibile o se si verifica un errore di I/O. \\
+\hline
+\end{DoxyExceptions}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classcom_1_1example_1_1_rubrica}{Rubrica} Per maggiori dettagli su come la rubrica gestisce i contatti. 
+\end{DoxySeeAlso}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_ac0bcadb1345f22cb0d0ae5ec4fdebe5e}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+\Hypertarget{classcom_1_1example_1_1_rubrica_a9b902a8045c42c8b77a14702a528d116}\index{com.example.Rubrica@{com.example.Rubrica}!toString@{toString}}
+\index{toString@{toString}!com.example.Rubrica@{com.example.Rubrica}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{classcom_1_1example_1_1_rubrica_a9b902a8045c42c8b77a14702a528d116} 
+String com.\+example.\+Rubrica.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Restituisce una rappresentazione testuale della rubrica. 
+
+Il metodo fornisce una rappresentazione della rubrica, che include i contatti attuali e le informazioni associate. 
+
+\begin{DoxyReturn}{Returns}
+Una stringa che rappresenta la rubrica. 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{interfacecom_1_1example_1_1interfaces_1_1_interface_rubrica_ab18393e66aa4861609beaa6b111523d4}{com.\+example.\+interfaces.\+Interface\+Rubrica}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/main/java/com/example/Rubrica.\+java\end{DoxyCompactItemize}

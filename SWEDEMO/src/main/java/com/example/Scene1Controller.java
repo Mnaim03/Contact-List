@@ -3,6 +3,7 @@ package com.example;
 import com.example.Contact.ContactEmail;
 import com.example.Contact.ContactNumero;
 import com.example.Contact.Contatto;
+import com.example.Exceptions.DuplicatedNumberException;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
 import com.example.Rubrica;
@@ -43,6 +44,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+
+import static com.example.Flag.NUMERO_DUPLICATO;
 
 /**
  * FXML Controller class
@@ -112,7 +115,7 @@ public class Scene1Controller implements Initializable {
 
     private InterfaceRubrica rubrica;  
 
-    private ObservableList<Contatto>contatti;
+
 
     @FXML
     private Button deleteAllButton;
@@ -177,14 +180,7 @@ public class Scene1Controller implements Initializable {
         
     }
 
-    /**
-     * @brief function that updates the search result
-     *
-     * See also: ricercaContatti()
-     *
-     * @param[in] query parameter of type String
-     * @see ricercaContatti()
-     */
+
     @FXML
     private void addLista(ActionEvent event) {
         applyButton.setVisible(false);
@@ -195,6 +191,9 @@ public class Scene1Controller implements Initializable {
             aggiungiCellAlContattoDigitato(contattoDigitato);
         } catch (InvalidNumberException ex) {
             showAlert(Flag.INVALID_NUMBER);
+            return;
+        }catch(DuplicatedNumberException ex){
+            showAlert(NUMERO_DUPLICATO);
             return;
         }
 
@@ -220,15 +219,15 @@ public class Scene1Controller implements Initializable {
     /*
      * commento
      * */
-    private void aggiungiCellAlContattoDigitato(Contatto c) throws InvalidNumberException {
+    private void aggiungiCellAlContattoDigitato(Contatto c) throws InvalidNumberException,DuplicatedNumberException {
         // Verifica se il campo phone1Field non è vuoto
         TextField [] phoneFields ={phone1Field,phone2Field,phone3Field};
 
         for(TextField field: phoneFields){
             if(field.getText() != null && !field.getText().trim().isEmpty()){
                 ContactNumero numero = new ContactNumero(field.getText().trim());
-
                 if(!numero.isValidNumber()) throw new InvalidNumberException("Numero non valido");
+                if(c.getNumeriDiTelefono().contains(numero)) throw new DuplicatedNumberException("Numero Duplicato");
                 c.addNumero(numero);
             }
         }
@@ -352,7 +351,10 @@ public class Scene1Controller implements Initializable {
         alert.setHeaderText("Operazione completata!");
         alert.setContentText("Salvataggio file avvenuto con successo!");
         }
-        
+        else if(flag==NUMERO_DUPLICATO){
+            alert.setHeaderText("ATTENZIONE");
+            alert.setContentText("Hai già salvato il numero una volta , non puoi avere più numeri uguali");
+        }
         // Mostra l'alert e attendi la chiusura
         alert.showAndWait();
     }
