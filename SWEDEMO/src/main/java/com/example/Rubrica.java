@@ -84,6 +84,11 @@ public class Rubrica implements InterfaceRubrica{
         
         
     }
+
+    public void deleteAll(){
+        contatti.clear();
+        listContatti.clear();
+    }
     
 
     @Override

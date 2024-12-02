@@ -18,7 +18,8 @@ public enum Flag {
         INVALID_EMAIL,
         INVALID_NUMBER,
         CONTACT_DOESNT_EXISTS,
-        OPERAZIONE_ANNULLATA
+        OPERAZIONE_ANNULLATA,
+        ELIMINAZIONE_RUBRICA
 }
     
 

@@ -34,6 +34,7 @@ public interface InterfaceRubrica {
      Set<Contatto> getContatti();
      Rubrica ricercaContatti(String stringa);
      Flag isPresent(Contatto c);
+     public void deleteAll();
      String toString();
      void salvaVCF(String filename) throws IOException;
      Rubrica leggiVCF(String filename) throws IOException,InvalidEmailException,InvalidNumberException;
