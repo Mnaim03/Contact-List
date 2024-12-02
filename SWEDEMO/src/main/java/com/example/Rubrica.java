@@ -17,6 +17,7 @@ import ezvcard.parameter.TelephoneType;
 import ezvcard.property.Email;
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.List;
 import java.util.Set;
 import javafx.collections.FXCollections;
@@ -144,46 +145,48 @@ public class Rubrica implements InterfaceRubrica{
     
     //Lettura da file .vcf contenente le VCard 
     
-    public Rubrica leggiVCF(String filename) throws IOException,InvalidEmailException,InvalidNumberException{
-        
-        Rubrica r = new Rubrica();
-        try(FileReader fr = new FileReader(filename)){
-            List<VCard> vcards = Ezvcard.parse(fr).all();
-            for(VCard card : vcards){
-            String nome = card.getFormattedName().getValue().split(" ")[0];
-            String cognome = card.getFormattedName().getValue().split(" ")[1];
-            String [] numeri = new String[card.getTelephoneNumbers().size()];
-            int i =0; 
-            for(Telephone tmp : card.getTelephoneNumbers()){
-            numeri[i] = tmp.getText();
-            i++; 
+    public Rubrica leggiVCF(String filename) throws IOException, InvalidEmailException, InvalidNumberException {
+    Rubrica r = new Rubrica();
+    try (FileReader fr = new FileReader(filename)) {
+        List<VCard> vcards = Ezvcard.parse(fr).all();
+        for (VCard card : vcards) {
+            // Handle name parsing safely
+            String fullName = card.getFormattedName().getValue();
+            
+            String nome;
+            try{
+             nome = card.getFormattedName().getValue().split(" ")[0];}
+            catch(ArrayIndexOutOfBoundsException ex){
+                nome="";
+            }
+            //Lo split se non trova niente lancia eccezione.
+            
+            String cognome;
+            try{
+             cognome = card.getFormattedName().getValue().split(" ")[1];}
+            catch(ArrayIndexOutOfBoundsException ex){
+                cognome="";
+            }
+
+           
+
+            Contatto c = new Contatto(nome, cognome);
+            
+            // Add phone numbers
+            for (Telephone tmp : card.getTelephoneNumbers()) {
+                c.addNumero(new ContactNumero(tmp.getText()));
             }
             
-            //Emails  
-            String [] emails = new String[card.getEmails().size()];
-            int j =0; 
-            for(Email em : card.getEmails()){
-            emails[j]=em.getValue(); 
-            j++; 
-            }
-            Contatto c = new Contatto(nome,cognome);
-            for(ContactNumero numero : c.getNumeriDiTelefono()){
-            c.addNumero(numero);
-            }
-            
-            for(ContactEmail email : c.getEmail()){
-            c.addEmail(email);
+            // Add emails
+            for (Email em : card.getEmails()) {
+                c.addEmail(new ContactEmail(em.getValue()));
             }
             
             r.addContatto(c);
-            }
-            
-            
-
-            
         }
-         return  r;
     }
+    return r;
+}
    
 }
 

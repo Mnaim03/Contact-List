@@ -9,6 +9,7 @@ import com.example.Rubrica;
 import com.example.interfaces.InterfaceRubrica;
 
 import java.awt.event.MouseEvent;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Comparator;
@@ -40,6 +41,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 /**
@@ -112,6 +114,7 @@ public class Scene1Controller implements Initializable {
 
     private ObservableList<Contatto>contatti;
 
+    @FXML
     private Button deleteAllButton;
     
 
@@ -330,8 +333,24 @@ public class Scene1Controller implements Initializable {
             alert.setHeaderText("Operazione completata!");
             alert.setContentText("Rubrica eliminata con successo !");
         }
-        else {
+        else if(flag==flag.FILE_NULL){
+            alert.setHeaderText("Operazione annullata!");
+            alert.setContentText("Operazione annullata");
+        }
+        else if(flag==flag.ERRORE_CARICAMENTO_FILE){
+            alert.setHeaderText("Errore!");
+            alert.setContentText("Errore nel caricamento del file!");
+        }
+        else if(flag==flag.ERRORE_SALVATAGGIO_FILE){
+            alert.setHeaderText("Errore!");
+            alert.setContentText("Errore nel salvataggio del file!");
+        }
+        else if(flag==flag.INVALID_EMAIL){
         alert.setContentText("La mail digitata non è corretta");
+        }
+        else if(flag==flag.FILE_SALVATAGGIO){
+        alert.setHeaderText("Operazione completata!");
+        alert.setContentText("Salvataggio file avvenuto con successo!");
         }
         
         // Mostra l'alert e attendi la chiusura
@@ -488,7 +507,55 @@ public class Scene1Controller implements Initializable {
         }
 
     }
+
+    @FXML
+    private void uploadFile(ActionEvent event) {
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Seleziona un file vcf");
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("VCF Files", "*.vcf"));
+        Stage stage = (Stage) datiVBox.getScene().getWindow();
+        File selectedFile = fc.showOpenDialog(stage);
+
+        if (selectedFile != null) {
+            try {
+                // Additional check to ensure the file exists and is readable
+                if (!selectedFile.exists() || !selectedFile.canRead()) {
+                    showAlert(Flag.ERRORE_CARICAMENTO_FILE);
+                    return;
+                }
+
+                // Clear existing contacts before loading
+                rubrica.deleteAll();
+
+                // Use absolute path to ensure fresh file read
+                rubrica.getContatti().addAll(rubrica.leggiVCF(selectedFile.getAbsolutePath()).getContatti());
+                rubrica.getListaOsservabile().setAll(rubrica.getContatti());
+            } catch (IOException e) {
+                showAlert(Flag.ERRORE_CARICAMENTO_FILE);
+            } catch (InvalidEmailException e) {
+                showAlert(Flag.INVALID_EMAIL);
+            } catch (InvalidNumberException e) {
+                showAlert(Flag.INVALID_NUMBER);
+            }
+        } else {
+            showAlert(Flag.FILE_NULL);
+        }
+    }
+        
+        @FXML
+        private void saveFile(ActionEvent event) throws IOException{
+            try{
+                rubrica.salvaVCF("contatti.vcf");
+            }
+            catch(IOException ex){
+                showAlert(Flag.ERRORE_SALVATAGGIO_FILE);
+            }
+            showAlert(Flag.FILE_SALVATAGGIO);
+        }
+        
 }
+    
+
 
     
     

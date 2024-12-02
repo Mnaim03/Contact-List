@@ -30,6 +30,9 @@ public class ContactNumero implements CheckerNumber {
     public String getAssociatedNumber(){
     return numeroTelefono;
     }
+    public void setAssociatedNumber(String numeroTelefono){
+        this.numeroTelefono = numeroTelefono;
+    }
     
     
     public boolean isNumeroDiCasa() {

@@ -21,7 +21,9 @@ public class ContactEmail implements CheckerEmail{
     public String getAssociatedEmail(){
     return email; 
     }
-
+    public void setAssociatedEmail(String email){
+    this.email=email;
+    }
     //da rivedere
     @Override
     public boolean isValidEmail(){
