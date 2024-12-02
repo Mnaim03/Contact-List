@@ -113,9 +113,17 @@ public class Scene1Controller implements Initializable {
     private ObservableList<Contatto>contatti;
     
 
-    /*
-    * commento
-    * */
+    /**
+     * @brief function that runs at the start of the algorithm
+     *
+     * See also: initBinding(), updateSearchResults(), apriFinestraDettagli()
+     *
+     * @param[in] url first parameter of type URL
+     * @param[in] rb second parameter of type ResourceBundle
+     * @see initBinding()
+     * @see updateSearchResults()
+     * @see apriFinestraDettagli()
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -128,14 +136,12 @@ public class Scene1Controller implements Initializable {
         surnameClm.setCellValueFactory(new PropertyValueFactory("cognome"));
 
         //Sezione searchBarField
-
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
         // Aggiorna la lista in base alla ricerca
         updateSearchResults(newValue);
         
     });
-        
-        
+
         //Quando fai doppio click su un contatto della tabella , apre una nuova schermata contente i dettagli del contatto cliccato
           tableView.setOnMouseClicked(event -> {
             if (event.getClickCount() == 2) { // Doppio clic sulla riga
@@ -149,9 +155,14 @@ public class Scene1Controller implements Initializable {
        
     }
 
-    /*
-     * commento
-     * */
+    /**
+     * @brief function that updates the search result
+     *
+     * See also: ricercaContatti()
+     *
+     * @param[in] query parameter of type String
+     * @see ricercaContatti()
+     */
     private void updateSearchResults(String query){
         if(query==null){
             rubrica.getListaOsservabile().addAll(rubrica.getContatti());
@@ -161,9 +172,14 @@ public class Scene1Controller implements Initializable {
         
     }
 
-    /*
-     * commento
-     * */
+    /**
+     * @brief function that updates the search result
+     *
+     * See also: ricercaContatti()
+     *
+     * @param[in] query parameter of type String
+     * @see ricercaContatti()
+     */
     @FXML
     private void addLista(ActionEvent event) {
         applyButton.setVisible(false);
