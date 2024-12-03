@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
 
 .body{
     -fx-background-image: url("assets/unisa.png");
     -fx-background-size: 400px 400px; /* Larghezza e altezza specifiche */
     -fx-background-position: bottom right; /* Posizionamento in basso a destra */
     -fx-background-repeat: no-repeat; /* Per assicurarsi che l'immagine non venga ripetuta */
-    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-background-color: #111827;
 
     /* Font */
-    -fx-font-family: "Roboto", serif;
+    -fx-font: "Roboto", serif;
     -fx-font-weight: 300;
     -fx-font-style: normal;
 
@@ -17,25 +17,70 @@
 
 .allButton{
     -fx-cursor: hand;
-    -fx-background-color: lightgray;
+    -fx-background-color: #111827;
+    -fx-text-fill: white;
     -fx-border-radius: 2px;
-    -fx-border-color: gray;
+    -fx-background-radius: 2px;
+    -fx-border-color: white;
+    -fx-border-width: 2px;
 }
 
 .allButton:hover{
-    -fx-text-fill: blue;
-    -fx-border-color: blue;
+    -fx-background-color: #1f2937;
+    -fx-text-fill: white;
     -fx-border-radius: 2px;
-
+    -fx-background-radius: 2px;
+    -fx-border-color: white;
 }
 
-@font-face {
-    font-family: 'FontAwesome';
-    src: url('path/to/fontawesome-webfont.ttf');
+.allTextField{
+    -fx-background-color: #1f2937;
+    -fx-text-fill: white;
+    -fx-border-radius: 2px;
+    -fx-background-radius: 2px;
+    -fx-border-color: white;
 }
 
-.search:before{
-    content: "\f007"; /* Font Awesome unicode for user icon */
-    font-family: 'FontAwesome';
-    margin-right: 10px;
+/* Stile per TableView in JavaFX */
+
+/* Stile TableView Dark */
+.table-view {
+    -fx-background-color: #1f2937;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-border-radius: 2px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #1f2937;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-view .table-cell {
+    -fx-background-color: #1f2937;
+    -fx-text-fill: white;
+    -fx-border-color: transparent white transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 8px;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #111827;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: #111827;
+}
+
+
+
+
+.text-area {
+    -fx-text-fill: white;
+    -fx-display-caret:true;
+}
+
+.text-area .content {
+    -fx-background-color: #1f2937;
 }
