@@ -34,7 +34,7 @@
 }
 
 .allTextField{
-    -fx-background-color: #1f2937;
+    -fx-background-color: rgba(31, 41, 55, 0.5);
     -fx-text-fill: white;
     -fx-border-radius: 2px;
     -fx-background-radius: 2px;
@@ -82,5 +82,9 @@
 }
 
 .text-area .content {
-    -fx-background-color: #1f2937;
+    -fx-background-color: transparent;
+    -fx-control-inner-background: transparent;
+    -fx-background: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-text-fill: white;
 }

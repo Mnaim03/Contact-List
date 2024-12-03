@@ -105,7 +105,7 @@ public class Scene1Controller implements Initializable {
     @FXML
     private Label descriptionLabel;
     @FXML
-    private TextArea descriptionField;
+    private TextField descriptionField;
     @FXML
     private Button saveButton;
     @FXML
