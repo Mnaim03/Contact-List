@@ -169,8 +169,8 @@ public class Rubrica implements InterfaceRubrica{
             }
 
            
-
-            Contatto c = new Contatto(nome, cognome);
+             //DA FARE!!!!!!!!!!!!
+            Contatto c = new Contatto(nome, cognome, "",false);
             
             // Add phone numbers
             for (Telephone tmp : card.getTelephoneNumbers()) {

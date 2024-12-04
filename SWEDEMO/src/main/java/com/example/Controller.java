@@ -42,7 +42,7 @@ public class Controller implements Initializable {
     @FXML
     private TableColumn<Contatto,String> surnameClm;
     @FXML
-    private TextField nameField, surnameField, phone1Field, phone2Field, phone3Field, email1Field, email2Field, email3Field;
+    private TextField nameField, surnameField, phone1Field, phone2Field, phone3Field, email1Field, email2Field, email3Field, descriptionField;
     @FXML
     private VBox datiVBox;
     @FXML
@@ -102,6 +102,9 @@ public class Controller implements Initializable {
         email1Field.setText(contatto.getEmail().size() > 0 ? contatto.getEmail().get(0).getAssociatedEmail() : "");
         email2Field.setText(contatto.getEmail().size() > 1 ? contatto.getEmail().get(1).getAssociatedEmail() : "");
         email3Field.setText(contatto.getEmail().size() > 2 ? contatto.getEmail().get(2).getAssociatedEmail() : "");
+
+        descriptionField.setText(contatto.getDescrizione());
+        favouriteCheckBox.setSelected(contatto.getFavourite());
     }
     
 
@@ -111,7 +114,7 @@ public class Controller implements Initializable {
 
         applyButton.setVisible(false);
         deleteButton.setVisible(false);
-        Contatto contattoDigitato = new Contatto(nameField.getText(), surnameField.getText());
+        Contatto contattoDigitato = new Contatto(nameField.getText(), surnameField.getText(), descriptionField.getText(), favouriteCheckBox.isSelected() );
         //Controllo sui dati del contatto
         try {
             aggiungiCellAlContattoDigitato(contattoDigitato);
@@ -217,9 +220,11 @@ public class Controller implements Initializable {
 
         TextField [] numeri = {phone1Field,phone2Field,phone3Field};
         TextField [] emails = {email1Field,email2Field,email3Field};
-        contactManager.modificaContatto(contattoDaModificare, nameField.getText(), surnameField.getText(), numeri, emails);
+        contactManager.modificaContatto(contattoDaModificare, nameField.getText(), surnameField.getText(), numeri, emails, descriptionField.getText(), favouriteCheckBox.isSelected() );
         alertManager.showAlert("Sucess","Content modified","");
-        contactManager.updateObservableList(); //Aggiorna la lista dopo la modifica 
+        contactManager.updateObservableList(); //Aggiorna la lista dopo la modifica
+
+
         //Aggiorna la view 
         datiVBox.setVisible(false);
         applyButton.setVisible(false);
@@ -252,6 +257,8 @@ private void activeSave(ActionEvent event) {
     email1Field.clear();
     email2Field.clear();
     email3Field.clear();
+    descriptionField.clear();
+    favouriteCheckBox.setSelected(false);
     }
     
 
@@ -282,7 +289,8 @@ private void activeSave(ActionEvent event) {
        BooleanBinding applyButtonBinding = Bindings.createBooleanBinding( () -> verificaCambiamenti(),nameField.textProperty() , surnameField.textProperty(),
                phone1Field.textProperty(),phone2Field.textProperty(),
                phone3Field.textProperty(),email1Field.textProperty(),
-               email2Field.textProperty(), email3Field.textProperty());
+               email2Field.textProperty(), email3Field.textProperty(),
+               descriptionField.textProperty(), favouriteCheckBox.selectedProperty());
                applyButton.disableProperty().bind(applyButtonBinding.not());
     
     applyButton.disableProperty().bind(applyButtonBinding.not());
@@ -319,8 +327,10 @@ private void activeSave(ActionEvent event) {
                        (emails.size() == 3 && ( !email1Field.getText().equals(emails.get(0).getAssociatedEmail()) || !email2Field.getText().equals(emails.get(1).getAssociatedEmail()) || !email3Field.getText().equals(emails.get(2).getAssociatedEmail())) ) ||
                        (emails.isEmpty() && (!email1Field.getText().isEmpty() || !email2Field.getText().isEmpty() || !email3Field.getText().isEmpty())) );
 
+    boolean isChangedDescrizione = !contattoSelezionato.getDescrizione().equals(descriptionField.getText());
+    boolean isChangedFavourite = !(contattoSelezionato.getFavourite() == favouriteCheckBox.isSelected());
     // Restituisci true se ci sono cambiamenti
-    return isChangedNome || isChangedCognome || isChangedNumeri || isChangedEmails;
+    return isChangedNome || isChangedCognome || isChangedNumeri || isChangedEmails || isChangedDescrizione || isChangedFavourite;
 }
 
 }

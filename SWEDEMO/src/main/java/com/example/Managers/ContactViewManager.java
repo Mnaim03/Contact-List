@@ -43,7 +43,7 @@ public class ContactViewManager {
     }
 
     
-    public void modificaContatto(Contatto contatto,String nome , String cognome,TextField[]numeriTextFields , TextField [] mailsTextFields){
+    public void modificaContatto(Contatto contatto,String nome , String cognome,TextField[]numeriTextFields , TextField [] mailsTextFields, String descrizione, Boolean favourite){
     contatto.setNome(nome);
     contatto.setCognome(cognome);
      List<ContactNumero> numeri = contatto.getNumeriDiTelefono();
@@ -65,6 +65,9 @@ public class ContactViewManager {
             }
         }
         updateObservableList(); //Rifletti le modifiche anche nella tabella
+
+        contatto.setDescrizione(descrizione);
+        contatto.setFavoriti(favourite);
     }
     
     

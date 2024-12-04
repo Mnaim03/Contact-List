@@ -25,6 +25,8 @@ public class Contatto implements Comparable<Contatto>{
     private String cognome;
     private List<ContactNumero> numeriDiTelefono;
     private List<ContactEmail> emails;
+    private String descrizione;
+    private boolean favoriti;
 
     /**
      * Crea un nuovo contatto con nome e cognome specificati
@@ -34,11 +36,13 @@ public class Contatto implements Comparable<Contatto>{
      * La lista dei numeri di telefono e delle email è inizializzata come vuota.
      *
      */
-    public Contatto(String nome, String cognome ) {
+    public Contatto(String nome, String cognome, String descrizione, boolean favoriti ) {
         this.nome = nome;
         this.cognome = cognome;
         this.numeriDiTelefono = new ArrayList<>();
         this.emails = new ArrayList<>();
+        this.descrizione = descrizione;
+        this.favoriti = favoriti;
     }
 
 
@@ -67,7 +71,9 @@ public class Contatto implements Comparable<Contatto>{
      */
     public List<ContactEmail> getEmail() { return emails; }
 
+    public String getDescrizione() { return descrizione; }
 
+    public boolean getFavourite() { return favoriti; }
 
     /**
      *Imposta il nome del contatto
@@ -119,6 +125,14 @@ public class Contatto implements Comparable<Contatto>{
     public void addEmail(ContactEmail email) throws InvalidEmailException{
         GestoreContatti.addEmail(this.emails,email);
 
+    }
+
+    public void setDescrizione(String descrizione){
+        this.descrizione=descrizione;
+    }
+
+    public void setFavoriti(boolean favoriti){
+        this.favoriti=favoriti;
     }
 
     /**
