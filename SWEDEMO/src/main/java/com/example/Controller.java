@@ -49,7 +49,9 @@ public class Controller implements Initializable {
     private Button applyButton, deleteButton, saveButton, favouriteButton;
     @FXML
     private CheckBox favouriteCheckBox;
-
+    
+    Label placeholderLabel;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         InterfaceRubrica rubrica = new Rubrica();
@@ -65,14 +67,27 @@ public class Controller implements Initializable {
         initTableViewDoubleClick();
         datiVBox.setVisible(false);
         applyButton.setVisible(false); 
+        
+        placeholderLabel = new Label("Nessun contatto nella tabella");
+        tableView.setPlaceholder(placeholderLabel);
     }
 //OK
     private void initSearchBar() {
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
             Rubrica filteredRubrica = contactManager.getRubrica().ricercaContatti(newValue);
             contactManager.getObservableList().setAll(filteredRubrica.getContatti());
-        });
-    }
+            
+            if(filteredRubrica.getContatti().isEmpty()&& (searchBarField.getText()!=null&&!searchBarField.getText().isEmpty())){ 
+                placeholderLabel.setText("Nessun contatto corrispondente ai criteri di ricerca");
+                tableView.setPlaceholder(placeholderLabel);
+            }
+            else{
+                placeholderLabel.setText("Nessun contatto nella tabella");
+                tableView.setPlaceholder(placeholderLabel);
+            }
+            
+     });
+     }
 //OK
     private void initTableViewDoubleClick() {
         tableView.setOnMouseClicked(event -> {
