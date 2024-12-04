@@ -74,7 +74,7 @@ public class ContactViewManager {
         updateObservableList();
     }
 
-    private void updateObservableList() {
+    public void updateObservableList() {
         rubrica.getListaOsservabile().setAll(rubrica.getContatti());
     }
 
