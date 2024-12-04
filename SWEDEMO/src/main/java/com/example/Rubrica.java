@@ -77,11 +77,11 @@ public class Rubrica implements InterfaceRubrica{
     return restituita; 
     }
     
-    public Flag isPresent(Contatto c){
+    public boolean isPresent(Contatto c){
         for(Contatto tmp : contatti){
-        if(tmp.compareTo(c)==0) return Flag.CONTACT_EXISTS; 
+        if(tmp.compareTo(c)==0) return true;
         }
-        return Flag.CONTACT_DOESNT_EXISTS; 
+        return false;
         
         
     }

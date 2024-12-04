@@ -9,7 +9,6 @@ import com.example.Contact.ContactNumero;
 import com.example.Contact.Contatto;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
-import com.example.Flag;
 import com.example.Rubrica;
 import ezvcard.Ezvcard;
 import ezvcard.VCard;
@@ -103,7 +102,7 @@ public interface InterfaceRubrica {
 
 
 
-     Flag isPresent(Contatto c);
+     boolean isPresent(Contatto c);
 
 
 

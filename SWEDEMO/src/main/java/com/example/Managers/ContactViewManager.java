@@ -6,8 +6,7 @@ import com.example.Contact.Contatto;
 import com.example.Exceptions.DuplicatedNumberException;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
-import com.example.Exceptions.DuplicatedContactException; 
-import com.example.Flag;
+import com.example.Exceptions.DuplicatedContactException;
 import com.example.interfaces.InterfaceRubrica;
 import java.util.List;
 import javafx.collections.ObservableList;
@@ -29,7 +28,7 @@ public class ContactViewManager {
     }
 
     public void addContact(Contatto contatto) throws DuplicatedContactException {
-        if (rubrica.isPresent(contatto) == Flag.CONTACT_EXISTS) {
+        if (rubrica.isPresent(contatto)) {
             throw new DuplicatedContactException("Contatto esistente");
             
         }
