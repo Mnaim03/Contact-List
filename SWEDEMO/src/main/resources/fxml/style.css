@@ -33,6 +33,10 @@
     -fx-border-color: white;
 }
 
+.favouriteButton{
+    -fx-text-fill: #ffd700;
+}
+
 .allTextField{
     -fx-background-color: rgba(31, 41, 55, 0.5);
     -fx-text-fill: white;
