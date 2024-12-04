@@ -32,6 +32,7 @@ public class Controller implements Initializable {
     private ContactViewManager contactManager;
     private FileManager fileManager;
     private AlertManager alertManager;
+    private InterfaceRubrica IRubrica;
     
     @FXML
     private TextField searchBarField;
@@ -79,6 +80,7 @@ public class Controller implements Initializable {
     private Label email3Label;
     @FXML
     private Label descriptionLabel;
+
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -367,7 +369,8 @@ private void activeSave(ActionEvent event) {
         
         searchBarField.setOnMouseClicked(event -> {
             favoritesButton.setText("Favourites");
-            contactManager.getObservableList().setAll(contactManager.getRubrica().getContatti());
+            //Mostra i soli contatti corrispondenti alla ricerca quando fai click sulla searchBarTextField
+            contactManager.getObservableList().setAll(IRubrica.ricercaContatti(searchBarField.getText()).getContatti());
          
         });
     }

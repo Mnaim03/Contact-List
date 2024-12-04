@@ -1,0 +1,24 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AlertManager
+interface CheckerEmail << interface >>
+interface CheckerNumber << interface >>
+class ContactEmail
+class ContactNumero
+class ContactViewManager
+class Contatto
+class DuplicatedContactException
+class DuplicatedNumberException
+class FileManager
+class GestoreContatti
+interface InterfaceRubrica << interface >>
+class InvalidEmailException
+class InvalidNumberException
+
+ContactEmail                -[#008200,dashed]-^  CheckerEmail               
+ContactNumero               -[#008200,dashed]-^  CheckerNumber              
+@enduml
