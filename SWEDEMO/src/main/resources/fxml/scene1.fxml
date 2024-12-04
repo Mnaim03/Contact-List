@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -18,7 +24,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="969.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controller">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="969.0" styleClass="body" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.Controller">
   <items>
       <VBox>
          <children>
@@ -51,7 +57,7 @@
                               <String fx:value="allTextField" />
                            </styleClass>
                         </TextField>
-                        <Button fx:id="favoritesButton" alignment="CENTER" layoutX="31.0" layoutY="598.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="250.0" text="Favorites">
+                        <Button fx:id="favoritesButton" alignment="CENTER" layoutX="31.0" layoutY="598.0" mnemonicParsing="false" onAction="#favoritesClick" prefHeight="33.0" prefWidth="250.0" text="Favourites">
                            <font>
                               <Font size="15.0" />
                            </font>

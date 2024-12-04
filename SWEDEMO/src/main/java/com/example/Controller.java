@@ -46,19 +46,44 @@ public class Controller implements Initializable {
     @FXML
     private VBox datiVBox;
     @FXML
-    private Button applyButton, deleteButton, saveButton, favouriteButton;
+    private Button applyButton, deleteButton, saveButton;
     @FXML
     private CheckBox favouriteCheckBox;
     
     Label placeholderLabel;
+    @FXML
+    private MenuItem saveFileButton;
+    @FXML
+    private MenuItem uploadFileButton;
+    @FXML
+    private MenuItem newContantButton;
+    @FXML
+    private Button favoritesButton;
+    @FXML
+    private Button deleteAllButton1;
+    @FXML
+    private Label phoneLabel;
+    @FXML
+    private Label phone1Label;
+    @FXML
+    private Label phone2Label;
+    @FXML
+    private Label phone3Label;
+    @FXML
+    private Label emailLabel;
+    @FXML
+    private Label email1Label;
+    @FXML
+    private Label email2Label;
+    @FXML
+    private Label email3Label;
+    @FXML
+    private Label descriptionLabel;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         InterfaceRubrica rubrica = new Rubrica();
-        contactManager = new ContactViewManager(rubrica);
-        fileManager = new FileManager(contactManager, rubrica);
-        alertManager = new AlertManager();
-
+        initManagers(rubrica);
         tableView.setItems(contactManager.getObservableList());
         nomeClm.setCellValueFactory(new PropertyValueFactory("nome"));
         surnameClm.setCellValueFactory(new PropertyValueFactory("cognome"));
@@ -72,8 +97,15 @@ public class Controller implements Initializable {
         tableView.setPlaceholder(placeholderLabel);
     }
 //OK
+    
+    public void initManagers(InterfaceRubrica rubrica){
+        contactManager = new ContactViewManager(rubrica);
+        fileManager = new FileManager(contactManager, rubrica);
+        alertManager = new AlertManager();
+    }
     private void initSearchBar() {
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
+            
             Rubrica filteredRubrica = contactManager.getRubrica().ricercaContatti(newValue);
             contactManager.getObservableList().setAll(filteredRubrica.getContatti());
             
@@ -309,9 +341,36 @@ private void activeSave(ActionEvent event) {
                applyButton.disableProperty().bind(applyButtonBinding.not());
     
     applyButton.disableProperty().bind(applyButtonBinding.not());
+    
+    BooleanBinding favoritesButtonBinding = Bindings.createBooleanBinding( ()->!searchBarField.getText().isEmpty(),searchBarField.textProperty());
+    favoritesButton.disableProperty().bind(favoritesButtonBinding);
+    
 }
-
-
+   
+    @FXML
+    private void favoritesClick(){
+        
+        if(favoritesButton.getText().equals("Favourites")){
+            favoritesButton.setText("See all contacts");
+            contactManager.getObservableList().clear();
+            for(Contatto c : contactManager.getRubrica().getContatti()){
+            if(c.getFavourite()) contactManager.getObservableList().add(c);
+        }
+        }
+        else{
+            favoritesButton.setText("Favourites");
+            contactManager.getObservableList().clear();
+            for(Contatto c : contactManager.getRubrica().getContatti()){
+                contactManager.getObservableList().add(c);
+        } 
+        }
+        
+        searchBarField.setOnMouseClicked(event -> {
+            favoritesButton.setText("Favourites");
+            contactManager.getObservableList().setAll(contactManager.getRubrica().getContatti());
+         
+        });
+    }
 
 
 
