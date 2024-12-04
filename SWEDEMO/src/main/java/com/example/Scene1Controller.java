@@ -478,19 +478,19 @@ public class Scene1Controller implements Initializable {
 
     // Verifica cambiamenti nei numeri di telefono
     List<ContactNumero> numeri = contattoSelezionato.getNumeriDiTelefono();
-    boolean isChangedNumeri = 
-        (numeri.size() == 1 && !phone1Field.getText().equals(numeri.get(0).getAssociatedNumber())) ||
-        (numeri.size() == 2 && !phone2Field.getText().equals(numeri.get(1).getAssociatedNumber())) ||
-        (numeri.size() == 3 && !phone3Field.getText().equals(numeri.get(2).getAssociatedNumber())) ||
-        (numeri.size() == 0 && (!phone1Field.getText().isEmpty() || !phone2Field.getText().isEmpty() || !phone3Field.getText().isEmpty()));
+    boolean isChangedNumeri =
+        ( (numeri.size() > 0 && ( !phone1Field.getText().equals(numeri.get(0).getAssociatedNumber()) || !phone2Field.getText().isEmpty() || !phone3Field.getText().isEmpty())) ||
+        (numeri.size() > 1 && ( !phone1Field.getText().equals(numeri.get(0).getAssociatedNumber()) || !phone2Field.getText().equals(numeri.get(1).getAssociatedNumber()) || !phone3Field.getText().isEmpty() ) ) ||
+        (numeri.size() > 2 && ( !phone1Field.getText().equals(numeri.get(0).getAssociatedNumber()) || !phone2Field.getText().equals(numeri.get(1).getAssociatedNumber())  ||!phone3Field.getText().equals(numeri.get(2).getAssociatedNumber())) )  ||
+        (numeri.isEmpty() && (!phone1Field.getText().isEmpty() || !phone2Field.getText().isEmpty() || !phone3Field.getText().isEmpty()))  );
 
     // Verifica cambiamenti nelle email
     List<ContactEmail> emails = contattoSelezionato.getEmail();
     boolean isChangedEmails =
-        (emails.size() == 1 && !email1Field.getText().equals(emails.get(0).getAssociatedEmail())) ||
-        (emails.size() == 2 && !email2Field.getText().equals(emails.get(1).getAssociatedEmail())) ||
-        (emails.size() == 3 && !email3Field.getText().equals(emails.get(2).getAssociatedEmail())) ||
-        (emails.size() == 0 && (!email1Field.getText().isEmpty() || !email2Field.getText().isEmpty() || !email3Field.getText().isEmpty()));
+        ( (emails.size() > 0 && (!email1Field.getText().equals(emails.get(0).getAssociatedEmail()) || !email2Field.getText().isEmpty() || !email3Field.getText().isEmpty() )) ||
+        (emails.size() > 1 && ( !email1Field.getText().equals(emails.get(0).getAssociatedEmail()) || !email2Field.getText().equals(emails.get(1).getAssociatedEmail()) || !email3Field.getText().isEmpty())) ||
+        (emails.size() > 2 && ( !email1Field.getText().equals(emails.get(0).getAssociatedEmail()) || !email2Field.getText().equals(emails.get(1).getAssociatedEmail()) || !email3Field.getText().equals(emails.get(2).getAssociatedEmail())) ) ||
+        (emails.isEmpty() && (!email1Field.getText().isEmpty() || !email2Field.getText().isEmpty() || !email3Field.getText().isEmpty())) );
 
     // Restituisci true se ci sono cambiamenti
     return isChangedNome || isChangedCognome || isChangedNumeri || isChangedEmails;
