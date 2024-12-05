@@ -229,6 +229,7 @@ public class Controller implements Initializable {
         }
         //Pulisci le fields dopo l'eliminazione
         clearAllFields();
+        datiVBox.setVisible(false);
     }
 
     @FXML //OK
