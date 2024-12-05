@@ -252,19 +252,21 @@ public class Controller implements Initializable {
 
         Contatto contattoDaModificare = tableView.getSelectionModel().getSelectedItem();
         if (contattoDaModificare == null) {
-            new AlertManager().showAlert("Error","No Modification Detected","");
+            alertManager.showAlert("Error","No Modification Detected","");
             return;
-        } else if ( (!phone1Field.getText().isEmpty() && !(new ContactNumero(phone1Field.getText()).isValidNumber())) ||
+        }
+         
+         else if ( (!phone1Field.getText().isEmpty() && !(new ContactNumero(phone1Field.getText()).isValidNumber())) ||
                 (!phone2Field.getText().isEmpty() && !(new ContactNumero(phone2Field.getText()).isValidNumber())) ||
                 (!phone3Field.getText().isEmpty() && !(new ContactNumero(phone3Field.getText()).isValidNumber())) ){
 
-            new AlertManager().showAlert("Error","Wrong phone number","Try again");
+            alertManager.showAlert("Error","Wrong phone number","Try again");
             return;
         }else if ( (!email1Field.getText().isEmpty() && !(new ContactEmail(email1Field.getText()).isValidEmail())) ||
                 (!email2Field.getText().isEmpty() && !(new ContactEmail(email2Field.getText()).isValidEmail())) ||
                 (!email3Field.getText().isEmpty() && !(new ContactEmail(email3Field.getText()).isValidEmail())) ){
 
-            new AlertManager().showAlert("Error","Wrong email number","Try again");
+             alertManager.showAlert("Error","Wrong email number","Try again");
             return;
         }
 
@@ -336,7 +338,7 @@ private void activeSave(ActionEvent event) {
     saveButton.visibleProperty().bind(visible);
 
     // Bind per il pulsante Apply
-       BooleanBinding applyButtonBinding = Bindings.createBooleanBinding( () -> verificaCambiamenti(),nameField.textProperty() , surnameField.textProperty(),
+       BooleanBinding applyButtonBinding = Bindings.createBooleanBinding( () -> !(nameField.getText().isEmpty() && surnameField.getText().isEmpty()) && verificaCambiamenti(),nameField.textProperty() , surnameField.textProperty(),
                phone1Field.textProperty(),phone2Field.textProperty(),
                phone3Field.textProperty(),email1Field.textProperty(),
                email2Field.textProperty(), email3Field.textProperty(),
@@ -382,13 +384,13 @@ private void activeSave(ActionEvent event) {
 
    private boolean verificaCambiamenti() {
     Contatto contattoSelezionato = tableView.getSelectionModel().getSelectedItem();
-
+    
     if (contattoSelezionato == null) return false;
-
+    
     // Verifica cambiamenti nel nome e cognome
     boolean isChangedNome = !contattoSelezionato.getNome().equals(nameField.getText());
     boolean isChangedCognome = !contattoSelezionato.getCognome().equals(surnameField.getText());
-
+    
     // Verifica cambiamenti nei numeri di telefono
     List<ContactNumero> numeri = contattoSelezionato.getNumeriDiTelefono();
        boolean isChangedNumeri =
