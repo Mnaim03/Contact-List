@@ -1,6 +1,8 @@
-package com.example.Contact;
+package com.example.Managers;
 
 
+import com.example.Contact.ContactEmail;
+import com.example.Contact.ContactNumero;
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
 import java.util.List;
@@ -27,7 +29,7 @@ import java.util.List;
  * @see InvalidNumberException per i dettagli sulle eccezioni sollevate durante la gestione dei numeri di telefono.
  * @see InvalidEmailException per i dettagli sulle eccezioni sollevate durante la gestione delle email.
  */
-public class GestoreContatti {
+public class ManagerContatti {
     private static final int MAX_NUMERI = 3;
     private static final int MAX_EMAIL = 3;
 

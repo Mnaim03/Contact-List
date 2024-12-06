@@ -2,12 +2,10 @@ package com.example.Contact;
 
 import com.example.Exceptions.InvalidEmailException;
 import com.example.Exceptions.InvalidNumberException;
-import java.lang.reflect.Array;
+import com.example.Managers.ManagerContatti;
+
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
-import com.example.interfaces.CheckerNumber;
 
 /**
  * La classe <code>Contatto</code> rappresenta un contatto telefonico e email.
@@ -18,7 +16,7 @@ import com.example.interfaces.CheckerNumber;
  *
  * @see ContactNumero per la gestione dei numeri di telefono.
  * @see ContactEmail per la gestione delle email.
- * @see GestoreContatti per la gestione delle operazioni di aggiunta e validazione dei numeri e delle email.
+ * @see ManagerContatti per la gestione delle operazioni di aggiunta e validazione dei numeri e delle email.
  */
 public class Contatto implements Comparable<Contatto>{
     private String nome;
@@ -107,7 +105,7 @@ public class Contatto implements Comparable<Contatto>{
      * @see InvalidNumberException per più informazioni sulla eccezione sollevata
      */
     public void addNumero(ContactNumero numero) throws InvalidNumberException{
-        GestoreContatti.addNumero(numeriDiTelefono,numero);
+        ManagerContatti.addNumero(numeriDiTelefono,numero);
     }
 
     /**
@@ -120,10 +118,10 @@ public class Contatto implements Comparable<Contatto>{
      * @throws InvalidEmailException Se l'email non è valida o se il contatto ha già raggiunto il numero massimo di email.
      * @pre Il parametro email non deve essere nullo.
      * @post L'email viene aggiunta alla lista delle email del contatto se non ci sono errori.
-     * @see GestoreContatti#addEmail(List, ContactEmail) Per maggiori dettagli sulla logica di validazione dell'email.
+     * @see ManagerContatti#addEmail(List, ContactEmail) Per maggiori dettagli sulla logica di validazione dell'email.
      */
     public void addEmail(ContactEmail email) throws InvalidEmailException{
-        GestoreContatti.addEmail(this.emails,email);
+        ManagerContatti.addEmail(this.emails,email);
 
     }
 
