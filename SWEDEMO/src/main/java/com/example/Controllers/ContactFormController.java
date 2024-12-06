@@ -103,6 +103,14 @@ public class ContactFormController {
 
     public void deleteLista() {
         if (selectedContact != null) {
+            Boolean confirm = AlertManager.showConfirmation("Alert", "Are you sure you want to delete this contact?", "");
+            if (confirm) {
+                rubrica.deleteAll();
+                tableViewController.updateView();
+                AlertManager.showAlert("Success", "Done", "Contact deleted successfully");
+            } else {
+                AlertManager.showAlert("Cancelled", "Operation cancelled", "Operation cancelled ");
+            }
             rubrica.removeContatto(selectedContact);
             clearAllFields();
             datiVBox.setVisible(false);
