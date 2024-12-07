@@ -12,9 +12,10 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+
 /**
- * 
- * @see ContactFormController per la gestione del modulo dei contatti  
+ * @class BindingController
+ * @brief Controller che gestisce i Binding
  */
 public class BindingController {
     private final VBox datiVBox;
@@ -30,21 +31,24 @@ public class BindingController {
     private TableView<Contatto> tableView;
     private final TextField descriptionField;
     private final ContactFormController contactFormController;
-     /**
+
+    /**
      * @brief Costruttore della classe BindingController.
-     * @param nameField Campo di testo per il nome.
-     * @param surnameField Campo di testo per il cognome.
-     * @param phoneFields Array di campi di testo per i numeri di telefono.
-     * @param emailFields Array di campi di testo per gli indirizzi email.
-     * @param saveButton Pulsante per salvare un contatto.
-     * @param applyButton Pulsante per applicare modifiche.
-     * @param favoritesButton Pulsante per filtrare i preferiti.
-     * @param searchBarField Campo di ricerca.
-     * @param view Tabella per i contatti.
-     * @param contactFormController Controller per il modulo dei contatti.
-     * @param datiVBox Contenitore dei dettagli del contatto.
-     * @param favouriteCheckBox CheckBox per contatti preferiti.
-     * @param descriptionField Campo di testo per la descrizione.
+     * @param[in] nameField Campo di testo per il nome.
+     * @param[in] surnameField Campo di testo per il cognome.
+     * @param[in] phoneFields Array di campi di testo per i numeri di telefono.
+     * @param[in] emailFields Array di campi di testo per gli indirizzi email.
+     * @param[in] saveButton Pulsante per salvare un contatto.
+     * @param[in] applyButton Pulsante per applicare modifiche.
+     * @param[in] favoritesButton Pulsante per filtrare i preferiti.
+     * @param[in] searchBarField Campo di ricerca.
+     * @param[in] view Tabella per i contatti.
+     * @param[in] contactFormController Controller per il modulo dei contatti.
+     * @param[in] datiVBox Contenitore dei dettagli del contatto.
+     * @param[in] favouriteCheckBox CheckBox per contatti preferiti.
+     * @param[in] descriptionField Campo di testo per la descrizione.
+     *
+     * @post Il BindingController è stato inizializzato.
      */
     public BindingController(TextField nameField, TextField surnameField,
                              TextField[] phoneFields, TextField[] emailFields,
@@ -65,6 +69,7 @@ public class BindingController {
         this.favouriteCheckBox =favouriteCheckBox;
         this.descriptionField = descriptionField;
     }
+
     /**
     * @brief Inizializza i binding che coinvolgono i componenti saveButton , applyButton , FavouritesButton
     * e il gestore dell'evento per il componente tableView
@@ -76,9 +81,8 @@ public class BindingController {
         initApplyButtonBinding();
         initFavoritesButtonBinding();
         initTableView();
-        
-        
     }
+
     /**
      * @brief Inizializza il binding per la visibilità del pulsante di salvataggio.
      * @pre saveButton,nameField e surnameField non possono essere null 
@@ -92,6 +96,7 @@ public class BindingController {
         saveButton.visibleProperty().bind(visible);
 
     }
+
     /**
      * @brief Inizializza il binding per l'abilitazione del pulsante di applicazione.
      * @pre nameField,surnameField,phoneFields , emailFields , descriptionField , favouriteCheckBox non devono essere null

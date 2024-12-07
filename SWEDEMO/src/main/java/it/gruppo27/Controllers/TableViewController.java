@@ -11,11 +11,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+
 /**
- * @see InterfaceRubrica per l'interfaccia implementata da Rubrica
+ * @class TableViewController
+ * @brief Controller della TableView che visualizza i contatti
+ *
  */
-
-
 public class TableViewController {
     private final TableView<Contatto> tableView;
     private final TableColumn<Contatto,String> nomeClm;
@@ -24,10 +25,13 @@ public class TableViewController {
     
     /**
      * @brief Costruttore della classe TableViewController.
-     * @param tableView Tabella da gestire.
-     * @param nomeClm Colonna per il nome.
-     * @param surnameClm Colonna per il cognome.
-     * @param rubrica Rubrica associata alla tabella.
+     *
+     * @param[in] tableView Tabella da gestire.
+     * @param[in] nomeClm Colonna per il nome.
+     * @param[in] surnameClm Colonna per il cognome.
+     * @param[in] rubrica Rubrica associata alla tabella.
+     *
+     * @post Il TableViewController è stato inizializzato.
      */
     public TableViewController(TableView<Contatto> tableView,
                                TableColumn<Contatto,String> nomeClm,
