@@ -1,7 +1,7 @@
-package it.gruppo27;
-import it.gruppo27.Contact.ContactEmail;
-import it.gruppo27.Contact.ContactNumero;
-import it.gruppo27.Contact.Contatto;
+package it.gruppo27.Models;
+import it.gruppo27.Models.Contact.ContactEmail;
+import it.gruppo27.Models.Contact.ContactNumero;
+import it.gruppo27.Models.Contact.Contatto;
 import it.gruppo27.Exceptions.InvalidEmailException;
 import it.gruppo27.Exceptions.InvalidNumberException;
 import it.gruppo27.interfaces.InterfaceRubrica;

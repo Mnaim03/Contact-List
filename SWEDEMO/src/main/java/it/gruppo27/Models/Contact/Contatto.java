@@ -1,4 +1,4 @@
-package it.gruppo27.Contact;
+package it.gruppo27.Models.Contact;
 
 import it.gruppo27.Exceptions.InvalidEmailException;
 import it.gruppo27.Exceptions.InvalidNumberException;

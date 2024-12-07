@@ -1,8 +1,8 @@
 package it.gruppo27.Managers;
 
 
-import it.gruppo27.Contact.ContactEmail;
-import it.gruppo27.Contact.ContactNumero;
+import it.gruppo27.Models.Contact.ContactEmail;
+import it.gruppo27.Models.Contact.ContactNumero;
 import it.gruppo27.Exceptions.InvalidEmailException;
 import it.gruppo27.Exceptions.InvalidNumberException;
 import java.util.List;

@@ -4,10 +4,10 @@
  */
 package it.gruppo27.interfaces;
 
-import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Models.Contact.Contatto;
 import it.gruppo27.Exceptions.InvalidEmailException;
 import it.gruppo27.Exceptions.InvalidNumberException;
-import it.gruppo27.Rubrica;
+import it.gruppo27.Models.Rubrica;
 
 import java.io.IOException;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package it.gruppo27.Controllers;
 
-import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Models.Contact.Contatto;
 import it.gruppo27.Managers.AlertManager;
 import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.scene.control.Label;

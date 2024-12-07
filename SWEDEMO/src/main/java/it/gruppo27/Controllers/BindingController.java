@@ -1,6 +1,6 @@
 package it.gruppo27.Controllers;
 
-import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Models.Contact.Contatto;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.scene.control.Button;
