@@ -1,8 +1,8 @@
-package com.example.Controllers;
+package it.gruppo27.Controllers;
 
-import com.example.Contact.Contatto;
-import com.example.Managers.AlertManager;
-import com.example.interfaces.InterfaceRubrica;
+import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Managers.AlertManager;
+import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TableColumn;

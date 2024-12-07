@@ -2,23 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.example.interfaces;
+package it.gruppo27.interfaces;
 
-import com.example.Contact.ContactEmail;
-import com.example.Contact.ContactNumero;
-import com.example.Contact.Contatto;
-import com.example.Exceptions.InvalidEmailException;
-import com.example.Exceptions.InvalidNumberException;
-import com.example.Rubrica;
-import ezvcard.Ezvcard;
-import ezvcard.VCard;
-import ezvcard.parameter.TelephoneType;
-import ezvcard.property.Email;
-import ezvcard.property.Telephone;
-import java.io.FileReader;
-import java.io.FileWriter;
+import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Exceptions.InvalidEmailException;
+import it.gruppo27.Exceptions.InvalidNumberException;
+import it.gruppo27.Rubrica;
+
 import java.io.IOException;
-import java.util.List;
 import java.util.Set;
 import javafx.collections.ObservableList;
 

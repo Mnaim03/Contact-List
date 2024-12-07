@@ -1,7 +1,7 @@
-package com.example.Controllers;
+package it.gruppo27.Controllers;
 
-import com.example.Contact.Contatto;
-import com.example.interfaces.InterfaceRubrica;
+import it.gruppo27.Contact.Contatto;
+import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 

@@ -1,8 +1,8 @@
-package com.example.Contact;
+package it.gruppo27.Contact;
 
-import com.example.Exceptions.InvalidEmailException;
-import com.example.Exceptions.InvalidNumberException;
-import com.example.Managers.ManagerContatti;
+import it.gruppo27.Exceptions.InvalidEmailException;
+import it.gruppo27.Exceptions.InvalidNumberException;
+import it.gruppo27.Managers.ManagerContatti;
 
 import java.util.ArrayList;
 import java.util.List;

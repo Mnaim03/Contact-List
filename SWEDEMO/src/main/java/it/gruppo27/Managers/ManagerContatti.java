@@ -1,10 +1,10 @@
-package com.example.Managers;
+package it.gruppo27.Managers;
 
 
-import com.example.Contact.ContactEmail;
-import com.example.Contact.ContactNumero;
-import com.example.Exceptions.InvalidEmailException;
-import com.example.Exceptions.InvalidNumberException;
+import it.gruppo27.Contact.ContactEmail;
+import it.gruppo27.Contact.ContactNumero;
+import it.gruppo27.Exceptions.InvalidEmailException;
+import it.gruppo27.Exceptions.InvalidNumberException;
 import java.util.List;
 
 /**

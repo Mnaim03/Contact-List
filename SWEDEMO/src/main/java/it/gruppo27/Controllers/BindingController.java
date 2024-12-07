@@ -1,6 +1,6 @@
-package com.example.Controllers;
+package it.gruppo27.Controllers;
 
-import com.example.Contact.Contatto;
+import it.gruppo27.Contact.Contatto;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.scene.control.Button;

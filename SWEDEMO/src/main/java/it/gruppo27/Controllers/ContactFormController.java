@@ -1,13 +1,14 @@
-package com.example.Controllers;
-import com.example.Contact.ContactEmail;
-import com.example.Contact.ContactNumero;
-import com.example.Contact.Contatto;
-import com.example.Exceptions.InvalidEmailException;
-import com.example.Exceptions.InvalidNumberException;
-import com.example.interfaces.InterfaceRubrica;
+package it.gruppo27.Controllers;
+import it.gruppo27.Contact.ContactEmail;
+import it.gruppo27.Contact.ContactNumero;
+import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Exceptions.InvalidEmailException;
+import it.gruppo27.Exceptions.InvalidNumberException;
+import it.gruppo27.Managers.AlertManager;
+import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import com.example.Managers.*;
+import it.gruppo27.Managers.*;
 
 import java.util.List;
 

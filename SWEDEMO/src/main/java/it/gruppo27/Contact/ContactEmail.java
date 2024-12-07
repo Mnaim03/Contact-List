@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.Contact;
+package it.gruppo27.Contact;
 
-import com.example.interfaces.CheckerEmail;
+import it.gruppo27.interfaces.CheckerEmail;
 
 /**
  * La classe <code>ContactEmail</code> rappresenta una email associata a un contatto.

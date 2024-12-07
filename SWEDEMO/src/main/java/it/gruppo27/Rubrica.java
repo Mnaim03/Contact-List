@@ -1,11 +1,11 @@
-package com.example;
-import com.example.Contact.ContactEmail;
-import com.example.Contact.ContactNumero;
-import com.example.Contact.Contatto;
-import com.example.Exceptions.InvalidEmailException;
-import com.example.Exceptions.InvalidNumberException;
-import com.example.interfaces.InterfaceRubrica;
-import java.io.BufferedWriter;
+package it.gruppo27;
+import it.gruppo27.Contact.ContactEmail;
+import it.gruppo27.Contact.ContactNumero;
+import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Exceptions.InvalidEmailException;
+import it.gruppo27.Exceptions.InvalidNumberException;
+import it.gruppo27.interfaces.InterfaceRubrica;
+
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,14 +15,11 @@ import ezvcard.VCard;
 import ezvcard.property.Telephone;
 import ezvcard.parameter.TelephoneType;
 import ezvcard.property.Email;
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Array;
+
 import java.util.List;
 import java.util.Set;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.ObservableSet;
 
 public class Rubrica implements InterfaceRubrica{
     private Set<Contatto> contatti;

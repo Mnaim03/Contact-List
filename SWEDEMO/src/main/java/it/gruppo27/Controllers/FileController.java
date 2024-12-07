@@ -1,13 +1,12 @@
-package com.example.Controllers;
+package it.gruppo27.Controllers;
 
-import com.example.Exceptions.InvalidEmailException;
-import com.example.Exceptions.InvalidNumberException;
-import com.example.Managers.AlertManager;
-import com.example.interfaces.InterfaceRubrica;
+import it.gruppo27.Exceptions.InvalidEmailException;
+import it.gruppo27.Exceptions.InvalidNumberException;
+import it.gruppo27.Managers.AlertManager;
+import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.stage.FileChooser;
 import java.io.File;
 import java.io.IOException;
-import javafx.scene.control.Alert;
 
 public class FileController {
     private final InterfaceRubrica rubrica;

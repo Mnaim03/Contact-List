@@ -1,4 +1,4 @@
-package com.example;
+package it.gruppo27;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;

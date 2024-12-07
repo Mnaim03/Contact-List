@@ -1,4 +1,4 @@
-package com.example.Managers;
+package it.gruppo27.Managers;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;

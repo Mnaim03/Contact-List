@@ -1,4 +1,4 @@
-package com.example.Exceptions;
+package it.gruppo27.Exceptions;
 
 /**
  * Eccezione lanciata nel caso di numeri duplicati in un contatto

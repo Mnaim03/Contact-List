@@ -2,10 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.Contact;
+package it.gruppo27.Contact;
 
-import com.example.Exceptions.InvalidNumberException;
-import com.example.interfaces.CheckerNumber;
+import it.gruppo27.interfaces.CheckerNumber;
 import java.util.Arrays;
 import java.util.List;
 

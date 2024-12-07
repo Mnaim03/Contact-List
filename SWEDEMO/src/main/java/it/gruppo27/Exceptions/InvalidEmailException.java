@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.Exceptions;
+package it.gruppo27.Exceptions;
 
 /**
  * La classe <code>InvalidEmailException</code> è un'eccezione controllata personalizzata che estende la classe <code>Exception</code>.

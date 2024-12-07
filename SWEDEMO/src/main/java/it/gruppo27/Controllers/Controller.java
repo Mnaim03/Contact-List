@@ -1,8 +1,8 @@
-package com.example.Controllers;
+package it.gruppo27.Controllers;
 
-import com.example.Contact.Contatto;
-import com.example.Rubrica;
-import com.example.interfaces.InterfaceRubrica;
+import it.gruppo27.Contact.Contatto;
+import it.gruppo27.Rubrica;
+import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
