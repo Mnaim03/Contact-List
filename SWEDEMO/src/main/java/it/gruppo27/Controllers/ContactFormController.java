@@ -1,3 +1,8 @@
+/**
+ * @file ContactFormController.java
+ * @brief Classe che gestisce il modulo per l'aggiunta, modifica e rimozione dei contatti.
+ */
+
 package it.gruppo27.Controllers;
 import it.gruppo27.Models.Contact.ContactEmail;
 import it.gruppo27.Models.Contact.ContactNumero;
@@ -8,9 +13,14 @@ import it.gruppo27.Managers.AlertManager;
 import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-
 import java.util.List;
 
+/**
+ * @class ContactFormController
+ * @brief Controller per gestire il modulo dei contatti nella rubrica.
+ *
+ * @details Consente di aggiungere, modificare o rimuovere contatti, gestendo sia i dati di input sia la validazione.
+ */
 public class ContactFormController {
     private final VBox datiVBox;
     private final TextField nameField;
@@ -26,6 +36,24 @@ public class ContactFormController {
     private final TableView tableView;
     private TableViewController tableViewController;
 
+    /**
+     * @brief Costruttore della classe ContactFormController.
+     *
+     * @param[in] datiVBox Contenitore del modulo di contatto.
+     * @param[in] nameField Campo di testo per il nome.
+     * @param[in] surnameField Campo di testo per il cognome.
+     * @param[in] phoneFields Campi di testo per i numeri di telefono.
+     * @param[in] emailFields Campi di testo per gli indirizzi email.
+     * @param[in] descriptionField Campo di testo per la descrizione.
+     * @param[in] favouriteCheckBox Checkbox per indicare i contatti preferiti.
+     * @param[in] applyButton Pulsante per applicare modifiche.
+     * @param[in] deleteButton Pulsante per eliminare un contatto.
+     * @param[in] rubrica Interfaccia della rubrica.
+     * @param[in] tableViewController Controller per la tabella dei contatti.
+     * @param[in] tableView Tabella per visualizzare i contatti.
+     *
+     * @post Il modulo di contatto è stato inizializzato.
+     */
     public ContactFormController(VBox datiVBox, TextField nameField, TextField surnameField,
                                  TextField[] phoneFields, TextField[] emailFields,
                                  TextField descriptionField, CheckBox favouriteCheckBox,
@@ -46,6 +74,12 @@ public class ContactFormController {
         this.initialize(tableView);
     }
 
+    /**
+     * @brief Aggiunge un nuovo contatto alla rubrica.
+     *
+     * @pre I campi di input devono contenere dati validi.
+     * @post Un nuovo contatto è stato aggiunto alla rubrica.
+     */
     public void addLista() {
         try {
             Contatto newContact = new Contatto(
@@ -77,6 +111,14 @@ public class ContactFormController {
         }
     }
 
+    /**
+     * @brief Aggiunge numeri telefonici al contatto digitato.
+     *
+     * @param[in] contatto
+     *
+     * @pre Riceve un contatto valido
+     * @post Il Contatto ha correttamente ricevuto i numeri telefonoci
+     */
     private void aggiungiCellAlContattoDigitato(Contatto contatto) throws InvalidNumberException {
         for (TextField field : phoneFields) {
             if (!field.getText().trim().isEmpty()) {
@@ -89,6 +131,14 @@ public class ContactFormController {
         }
     }
 
+    /**
+     * @brief Aggiunge  emails al contatto digitato.
+     *
+     * @param[in] contatto
+     *
+     * @pre Riceve un contatto valido
+     * @post Il Contatto ha correttamente ricevuto le email
+     */
     private void aggiungiEmailsAlContattoDigitato(Contatto contatto) throws InvalidEmailException {
         for (TextField field : emailFields) {
             if (!field.getText().trim().isEmpty()) {
@@ -101,6 +151,12 @@ public class ContactFormController {
         }
     }
 
+    /**
+     * @brief Elimina il contatto selezionato.
+     *
+     * @pre Un contatto deve essere selezionato nella tabella.
+     * @post Il contatto selezionato è stato rimosso dalla rubrica.
+     */
     public void deleteLista() {
         if (selectedContact != null) {
             Boolean confirm = AlertManager.showConfirmation("Alert", "Are you sure you want to delete this contact?", "");
@@ -118,6 +174,12 @@ public class ContactFormController {
         }
     }
 
+    /**
+     * @brief Aggiorna i dati di un contatto
+     *
+     * @pre Le iformazioni modificate devono essere valide.
+     * @post Il contatto modificato è stato aggiornato con le ultime modifiche.
+     */
     public void eseguiModifica() {
         if (selectedContact != null && verificaCambiamenti()) {
             try {
@@ -151,6 +213,11 @@ public class ContactFormController {
         }
     }
 
+    /**
+     * @brief Ripulisce le caselle testuali.
+     *
+     * @post Le caselle sono ripulite.
+     */
     public void clearAllFields() {
         nameField.clear();
         surnameField.clear();
@@ -160,6 +227,12 @@ public class ContactFormController {
         favouriteCheckBox.setSelected(false);
     }
 
+    /**
+     * @brief Verifica se ci sono cambiamenti nel modulo.
+     *
+     * @return True se ci sono cambiamenti, false altrimenti.
+     * @post Restituisce il risultato della verifica sui cambiamenti.
+     */
     public boolean verificaCambiamenti() {
     
     if (selectedContact == null) return false;
@@ -190,6 +263,12 @@ public class ContactFormController {
     return isChangedNome || isChangedCognome || isChangedNumeri || isChangedEmails || isChangedDescrizione || isChangedFavourite;
 }
 
+    /**
+     * @brief Inizializza il comportamento del modulo.
+     *
+     * @param[in] tableView Tabella dei contatti.
+     * @post I listener sono configurati per la selezione dei contatti.
+     */
     public void initialize(TableView<Contatto> tableView) {
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
@@ -200,6 +279,12 @@ public class ContactFormController {
         });
     }
 
+    /**
+     * @brief Popola i campi del modulo con i dettagli del contatto selezionato.
+     *
+     * @param[in] contact Il contatto da visualizzare.
+     * @post I campi del modulo sono aggiornati con i dati del contatto.
+     */
     public void populateFields(Contatto contact) {
         deleteButton.setVisible(true);
         applyButton.setVisible(true);

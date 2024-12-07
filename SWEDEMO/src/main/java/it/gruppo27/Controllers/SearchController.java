@@ -1,5 +1,10 @@
 package it.gruppo27.Controllers;
 
+/**
+ * @file SearchController.java
+ * @brief Gestisce la ricerca e i preferiti nei contatti della rubrica.
+ */
+
 import it.gruppo27.Models.Contact.Contatto;
 import it.gruppo27.interfaces.InterfaceRubrica;
 import javafx.scene.control.Button;
@@ -8,18 +13,43 @@ import javafx.scene.control.TextField;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @class SearchController
+ * @brief Classe che gestisce la barra di ricerca e i preferiti della rubrica.
+ * @invariant La rubrica può essere null
+ */
 public class SearchController {
     private final TextField searchBarField;
     private final Button favoritesButton;
     private final InterfaceRubrica rubrica;
 
 
+    /**
+     * @brief Costruttore della classe SearchController.
+     *
+     * @param[in] searchBarField Campo di testo per la ricerca.
+     * @param[in] favoritesButton Pulsante per visualizzare i preferiti.
+     * @param[in] rubrica Oggetto che implementa l'interfaccia InterfaceRubrica.
+     *
+     * @pre searchBarField != null, favoritesButton != null, rubrica != null
+     * @post L'oggetto SearchController è inizializzato correttamente.
+     */
     public SearchController(TextField searchBarField, Button favoritesButton, InterfaceRubrica rubrica) {
         this.searchBarField = searchBarField;
         this.favoritesButton = favoritesButton;
         this.rubrica = rubrica;
     }
 
+    /**
+     * @brief Inizializza il comportamento della barra di ricerca.
+     *
+     * See also: getContatti()
+     *
+     * @see ricercaContatti()
+     *
+     * @pre La rubrica deve contenere contatti.
+     * @post La barra di ricerca aggiorna dinamicamente la lista dei contatti
+     */
     public void initSearchBar() {
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
             rubrica.getListaOsservabile().setAll(
@@ -35,6 +65,16 @@ public class SearchController {
         });
     }
 
+    /**
+     * @brief Gestisce il clic sul pulsante dei preferiti.
+     *
+     * see also: getFavourite()
+     *
+     * @see getFavourite()
+     *
+     * @pre La rubrica deve contenere contatti.
+     * @post Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante.
+     */
     public void favoritesClick() {
         if (favoritesButton.getText().equals("Favourites")) {
             favoritesButton.setText("See all contacts");

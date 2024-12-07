@@ -1,3 +1,7 @@
+/**
+ * @file Controller.java
+ * @brief Classe principale per gestire il flusso dell'applicazione della rubrica.
+ */
 package it.gruppo27.Controllers;
 
 import it.gruppo27.Models.Contact.Contatto;
@@ -11,6 +15,11 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * @class Controller
+ * @brief Classe principale che integra le funzioni di gestione della rubrica.
+ * @details Gestisce la tabella dei contatti, il modulo di modifica/aggiunta, e altre operazioni come salvataggio e caricamento.
+ */
 public class Controller implements Initializable {
     @FXML private TableView<Contatto> tableView;
     @FXML private TableColumn<Contatto,String> nomeClm;
@@ -39,6 +48,14 @@ public class Controller implements Initializable {
     private BindingController bindingController;
     private InterfaceRubrica rubrica;
 
+    /**
+     * @brief Metodo di inizializzazione chiamato al caricamento del controller.
+     *
+     * @param[in] url L'URL utilizzato per risolvere i percorsi relativi.
+     * @param[in] rb Il bundle di risorse per localizzare il controller.
+     *
+     * @post I controller secondari sono inizializzati e la vista è pronta.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         rubrica = new Rubrica();
@@ -46,6 +63,11 @@ public class Controller implements Initializable {
         datiVBox.setVisible(false);
     }
 
+    /**
+     * @brief Inizializza i controller secondari.
+     *
+     * @post Tutti i controller secondari sono configurati e funzionanti.
+     */
     private void initializeControllers() {
         tableController = new TableViewController(tableView, nomeClm, surnameClm, rubrica);
 
@@ -77,42 +99,97 @@ public class Controller implements Initializable {
         bindingController.initBindings();
     }
 
+    /**
+     * @brief Aggiunge un nuovo contatto alla rubrica.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     * @post Un nuovo contatto è stato aggiunto alla rubrica.
+     */
     @FXML
     private void addLista(ActionEvent event) {
         formController.addLista();
     }
 
+    /**
+     * @brief Elimina il contatto selezionato.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post Il contatto selezionato è stato rimosso.
+     */
     @FXML
     private void deleteLista(ActionEvent event) {
         formController.deleteLista();
     }
 
+    /**
+     * @brief Elimina tutti i contatti dalla rubrica.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post La rubrica è stata svuotata.
+     */
     @FXML
     private void deleteAll(ActionEvent event) {
         tableController.deleteAll();
         datiVBox.setVisible(false);
     }
 
+    /**
+     * @brief Salva i contatti su file.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post I dati sono stati salvati su file.
+     */
     @FXML
     private void saveFile(ActionEvent event) {
         fileController.saveFile();
     }
 
+    /**
+     * @brief Carica contatti da un file.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post I contatti sono stati caricati nella rubrica.
+     */
     @FXML
     private void uploadFile(ActionEvent event) {
         fileController.uploadFile();
     }
 
+    /**
+     * @brief Modifica un contatto selezionato.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post I dettagli del contatto selezionato sono stati aggiornati.
+     */
     @FXML
     private void eseguiModifica(ActionEvent event) {
         formController.eseguiModifica();
     }
 
+    /**
+     * @brief Gestisce il clic sul pulsante dei preferiti.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post Lo stato della lista dei preferiti è stato aggiornato.
+     */
     @FXML
     private void favoritesClick(ActionEvent event) {
         searchController.favoritesClick();
     }
 
+    /**
+     * @brief Attiva il modulo di aggiunta di un nuovo contatto.
+     *
+     * @param[in] event Evento generato dal clic sul pulsante.
+     *
+     * @post Il modulo di inserimento contatti è stato attivato.
+     */
     @FXML
     private void activeSave(ActionEvent event){
         tableView.getSelectionModel().clearSelection(); // Deseleziona eventuali elementi selezionati
