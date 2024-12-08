@@ -1,4 +1,5 @@
 package it.gruppo27.Models;
+import ezvcard.property.Note;
 import it.gruppo27.Models.Contact.ContactEmail;
 import it.gruppo27.Models.Contact.ContactNumero;
 import it.gruppo27.Models.Contact.Contatto;
@@ -73,7 +74,8 @@ public class Rubrica implements InterfaceRubrica{
     } 
     return restituita; 
     }
-    
+
+
     public boolean isPresent(Contatto c){
         for(Contatto tmp : contatti){
         if(tmp.compareTo(c)==0) return true;
@@ -102,15 +104,20 @@ public class Rubrica implements InterfaceRubrica{
     public void salvaVCF(String filename) throws IOException {
         try(FileWriter fw = new FileWriter(filename)){
         for(Contatto contatto : contatti){
-        VCard card = new VCard(); 
+        VCard card = new VCard();
         card.setFormattedName(contatto.getNome()+" "+contatto.getCognome());
         aggiungiNumeriDiTelefonoAVCard(contatto,card);
+        if(contatto.getFavourite()) card.addNote("FAVORITO");
         aggiungiEmailsAVCard(contatto,card);
+        //Salva la descrizione se c'è
+        if (contatto.getDescrizione() != null && !contatto.getDescrizione().isEmpty()) {
+                card.addExtendedProperty("X-DESCRIPTION", contatto.getDescrizione());
+            }
         Ezvcard.write(card).go(fw);
         }
         }
     }
-    
+
     private void aggiungiNumeriDiTelefonoAVCard(Contatto c,VCard card){
         for(ContactNumero numero : c.getNumeriDiTelefono()){
        Telephone telefono = new Telephone(numero.getAssociatedNumber());
@@ -121,19 +128,19 @@ public class Rubrica implements InterfaceRubrica{
        card.addTelephoneNumber(telefono);
         }
     }
-    
-    
-    
+
+
+
     /**
-     * Metodo invocato in fase di creazione di una vCard. Aggiunge tutte le email  del contatto alla vCard 
+     * Metodo invocato in fase di creazione di una vCard. Aggiunge tutte le email  del contatto alla vCard
     */
     private void aggiungiEmailsAVCard(Contatto c , VCard card){
         for(ContactEmail tmp : c.getEmail()){
             Email vCardEmail = new Email(tmp.getAssociatedEmail());
             card.addEmail(vCardEmail);
         }
-    
-    
+
+
     }
     
     
@@ -141,50 +148,62 @@ public class Rubrica implements InterfaceRubrica{
     
     
     //Lettura da file .vcf contenente le VCard 
-    
+
     public Rubrica leggiVCF(String filename) throws IOException, InvalidEmailException, InvalidNumberException {
     Rubrica r = new Rubrica();
     try (FileReader fr = new FileReader(filename)) {
         List<VCard> vcards = Ezvcard.parse(fr).all();
+        Contatto c = null;
         for (VCard card : vcards) {
             // Handle name parsing safely
             String fullName = card.getFormattedName().getValue();
-            
+
             String nome;
-            try{
-             nome = card.getFormattedName().getValue().split(" ")[0];}
-            catch(ArrayIndexOutOfBoundsException ex){
-                nome="";
+            try {
+                nome = card.getFormattedName().getValue().split(" ")[0];
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                nome = "";
+            }
+            String descrizione ="";
+;
+            if (card.getExtendedProperty("X-DESCRIPTION") != null) {
+                descrizione = card.getExtendedProperty("X-DESCRIPTION").getValue();
             }
             //Lo split se non trova niente lancia eccezione.
-            
+
             String cognome;
-            try{
-             cognome = card.getFormattedName().getValue().split(" ")[1];}
-            catch(ArrayIndexOutOfBoundsException ex){
-                cognome="";
+            try {
+                cognome = card.getFormattedName().getValue().split(" ")[1];
+            } catch (ArrayIndexOutOfBoundsException ex) {
+                cognome = "";
             }
 
-           
-             //DA FARE!!!!!!!!!!!!
-            Contatto c = new Contatto(nome, cognome, "",false);
-            
+
+            c = new Contatto(nome, cognome, descrizione, false);
+
             // Add phone numbers
             for (Telephone tmp : card.getTelephoneNumbers()) {
                 c.addNumero(new ContactNumero(tmp.getText()));
             }
-            
+
             // Add emails
             for (Email em : card.getEmails()) {
                 c.addEmail(new ContactEmail(em.getValue()));
             }
-            
-            r.addContatto(c);
+            //Verifico se è tra i favoriti il contatto
+            for (Note nota : card.getNotes()) {
+                if (nota.getValue().equals("FAVORITO")) c.setFavoriti(true);
+            }
         }
+
+        r.addContatto(c);
     }
-    return r;
+
+        return r;
+    }
+
 }
    
-}
+
 
 
