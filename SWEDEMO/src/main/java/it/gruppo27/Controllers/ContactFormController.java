@@ -181,35 +181,35 @@ public class ContactFormController {
      * @post Il contatto modificato è stato aggiornato con le ultime modifiche.
      */
     public void eseguiModifica() {
-        if (selectedContact != null && verificaCambiamenti()) {
-            try {
-                // Update the selected contact's details
-                selectedContact.setNome(nameField.getText());
-                selectedContact.setCognome(surnameField.getText());
-                selectedContact.setDescrizione(descriptionField.getText());
-                selectedContact.setFavoriti(favouriteCheckBox.isSelected());
+        if (selectedContact != null) {
+            if(verificaCambiamenti()) {
+                try {
+                    // Update the selected contact's details
+                    selectedContact.setNome(nameField.getText());
+                    selectedContact.setCognome(surnameField.getText());
+                    selectedContact.setDescrizione(descriptionField.getText());
+                    selectedContact.setFavoriti(favouriteCheckBox.isSelected());
 
-                // Update phone numbers
-                selectedContact.getNumeriDiTelefono().clear();
-                aggiungiCellAlContattoDigitato(selectedContact);
+                    // Update phone numbers
+                    selectedContact.getNumeriDiTelefono().clear();
+                    aggiungiCellAlContattoDigitato(selectedContact);
 
-                // Update emails
-                selectedContact.getEmail().clear();
-                aggiungiEmailsAlContattoDigitato(selectedContact);
+                    // Update emails
+                    selectedContact.getEmail().clear();
+                    aggiungiEmailsAlContattoDigitato(selectedContact);
 
-                // Refresh the observable list and UI
-                rubrica.getListaOsservabile().set(rubrica.getListaOsservabile().indexOf(selectedContact), selectedContact);
-                AlertManager.showAlert("Success", "Contact Modified", "Contact updated successfully");
+                    // Refresh the observable list and UI
+                    rubrica.getListaOsservabile().set(rubrica.getListaOsservabile().indexOf(selectedContact), selectedContact);
+                    AlertManager.showAlert("Success", "Contact Modified", "Contact updated successfully");
 
-                // Clear fields and hide the form
-                clearAllFields();
-                datiVBox.setVisible(false);
-                applyButton.setVisible(false);
-            } catch (InvalidNumberException | InvalidEmailException e) {
-                AlertManager.showAlert("Error", "Modification Failed", e.getMessage());
+                    // Clear fields and hide the form
+                    clearAllFields();
+                    datiVBox.setVisible(false);
+                    applyButton.setVisible(false);
+                } catch (InvalidNumberException | InvalidEmailException e) {
+                    AlertManager.showAlert("Error", "Modification Failed", e.getMessage());
+                }
             }
-        } else {
-            AlertManager.showAlert("Error", "No Modification Detected", "No changes were made to the contact.");
         }
     }
 
