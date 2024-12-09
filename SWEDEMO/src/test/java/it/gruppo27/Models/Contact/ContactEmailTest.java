@@ -21,5 +21,7 @@ class ContactEmailTest {
     @Test
     void isValidEmail() {
         assertTrue(e.isValidEmail());
+        ContactEmail e1 = new ContactEmail("mailmail.com");
+        assertFalse(e1.isValidEmail());
     }
 }

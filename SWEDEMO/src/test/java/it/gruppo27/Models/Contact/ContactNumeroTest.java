@@ -16,6 +16,9 @@ class ContactNumeroTest {
     @Test
     void isValidNumber() {
         assertTrue(num.isValidNumber() == true);
+        //check per numero invalido
+        ContactNumero num1 = new ContactNumero("0");
+        assertFalse(num1.isValidNumber());
     }
 
     @Test
@@ -26,6 +29,8 @@ class ContactNumeroTest {
     @Test
     void isNumeroDiCasa() {
         assertFalse(num.isNumeroDiCasa() == true);
+        ContactNumero num1 = new ContactNumero("089555444");
+        assertTrue(num1.isValidNumber());
     }
 
     @Test
