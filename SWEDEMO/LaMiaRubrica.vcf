@@ -1,0 +1,8 @@
+BEGIN:VCARD
+VERSION:3.0
+PRODID:ez-vcard 0.12.1
+FN:nome cognome
+TEL;TYPE=cell:1234567890
+EMAIL:mail@mail.com
+X-DESCRIPTION:descizione
+END:VCARD

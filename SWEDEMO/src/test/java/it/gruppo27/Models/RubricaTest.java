@@ -7,6 +7,10 @@ import it.gruppo27.Models.Contact.Contatto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -84,6 +88,34 @@ class RubricaTest {
 
     @Test
     void salvaVCF() {
+        try {
+            r.salvaVCF("LaMiaRubrica.vcf");
+        }catch(IOException ex){}
+
+        File vcfFile = new File("LaMiaRubrica.vcf");
+        //Verifico che il file sia stato creato
+        assertTrue(vcfFile.exists());
+        String fileContent="";
+        try {
+             fileContent = new String(Files.readAllBytes(vcfFile.toPath()), StandardCharsets.UTF_8);
+        }catch(IOException ex){}
+         String expectedContent =
+                 "BEGIN:VCARD" +"\n" +
+                 "VERSION:3.0" + "\n" +
+                 "PRODID:ez-vcard 0.12.1" + "\n" +
+                 "FN:nome cognome" +"\n" +
+                 "TEL;TYPE=cell:1234567890" + "\n" +
+                 "EMAIL:mail@mail.com" + "\n" +
+                 "X-DESCRIPTION:descizione" + "\n"+
+                 "END:VCARD" +"\n";
+        // Normalizzo i separatori di riga per entrambi i contenuti, per evitare che i file siano diversi solo per i separatori di riga diversi
+        String normalizedFileContent = fileContent.replace("\r\n", "\n");
+        String normalizedExpectedContent = expectedContent.replace("\r\n", "\n");
+
+        assertEquals(normalizedExpectedContent, normalizedFileContent);
+        //Pulisco dopo averlo creato 
+        vcfFile.delete();
+
     }
 
     @Test
