@@ -5,3 +5,52 @@
     -fx-background-repeat: no-repeat; /* Per assicurarsi che l'immagine non venga ripetuta */
     -fx-background-color: black;
 }
+
+.searchbar{
+    /* Aggiungi un'immagine all'inizio */
+    -fx-background-image: url("assets/search.png"); /* Percorso dell'immagine */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 6px center; /* Posiziona l'immagine a sinistra */
+    -fx-background-size: 21px 21px; /* Dimensioni dell'immagine */
+
+
+    /* Spazio per evitare che il testo si sovrapponga all'icona */
+    -fx-padding: 0 0 0 30px; /* Lascia spazio a sinistra */
+}
+
+.star{
+    -fx-text-fill: #d3af27;
+
+    /* Aggiungi un'immagine all'inizio */
+    -fx-background-image: url("assets/star.png"); /* Percorso dell'immagine */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10px center; /* Posiziona l'immagine a sinistra */
+    -fx-background-size: 15px 15px; /* Dimensioni dell'immagine */
+
+
+    /* Spazio per evitare che il testo si sovrapponga all'icona */
+    -fx-padding: 0 0 0 0; /* Lascia spazio a sinistra */
+}
+
+.mail{
+    /* Aggiungi un'immagine all'inizio */
+    -fx-background-image: url("assets/mail.png"); /* Percorso dell'immagine */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10px center; /* Posiziona l'immagine a sinistra */
+    -fx-background-size: 20px 20px; /* Dimensioni dell'immagine */
+
+    /* Spazio per evitare che il testo si sovrapponga all'icona */
+    -fx-padding: 0 0 0 0; /* Lascia spazio a sinistra */
+}
+
+.phone{
+    /* Aggiungi un'immagine all'inizio */
+    -fx-background-image: url("assets/phone.png"); /* Percorso dell'immagine */
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 10px center; /* Posiziona l'immagine a sinistra */
+    -fx-background-size: 20px 20px; /* Dimensioni dell'immagine */
+
+
+    /* Spazio per evitare che il testo si sovrapponga all'icona */
+    -fx-padding: 0 0 0 0; /* Lascia spazio a sinistra */
+}
