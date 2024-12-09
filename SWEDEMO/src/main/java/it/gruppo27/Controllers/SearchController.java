@@ -41,14 +41,14 @@ public class SearchController {
     }
 
     /**
-     * @brief Inizializza il comportamento della barra di ricerca.
+     * @brief Inizializza il comportamento della barra di ricerca,permettendo di cercare i contatti in base alla sottostringa digitata
      *
      * See also: getContatti()
      *
      * @see ricercaContatti()
      *
      * @pre La rubrica deve contenere contatti.
-     * @post La barra di ricerca aggiorna dinamicamente la lista dei contatti
+     * @post In base al contenuto della barra di ricerca , viene aggiornata la lista dei contatti
      */
     public void initSearchBar() {
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -68,9 +68,8 @@ public class SearchController {
     /**
      * @brief Gestisce il clic sul pulsante dei preferiti.
      *
-     * see also: getFavourite()
      *
-     * @see getFavourite()
+     *
      *
      * @pre La rubrica deve contenere contatti.
      * @post Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante.

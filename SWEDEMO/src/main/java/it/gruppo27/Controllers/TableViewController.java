@@ -65,7 +65,7 @@ public class TableViewController {
      * Mostra  un messaggio di conferma per chiedere all'utente se vuole procedere con l'eliminazione dell'intera rubrica.
      * 
      * @pre ci deve essere almeno un contatto salvato all'interno della rubrica
-     * @post mostra una tableView vuota.
+     * @post tutti i contatti vengono eliminati rubrica , mostrando una tabella vuota.
      */
     public void deleteAll() {
         if(rubrica.getContatti().size() > 0) {

@@ -114,6 +114,7 @@ public class Controller implements Initializable {
      * @brief Elimina il contatto selezionato.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
+     * @see formController.deleteLista() per ulteriori dettagli sull'implementazione dell'eliminazione di un contatto
      *
      * @post Il contatto selezionato è stato rimosso.
      */
@@ -125,7 +126,8 @@ public class Controller implements Initializable {
     /**
      * @brief Elimina tutti i contatti dalla rubrica.
      *
-     * @param[in] event Evento generato dal clic sul pulsante.
+     * @param[in] event Evento generato dal clic sul pulsante
+     * @see tableController.deleteAll() per ulteriori dettagli sull'implementazione dell'eliminazione di tutti i contatti
      *
      * @post La rubrica è stata svuotata.
      */
@@ -139,7 +141,7 @@ public class Controller implements Initializable {
      * @brief Salva i contatti su file.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
-     *
+     * @see fileController.saveFile() per l'implementazione effettiva del salvataggio sul file
      * @post I dati sono stati salvati su file.
      */
     @FXML
@@ -188,7 +190,7 @@ public class Controller implements Initializable {
      *
      * @param[in] event Evento generato dal clic sul pulsante.
      *
-     * @post Il modulo di inserimento contatti è stato attivato.
+     * @post Il modulo di inserimento contatti viene reso visibile , permettendo la creazione di nuovi contatti.
      */
     @FXML
     private void activeSave(ActionEvent event){

@@ -15,7 +15,7 @@ import javafx.scene.layout.VBox;
 
 /**
  * @class BindingController
- * @brief Controller che gestisce i Binding
+ * Classe con l'obiettivo di inizializzare i bindings utili per la gestione dei componenti nell'UI
  */
 public class BindingController {
     private final VBox datiVBox;
@@ -71,10 +71,10 @@ public class BindingController {
     }
 
     /**
-    * @brief Inizializza i binding che coinvolgono i componenti saveButton , applyButton , FavouritesButton
+    * @brief Inizializza i bindings che coinvolgono i componenti saveButton , applyButton , FavouritesButton
     * e il gestore dell'evento per il componente tableView
-    * @post tutti i binding e i gestori saranno inizializzati , dunque i componenti reagiranno in base a come l'utente
-    * interagisce con l'applicazione
+    * @post tutti i binding e i gestori saranno inizializzati,dunque i componenti reagiranno in base a come l'utente
+    * interagisce con l'applicazione , rispettando la logica su cui si basano i bindings
     */ 
     public void initBindings() {
         initSaveButtonBinding();
@@ -84,10 +84,10 @@ public class BindingController {
     }
 
     /**
-     * @brief Inizializza il binding per la visibilità del pulsante di salvataggio.
+     * @brief Inizializza il binding che gestisce la visibilità del pulsante di salvataggio.
      * @pre saveButton,nameField e surnameField non possono essere null 
      * @post Il pulsante di salvataggio sarà visibile solo se nessun contatto è selezionato (dunque l'utente sta creando 
-     * un nuovo contatto) e i campi nome o cognome contengono testo.
+     * un nuovo contatto) e i campi nome o cognome contengono testo(infatti non sarà possibile creare un contatto senza ne nome e cognome).
      */
     private void initSaveButtonBinding() {
         BooleanBinding visible = tableView.getSelectionModel().selectedItemProperty().isNull()
@@ -98,7 +98,7 @@ public class BindingController {
     }
 
     /**
-     * @brief Inizializza il binding per l'abilitazione del pulsante di applicazione.
+     * @brief Inizializza il binding per l'abilitazione del pulsante dapply.
      * @pre nameField,surnameField,phoneFields , emailFields , descriptionField , favouriteCheckBox non devono essere null
      * @post Il pulsante sarà abilitato se almeno tra nameField e surnameField contiene testo
      * e sono state apportate modifiche al contatto

@@ -15,7 +15,7 @@ import java.io.IOException;
 
 /**
  * @class FileController
- * @brief Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica.
+ * @brief Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file .vcf .
  */
 public class FileController {
     private final InterfaceRubrica rubrica;
@@ -24,7 +24,7 @@ public class FileController {
      * @brief Costruttore della classe FileController.
      * @param[in] rubrica Oggetto che implementa l'interfaccia InterfaceRubrica.
      *
-     * @pre rubrica != null
+     * @pre rubrica non puà essere null
      * @post L'oggetto FileController è inizializzato con una rubrica valida.
      */
     public FileController(InterfaceRubrica rubrica) {
@@ -34,7 +34,7 @@ public class FileController {
     /**
      * @brief Salva i contatti della rubrica in un file VCF.
      *
-     * @post Un file VCF è stato creato e contiene tutti i contatti della rubrica.
+     * @post Un file VCF è stato creato e contiene tutti i contatti della rubrica presenti al momento del salvataggio.
      */
     public void saveFile() {
         try {

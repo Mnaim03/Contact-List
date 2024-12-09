@@ -155,7 +155,7 @@ public class ContactFormController {
      * @brief Elimina il contatto selezionato.
      *
      * @pre Un contatto deve essere selezionato nella tabella.
-     * @post Il contatto selezionato è stato rimosso dalla rubrica.
+     * @post Il contatto selezionato viene rimosso dalla rubrica.
      */
     public void deleteLista() {
         if (selectedContact != null) {
@@ -177,7 +177,7 @@ public class ContactFormController {
     /**
      * @brief Aggiorna i dati di un contatto
      *
-     * @pre Le iformazioni modificate devono essere valide.
+     * @pre Le informazioni modificate devono essere valide.
      * @post Il contatto modificato è stato aggiornato con le ultime modifiche.
      */
     public void eseguiModifica() {
@@ -216,7 +216,7 @@ public class ContactFormController {
     /**
      * @brief Ripulisce le caselle testuali.
      *
-     * @post Le caselle sono ripulite.
+     * @post Le caselle sono ripulite del testo che contenevano prima.
      */
     public void clearAllFields() {
         nameField.clear();
@@ -228,10 +228,10 @@ public class ContactFormController {
     }
 
     /**
-     * @brief Verifica se ci sono cambiamenti nel modulo.
+     * @brief Verifica se ci sono cambiamenti nel modulo del contatto selezionato .
      *
      * @return True se ci sono cambiamenti, false altrimenti.
-     * @post Restituisce il risultato della verifica sui cambiamenti.
+     * @post Restituisce <code>true</code> se ci sono cambiamenti(tra i numeri di telefono ,emails , e altri dettagli del contatto selezionato), <code>false</code> altrimenti.
      */
     public boolean verificaCambiamenti() {
     
@@ -264,10 +264,12 @@ public class ContactFormController {
 }
 
     /**
-     * @brief Inizializza il comportamento del modulo.
+     * @brief Inizializza il comportamento da rispettare quando si seleziona un elemento nella tabella.
+     *
+     * Metodo che ha l'obiettivo di visualizzare il modulo con tutti i campi riempiti con i dettagli del contatto , quando si seleziona quest'ultimo  nella tableView
      *
      * @param[in] tableView Tabella dei contatti.
-     * @post I listener sono configurati per la selezione dei contatti.
+     * @post I listener sono configurati per la selezione dei contatti.Quando si seleziona un contatto dalla tableView , vengono mostrati i dettagli nel modulo di fianco che compare
      */
     public void initialize(TableView<Contatto> tableView) {
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
