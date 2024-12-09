@@ -15,7 +15,7 @@ public class NewMain extends Application {
         Scene scene = new Scene(root);
 
         // CSS file addition
-        URL url = this.getClass().getResource("/fxml/cupertino-dark.css");
+        URL url = this.getClass().getResource("/fxml/assets/cupertino-dark.css");
         String css = url.toExternalForm();
         scene.getStylesheets().add(css);
 

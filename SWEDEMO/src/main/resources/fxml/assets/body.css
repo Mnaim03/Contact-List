@@ -1,5 +1,5 @@
 .body{
-    -fx-background-image: url("assets/unisalogo.png");
+    -fx-background-image: url("unisalogo.png");
     -fx-background-size: 350px 350px; /* Larghezza e altezza specifiche */
     -fx-background-position: bottom right; /* Posizionamento in basso a destra */
     -fx-background-repeat: no-repeat; /* Per assicurarsi che l'immagine non venga ripetuta */
@@ -8,7 +8,7 @@
 
 .searchbar{
     /* Aggiungi un'immagine all'inizio */
-    -fx-background-image: url("assets/search.png"); /* Percorso dell'immagine */
+    -fx-background-image: url("search.png"); /* Percorso dell'immagine */
     -fx-background-repeat: no-repeat;
     -fx-background-position: 6px center; /* Posiziona l'immagine a sinistra */
     -fx-background-size: 21px 21px; /* Dimensioni dell'immagine */
@@ -22,7 +22,7 @@
     -fx-text-fill: #d3af27;
 
     /* Aggiungi un'immagine all'inizio */
-    -fx-background-image: url("assets/star.png"); /* Percorso dell'immagine */
+    -fx-background-image: url("star.png"); /* Percorso dell'immagine */
     -fx-background-repeat: no-repeat;
     -fx-background-position: 10px center; /* Posiziona l'immagine a sinistra */
     -fx-background-size: 15px 15px; /* Dimensioni dell'immagine */
@@ -34,7 +34,7 @@
 
 .mail{
     /* Aggiungi un'immagine all'inizio */
-    -fx-background-image: url("assets/mail.png"); /* Percorso dell'immagine */
+    -fx-background-image: url("mail.png"); /* Percorso dell'immagine */
     -fx-background-repeat: no-repeat;
     -fx-background-position: 10px center; /* Posiziona l'immagine a sinistra */
     -fx-background-size: 20px 20px; /* Dimensioni dell'immagine */
@@ -45,7 +45,7 @@
 
 .phone{
     /* Aggiungi un'immagine all'inizio */
-    -fx-background-image: url("assets/phone.png"); /* Percorso dell'immagine */
+    -fx-background-image: url("phone.png"); /* Percorso dell'immagine */
     -fx-background-repeat: no-repeat;
     -fx-background-position: 10px center; /* Posiziona l'immagine a sinistra */
     -fx-background-size: 20px 20px; /* Dimensioni dell'immagine */

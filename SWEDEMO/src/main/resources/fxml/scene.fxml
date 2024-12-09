@@ -17,11 +17,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="969.0" styleClass="body" stylesheets="@body.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.gruppo27.Controllers.Controller">
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="969.0" styleClass="body" stylesheets="@assets/body.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.gruppo27.Controllers.Controller">
   <items>
       <VBox>
          <children>
-            <MenuBar prefHeight="44.0" prefWidth="967.0" stylesheets="@body.css">
+            <MenuBar prefHeight="44.0" prefWidth="967.0" stylesheets="@assets/body.css">
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
@@ -42,12 +42,12 @@
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="323.0">
                      <children>
                         <HBox alignment="CENTER" />
-                        <TextField fx:id="searchBarField" layoutX="33.0" layoutY="28.0" prefHeight="37.0" prefWidth="250.0" promptText="search ..." styleClass="searchbar" stylesheets="@body.css">
+                        <TextField fx:id="searchBarField" layoutX="33.0" layoutY="28.0" prefHeight="37.0" prefWidth="250.0" promptText="search ..." styleClass="searchbar" stylesheets="@assets/body.css">
                            <font>
                               <Font name="System Italic" size="18.0" />
                            </font>
                         </TextField>
-                        <Button fx:id="favoritesButton" alignment="CENTER" layoutX="30.0" layoutY="633.0" mnemonicParsing="false" onAction="#favoritesClick" prefHeight="33.0" prefWidth="251.0" style="-fx-text-fill: d3af27;" stylesheets="@body.css" text="Favourites">
+                        <Button fx:id="favoritesButton" alignment="CENTER" layoutX="30.0" layoutY="633.0" mnemonicParsing="false" onAction="#favoritesClick" prefHeight="33.0" prefWidth="251.0" style="-fx-text-fill: d3af27;" stylesheets="@assets/body.css" text="Favourites">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -119,7 +119,7 @@
                                  <children>
                                     <HBox prefHeight="34.0" prefWidth="625.0">
                                        <children>
-                                          <Label fx:id="phone1Label" alignment="TOP_RIGHT" prefHeight="31.0" prefWidth="45.0" styleClass="phone" stylesheets="@body.css" text="1">
+                                          <Label fx:id="phone1Label" alignment="TOP_RIGHT" prefHeight="31.0" prefWidth="45.0" styleClass="phone" stylesheets="@assets/body.css" text="1">
                                              <font>
                                                 <Font name="Arial Hebrew" size="23.0" />
                                              </font>
@@ -132,7 +132,7 @@
                                     </HBox>
                                     <HBox prefHeight="34.0" prefWidth="625.0">
                                        <children>
-                                          <Label fx:id="phone2Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="phone" stylesheets="@body.css" text="2">
+                                          <Label fx:id="phone2Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="phone" stylesheets="@assets/body.css" text="2">
                                              <font>
                                                 <Font name="Arial Hebrew" size="23.0" />
                                              </font>
@@ -145,7 +145,7 @@
                                     </HBox>
                                     <HBox prefHeight="34.0" prefWidth="625.0">
                                        <children>
-                                          <Label fx:id="phone3Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="phone" stylesheets="@body.css" text="3">
+                                          <Label fx:id="phone3Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="phone" stylesheets="@assets/body.css" text="3">
                                              <font>
                                                 <Font name="Arial Hebrew" size="23.0" />
                                              </font>
@@ -170,7 +170,7 @@
                                  <children>
                                     <HBox prefHeight="34.0" prefWidth="625.0">
                                        <children>
-                                          <Label fx:id="email1Label" alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="mail" stylesheets="@body.css" text="1">
+                                          <Label fx:id="email1Label" alignment="CENTER_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="mail" stylesheets="@assets/body.css" text="1">
                                              <font>
                                                 <Font name="Arial Hebrew" size="23.0" />
                                              </font>
@@ -183,7 +183,7 @@
                                     </HBox>
                                     <HBox prefHeight="34.0" prefWidth="625.0">
                                        <children>
-                                          <Label fx:id="email2Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="mail" stylesheets="@body.css" text="2">
+                                          <Label fx:id="email2Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="mail" stylesheets="@assets/body.css" text="2">
                                              <font>
                                                 <Font name="Arial Hebrew" size="23.0" />
                                              </font>
@@ -196,7 +196,7 @@
                                     </HBox>
                                     <HBox prefHeight="34.0" prefWidth="625.0">
                                        <children>
-                                          <Label fx:id="email3Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="mail" stylesheets="@body.css" text="3">
+                                          <Label fx:id="email3Label" alignment="TOP_RIGHT" prefHeight="16.0" prefWidth="45.0" styleClass="mail" stylesheets="@assets/body.css" text="3">
                                              <font>
                                                 <Font name="Arial Hebrew" size="23.0" />
                                              </font>

@@ -35,8 +35,8 @@ public class ManagerContatti {
 
     /**
      *  Aggiunge un nuovo numero alla lista dei numeri del contatto passata come parametro
-     * @param numeriDelContatto i numeri già associati a quel contatto
-     * @param nuovoNumero il nuovo numero da inserire
+     * @param[in] numeriDelContatto i numeri già associati a quel contatto
+     * @param[in] nuovoNumero il nuovo numero da inserire
      * @throws InvalidNumberException eccezione lanciata quando il contatto ha già 3 numeri di telefono oppure il nuovo numero non è valido
      * @pre la lista numeriDelContatto dev'essere una lista valida , non nulla
      * @post il nuovo numero è aggiunto alla lista se non ci sono stati errori , viceversa è lanciata un'eccezione InvalidNumberException
@@ -51,8 +51,8 @@ public class ManagerContatti {
 
     /**
      *  Aggiunge una nuova email alla lista delle email del contatto passata come parametro
-     * @param emailDelContatto le email già associate al contatto
-     * @param nuovaMail la nuova mail da inserire tra quelle del contatto
+     * @param[in] emailDelContatto le email già associate al contatto
+     * @param[in] nuovaMail la nuova mail da inserire tra quelle del contatto
      * @throws InvalidEmailException eccezione lanciata in caso di email non valida o se il contatto ha già 3 email
      * @pre la lista emailDelContatto dev'essere una lista valida , non nulla
      * @post la nuova email è aggiunta alla lista se non ci sono stati errori , viceversa è sollevata l'eccezione InvalidEmailException

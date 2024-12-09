@@ -48,6 +48,7 @@ public class Rubrica implements InterfaceRubrica{
     public ObservableList<Contatto> getListaOsservabile(){
     return listContatti; 
     }
+
     /**
      * @brief metodo getter
      * @return il set dei contatti della rubrica al momento della chiamata
@@ -55,8 +56,9 @@ public class Rubrica implements InterfaceRubrica{
     public Set<Contatto> getContatti(){
         return contatti;
     }
+
     /**
-     * @brief  
+     * @brief Ricerca il contatto in base a un sottostringa immessa in input
      * @param stringa la sottostringa del nome o del cognome digitata
      * @return la nuova rubrica contenente tutti i contatti corrispondenti alla ricerca
      */
