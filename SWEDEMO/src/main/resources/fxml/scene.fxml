@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="772.0" prefWidth="969.0" styleClass="body" stylesheets="@body.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.gruppo27.Controllers.Controller">
+  <items>
+      <VBox>
+         <children>
+            <MenuBar prefHeight="44.0" prefWidth="967.0">
+              <menus>
+                <Menu mnemonicParsing="false" text="File">
+                  <items>
+                    <MenuItem fx:id="saveFileButton" mnemonicParsing="false" onAction="#saveFile" text="Save" />
+                        <MenuItem fx:id="uploadFileButton" mnemonicParsing="false" onAction="#uploadFile" text="Load" />
+                  </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Contact">
+                  <items>
+                    <MenuItem fx:id="newContantButton" mnemonicParsing="false" onAction="#activeSave" text="Add new contact" />
+                        <MenuItem fx:id="deleteAllButton1" mnemonicParsing="false" onAction="#deleteAll" text="Delete All" />
+                  </items>
+                </Menu>
+              </menus>
+            </MenuBar>
+            <HBox>
+               <children>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="323.0">
+                     <children>
+                        <HBox alignment="CENTER" />
+                        <TextField fx:id="searchBarField" layoutX="33.0" layoutY="28.0" prefHeight="37.0" prefWidth="250.0" promptText="search ...">
+                           <font>
+                              <Font name="System Italic" size="18.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="favoritesButton" alignment="CENTER" layoutX="30.0" layoutY="633.0" mnemonicParsing="false" onAction="#favoritesClick" prefHeight="33.0" prefWidth="251.0" style="-fx-text-fill: d3af27;" text="Favourites">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                           <styleClass>
+                           </styleClass>
+                        </Button>
+                        <TableView fx:id="tableView" layoutX="31.0" layoutY="78.0" prefHeight="543.0" prefWidth="250.0" style="-fx-background-color: black;">
+                          <columns>
+                            <TableColumn fx:id="nomeClm" prefWidth="125.0" style="-fx-border-width: 0;" text="Name" />
+                            <TableColumn fx:id="surnameClm" prefWidth="125.0" styleClass="" text="Surname" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+                  <Line endX="-102.70053100585938" endY="709.053466796875" startX="-100.0" startY="-2.16448974609375" stroke="#ffffff45" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="743.0" prefWidth="647.0">
+                     <children>
+                        <VBox fx:id="datiVBox" prefHeight="770.0" prefWidth="647.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <HBox prefHeight="140.0" prefWidth="627.0">
+                                 <children>
+                                    <VBox alignment="TOP_CENTER" prefHeight="150.0" prefWidth="282.0">
+                                       <children>
+                                          <TextField fx:id="nameField" promptText="Name">
+                                             <VBox.margin>
+                                                <Insets top="14.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial Hebrew" size="20.0" />
+                                             </font>
+                                          </TextField>
+                                          <TextField fx:id="surnameField" promptText="Surname">
+                                             <VBox.margin>
+                                                <Insets top="14.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial Hebrew" size="20.0" />
+                                             </font>
+                                          </TextField>
+                                          <CheckBox fx:id="favouriteCheckBox" lineSpacing="1.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="326.0" style="-fx-text-fill: d3af27;" text="Favourites">
+                                             <VBox.margin>
+                                                <Insets top="12.0" />
+                                             </VBox.margin>
+                                             <font>
+                                                <Font name="Arial Hebrew" size="14.0" />
+                                             </font>
+                                          </CheckBox>
+                                       </children>
+                                       <HBox.margin>
+                                          <Insets left="15.0" />
+                                       </HBox.margin>
+                                    </VBox>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <Label fx:id="phoneLabel" prefHeight="40.0" prefWidth="328.0" text="Phone Numbers">
+                                 <font>
+                                    <Font name="Arial Hebrew Bold" size="23.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox prefHeight="115.0" prefWidth="625.0">
+                                 <children>
+                                    <HBox prefHeight="34.0" prefWidth="625.0">
+                                       <children>
+                                          <Label fx:id="phone1Label" prefHeight="16.0" prefWidth="114.0" text="Phone 1">
+                                             <font>
+                                                <Font name="Arial Hebrew" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="phone1Field" prefHeight="26.0" prefWidth="190.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="34.0" prefWidth="625.0">
+                                       <children>
+                                          <Label fx:id="phone2Label" prefHeight="16.0" prefWidth="114.0" text="Phone 2">
+                                             <font>
+                                                <Font name="Arial Hebrew" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="phone2Field" prefHeight="26.0" prefWidth="190.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="34.0" prefWidth="625.0">
+                                       <children>
+                                          <Label fx:id="phone3Label" prefHeight="16.0" prefWidth="114.0" text="Phone 3">
+                                             <font>
+                                                <Font name="Arial Hebrew" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="phone3Field" prefHeight="26.0" prefWidth="190.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                              <Label fx:id="emailLabel" prefHeight="40.0" prefWidth="328.0" text="Emails">
+                                 <font>
+                                    <Font name="Arial Hebrew Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <VBox prefHeight="115.0" prefWidth="625.0">
+                                 <children>
+                                    <HBox prefHeight="34.0" prefWidth="625.0">
+                                       <children>
+                                          <Label fx:id="email1Label" prefHeight="16.0" prefWidth="114.0" text="Email 1">
+                                             <font>
+                                                <Font name="Arial Hebrew" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="email1Field" prefHeight="26.0" prefWidth="190.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="34.0" prefWidth="625.0">
+                                       <children>
+                                          <Label fx:id="email2Label" prefHeight="16.0" prefWidth="114.0" text="Email 2">
+                                             <font>
+                                                <Font name="Arial Hebrew" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="email2Field" prefHeight="26.0" prefWidth="190.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="34.0" prefWidth="625.0">
+                                       <children>
+                                          <Label fx:id="email3Label" prefHeight="16.0" prefWidth="114.0" text="Email 3">
+                                             <font>
+                                                <Font name="Arial Hebrew" size="23.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="email3Field" prefHeight="26.0" prefWidth="189.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </VBox>
+                              <Label fx:id="descriptionLabel" prefHeight="40.0" prefWidth="328.0" text="Description">
+                                 <font>
+                                    <Font name="Arial Hebrew Bold" size="23.0" />
+                                 </font>
+                              </Label>
+                              <VBox prefHeight="119.0" prefWidth="647.0">
+                                 <children>
+                                    <TextField fx:id="descriptionField" alignment="TOP_LEFT" prefHeight="112.0" prefWidth="545.0">
+                                       <VBox.margin>
+                                          <Insets right="60.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="20.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <Line endX="513.5924072265625" startX="-100.0" stroke="#ffffff45" />
+                              <HBox alignment="CENTER_RIGHT" prefHeight="56.0" prefWidth="609.0" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="saveButton" mnemonicParsing="false" onAction="#addLista" prefHeight="37.0" prefWidth="118.0" text="Save">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="applyButton" mnemonicParsing="false" onAction="#eseguiModifica" prefHeight="37.0" prefWidth="118.0" style="-fx-text-fill: #a7fe4c;" text="Apply" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                    <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#deleteLista" prefHeight="37.0" prefWidth="118.0" style="-fx-text-fill: #fa6663;" text="Delete" textAlignment="CENTER">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                                 <padding>
+                                    <Insets right="40.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+  </items>
+</SplitPane>

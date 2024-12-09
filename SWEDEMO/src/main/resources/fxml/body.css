@@ -1,0 +1,7 @@
+.body{
+    -fx-background-image: url("assets/unisalogo.png");
+    -fx-background-size: 350px 350px; /* Larghezza e altezza specifiche */
+    -fx-background-position: bottom right; /* Posizionamento in basso a destra */
+    -fx-background-repeat: no-repeat; /* Per assicurarsi che l'immagine non venga ripetuta */
+    -fx-background-color: black;
+}
