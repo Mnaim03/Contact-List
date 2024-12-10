@@ -14,14 +14,26 @@ class ContactEmailTest {
     }
 
     @Test
-    void getAssociatedEmail() {
+    void getAssociatedEmailTest() {
         assertEquals("mail@mail.com", e.getAssociatedEmail());
     }
 
     @Test
-    void isValidEmail() {
+    void isValidEmailTest() {
         assertTrue(e.isValidEmail());
-        ContactEmail e1 = new ContactEmail("mailmail.com");
+        ContactEmail e1 = new ContactEmail("mailmail.com"); //Email senza @
         assertFalse(e1.isValidEmail());
+        ContactEmail emailSenzaEstensione = new ContactEmail("mail@mail"); //Email senza estensione
+        assertFalse(emailSenzaEstensione.isValidEmail());
+    }
+
+    @Test
+    void equalsTest(){
+        //Caso email uguali
+        ContactEmail emailUguale = new ContactEmail("mail@mail.com");
+        assertTrue(emailUguale.equals(e));
+        //Caso email diverse
+        ContactEmail emailDiversa = new ContactEmail("mail1@mail.com");
+        assertFalse(emailDiversa.equals(e));
     }
 }

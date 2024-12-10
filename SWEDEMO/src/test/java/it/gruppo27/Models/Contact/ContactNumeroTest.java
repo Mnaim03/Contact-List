@@ -15,7 +15,7 @@ class ContactNumeroTest {
 
     @Test
     void isValidNumber() {
-        assertTrue(num.isValidNumber() == true);
+        assertTrue(num.isValidNumber());
         //check per numero invalido
         ContactNumero num1 = new ContactNumero("0");
         assertFalse(num1.isValidNumber());
@@ -28,14 +28,18 @@ class ContactNumeroTest {
 
     @Test
     void isNumeroDiCasa() {
-        assertFalse(num.isNumeroDiCasa() == true);
+        assertFalse(num.isNumeroDiCasa());
         ContactNumero num1 = new ContactNumero("089555444");
-        assertTrue(num1.isValidNumber());
+        assertTrue(num1.isNumeroDiCasa());
     }
 
     @Test
     void testEquals() {
-        ContactNumero num2 = new ContactNumero("3898537006");
-        assertTrue(num.equals(num2));
+        //Caso numeri uguali
+        ContactNumero numeroUguale = new ContactNumero("3898537006");
+        assertTrue(num.equals(numeroUguale));
+        //Caso numeri diversi
+        ContactNumero numeroDiverso = new ContactNumero("1234567890");
+        assertFalse(num.equals(numeroDiverso));
     }
 }

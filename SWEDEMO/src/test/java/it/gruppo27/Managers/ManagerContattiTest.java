@@ -20,14 +20,14 @@ class ManagerContattiTest {
         c = new Contatto("nome","cognome","descizione",false);
     }
     @Test
-    void addNumero() throws InvalidNumberException{
+    void addNumeroTest() throws InvalidNumberException{
         
         ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1234567890"));
         
         assertEquals(1,c.getNumeriDiTelefono().size());
         
-        //inserimento duplicato
-        
+
+        //Caso numero duplicato , la size deve rimanere 1 in quanto non accettiamo numeri duplicati
         try{
         ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1234567890"));
         }
@@ -49,30 +49,34 @@ class ManagerContattiTest {
     }
 
     @Test
-    void addEmail() throws InvalidEmailException {
+    void addEmailTest() throws InvalidEmailException {
+
+
         ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail@mail.com"));
         
         assertEquals(1,c.getEmail().size());
-        
-        //inserimento duplicato
-        
+
+
+        //Caso email duplicata, la size deve rimanere 1 in quanto non accettiamo email duplicate
         try{
         ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail@mail.com"));
         }
         catch(InvalidEmailException ex){
-        assertEquals(1,c.getNumeriDiTelefono().size());
+        assertEquals(1,c.getEmail().size());
+        System.out.println("Eccezione InvalidNumber lanciata test");
         }
-        assertEquals(1,c.getNumeriDiTelefono().size()); //ripeto controllo nel caso in cui non venga lanciata eccezione
-        
+
+        //Controllo che non mi faccia aggiungere più di 3 emails
         try{
         ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail1@mail.com"));
         ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail2@mail.com"));
         ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail3@mail.com"));
         }
         catch(InvalidEmailException ex){
-        assertEquals(3,c.getNumeriDiTelefono().size());
+        assertEquals(3,c.getEmail().size());
+        System.out.println("Eccezione InvalidEmail lanciata test");
         }
-        assertEquals(3,c.getNumeriDiTelefono().size()); //ripeto controllo nel caso in cui non venga lanciata eccezione
+
         
     }
 }

@@ -58,4 +58,13 @@ public class ContactEmail implements CheckerEmail{
     public boolean isValidEmail(){
         return email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
     }
+
+
+    public boolean equals(Object obj){
+        if(obj==null) return false;
+        if(obj==this) return true;
+        if(!(obj instanceof ContactEmail)) return false;
+        ContactEmail email =(ContactEmail) obj;
+        return this.email.equals(email.email);
+    }
 }

@@ -31,65 +31,67 @@ class ContattoTest {
     }
 
     @Test
-    void getNumeriDiTelefono() {
-        assertEquals(new ContactNumero("1234567890"), c.getNumeriDiTelefono());
+    //Verifico il primo numero
+    void getNumeriDiTelefonoTest() {
+        assertEquals(new ContactNumero("1234567890"), c.getNumeriDiTelefono().get(0));
     }
 
     @Test
-    void getEmail() {
-        assertEquals(new ContactEmail("mail@mail.com"), c.getEmail());
+    //Verifico la prima email
+    void getEmailTest() {
+        assertEquals(new ContactEmail("mail@mail.com"), c.getEmail().get(0));
     }
 
     @Test
-    void getDescrizione() {
+    void getDescrizioneTest() {
         assertEquals("descrizione", c.getDescrizione());
     }
 
     @Test
-    void getFavourite() {
+    void getFavouriteTest() {
         assertFalse(c.getFavourite());
     }
 
 
     @Test
-    void setNome() {
+    void setNomeTest() {
         c.setNome("nome2");
         assertEquals("nome2", c.getNome());
     }
 
     @Test
-    void setCognome() {
+    void setCognomeTest() {
         c.setCognome("cognome2");
         assertEquals("cognome2", c.getCognome());
     }
 
     @Test
-    void addNumero() throws InvalidNumberException {
+    void addNumeroTest() throws InvalidNumberException {
         c.addNumero(new ContactNumero("0987654321"));
         assertEquals(2 , c.getNumeriDiTelefono().size());
     }
 
     @Test
-    void addEmail() throws InvalidEmailException {
+    void addEmailTest() throws InvalidEmailException {
         c.addEmail(new ContactEmail("mail2@mail.com"));
-        assertEquals(2 , c.getNumeriDiTelefono().size());
+        assertEquals(2 , c.getEmail().size());
     }
 
     @Test
-    void setDescrizione() {
+    void setDescrizioneTest() {
         c.setDescrizione("descrizione2");
         assertEquals("descrizione2", c.getDescrizione());
     }
     @Test
-    void setFavoriti() {
+    void setFavoritiTest() {
         c.setFavoriti(true);
         assertEquals(true, c.getFavourite());
     }
 
     @Test
 
-    //NON FUNZIONA
-    void compareTo() throws Exception {
+
+    void compareToTest() throws Exception {
         //secondo contatto c2 copia identica di contatto c
         Contatto c2 = new Contatto("nome","cognome","descrizione",false);
         c2.addEmail( new ContactEmail("mail@mail.com"));

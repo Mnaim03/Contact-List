@@ -11,9 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.Comparator;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,27 +20,28 @@ class RubricaTest {
 
     @BeforeEach
     void setUp() throws Exception {
-        Contatto c = new Contatto("nome","cognome","descizione",false);
+        Contatto c = new Contatto("nome","cognome","descrizione",false);
         c.addEmail( new ContactEmail("mail@mail.com"));
         c.addNumero( new ContactNumero("1234567890"));
-
         r = new Rubrica();
         r.addContatto(c);
         r.getListaOsservabile().setAll(r.getContatti());
+
     }
 
     @Test
-    void addContatto() {
+    void addContattoTest() {
         Contatto c2 = new Contatto("nome2","cognome2","descizione",false);
         r.addContatto(c2);
         assertEquals(2, r.getContatti().size());
-        //X controllare gestione corretta duplicati
+        //Aggiungo duplicati,la size deve rimanere 2
         r.addContatto(c2);
         assertEquals(2, r.getContatti().size());
+
     }
 
     @Test
-    void removeContatto() {
+    void removeContattoTest() {
         //rimuovo contatto inesistente
         r.removeContatto( new Contatto("nome2","cognome2","descizione",false));
         assertEquals(1, r.getContatti().size());
@@ -53,25 +52,25 @@ class RubricaTest {
     }
 
     @Test
-    void getListaOsservabile() throws Exception {
+    void getListaOsservabileTest() throws Exception {
         assertNotNull(r.getListaOsservabile());
     }
 
     @Test
-    void getContatti() throws Exception {
+    void getContattiTest() throws Exception {
         assertNotNull(r.getContatti());
     }
 
     @Test
-    void ricercaContatti() {
-        assertNotNull(r.ricercaContatti("nome"));
-        assertNotNull(r.ricercaContatti("cognome"));
-        assertNotNull(r.ricercaContatti("cognome"+" "+"nome"));
-        assertNotNull(r.ricercaContatti("nome"+" "+"cognome"));
+    void ricercaContattiTest() {
+        assertNotNull(r.ricercaContatti("nome")); //Cerco per nome
+        assertNotNull(r.ricercaContatti("cognome"));//cerco per cognome
+        assertNotNull(r.ricercaContatti("cognome"+" "+"nome"));//Cerco per cognome e nome
+        assertNotNull(r.ricercaContatti("nome"+" "+"cognome"));//cerco per nome e cognome
     }
 
     @Test
-    void isPresent() {
+    void isPresentTest() {
         //check per contatto non presente in lista
         Contatto c2 = new Contatto("nome2","cognome2","descizione",false);
         assertFalse(r.isPresent(c2));
@@ -81,13 +80,13 @@ class RubricaTest {
     }
 
     @Test
-    void deleteAll() {
+    void deleteAllTest() {
         r.deleteAll();
         assertEquals(0, r.getContatti().size());
     }
 
     @Test
-    void salvaVCF() {
+    void salvaVCFTest() {
         try {
             r.salvaVCF("LaMiaRubrica.vcf");
         }catch(IOException ex){}
@@ -106,7 +105,7 @@ class RubricaTest {
                  "FN:nome cognome" +"\n" +
                  "TEL;TYPE=cell:1234567890" + "\n" +
                  "EMAIL:mail@mail.com" + "\n" +
-                 "X-DESCRIPTION:descizione" + "\n"+
+                 "X-DESCRIPTION:descrizione" + "\n"+
                  "END:VCARD" +"\n";
         // Normalizzo i separatori di riga per entrambi i contenuti, per evitare che i file siano diversi solo per i separatori di riga diversi
         String normalizedFileContent = fileContent.replace("\r\n", "\n");
@@ -118,15 +117,40 @@ class RubricaTest {
 
     }
 
-    @Test
-    void aggiungiNumeriDiTelefonoAVCard() {
-    }
+
 
     @Test
-    void aggiungiEmailsAVCard() {
-    }
+    void leggiVCFTest() {
+        //Salvo la rubrica su file
+        try{
+            r.salvaVCF("LaMiaRubrica.vcf");
+        }catch(Exception ex){}
 
-    @Test
-    void leggiVCF() {
+        //Leggo la rubrica appena salvata
+        Rubrica rubricaLettaDaFile =null ;
+        try {
+             rubricaLettaDaFile = r.leggiVCF("LaMiaRubrica.vcf");
+        }catch(Exception ex){}
+
+        assertNotNull(rubricaLettaDaFile); //Verifico innanzitutto che sia stata popolata
+
+        List<Contatto> contattiRubricaVecchia= new ArrayList<>();
+        List<Contatto> contattiLettiDaFile= new ArrayList<>();
+        //Salvo tutti i contatti della rubrica che è stata salvata
+        for(Contatto c : r.getContatti()){
+            contattiRubricaVecchia.add(c);
+        }
+
+        //Salvo tutti i contatti della rubrica che è stata letta
+        for(Contatto c : rubricaLettaDaFile.getContatti()){
+            contattiLettiDaFile.add(c);
+        }
+
+        int risultatoCompareTo = 20;
+        //verifico che TUTTI i contatti della rubrica che è stata salvata e di quella che è stata letta siano uguali
+        for(int i=0;i<contattiLettiDaFile.size();i++){
+            risultatoCompareTo = contattiLettiDaFile.get(i).compareTo(contattiRubricaVecchia.get(i));
+            assertTrue(risultatoCompareTo==0);
+        }
     }
 }
