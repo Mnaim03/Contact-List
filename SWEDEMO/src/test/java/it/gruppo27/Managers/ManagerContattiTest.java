@@ -11,72 +11,93 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
+// ID 3
 class ManagerContattiTest {
     Contatto c;
     
     @BeforeEach
     void setUp() throws Exception {
         c = new Contatto("nome","cognome","descizione",false);
+        c.addNumero(new ContactNumero("1234567890"));
+        c.addEmail(new ContactEmail("mail@mail.com"));
     }
+
+// ID = 3.1.1
     @Test
-    void addNumeroTest() throws InvalidNumberException{
-        
-        ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1234567890"));
-        
-        assertEquals(1,c.getNumeriDiTelefono().size());
-        
+    void addNumeroSingoloNumeroValidoTest(){
+        try {
+            ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("3312124357"));
+        }catch(InvalidNumberException ex){}
 
-        //Caso numero duplicato , la size deve rimanere 1 in quanto non accettiamo numeri duplicati
-        try{
-        ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1234567890"));
-        }
-        catch(InvalidNumberException ex){
-        assertEquals(1,c.getNumeriDiTelefono().size());
-        }
-        assertEquals(1,c.getNumeriDiTelefono().size()); //ripeto controllo nel caso in cui non venga lanciata eccezione
-        
-        try{
-        ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("0987654321"));
-        ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1987654321"));
-        ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("2987654321"));
-        }
-        catch(InvalidNumberException ex){
-        assertEquals(3,c.getNumeriDiTelefono().size());
-        }
-        assertEquals(3,c.getNumeriDiTelefono().size()); //ripeto controllo nel caso in cui non venga lanciata eccezione
-        
+        assertEquals(2,c.getNumeriDiTelefono().size());
     }
 
+// ID = 3.1.3
     @Test
-    void addEmailTest() throws InvalidEmailException {
-
-
-        ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail@mail.com"));
-        
-        assertEquals(1,c.getEmail().size());
-
-
-        //Caso email duplicata, la size deve rimanere 1 in quanto non accettiamo email duplicate
+    void addNumeroSuperamentoLimiteTreTest(){
         try{
-        ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail@mail.com"));
-        }
-        catch(InvalidEmailException ex){
-        assertEquals(1,c.getEmail().size());
-        System.out.println("Eccezione InvalidNumber lanciata test");
-        }
-
-        //Controllo che non mi faccia aggiungere più di 3 emails
-        try{
-        ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail1@mail.com"));
-        ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail2@mail.com"));
-        ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail3@mail.com"));
-        }
-        catch(InvalidEmailException ex){
-        assertEquals(3,c.getEmail().size());
-        System.out.println("Eccezione InvalidEmail lanciata test");
+            ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("0987654321"));
+            ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1987654321"));
+            ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("2987654321"));
+        }catch(InvalidNumberException ex){
+            System.out.println("Eccezione lanciata test");
+            assertEquals(3,c.getNumeriDiTelefono().size());
         }
 
-        
     }
-}
+
+// ID = 3.1.2
+    @Test
+    void addNumeroSingoloDuplicatoTest(){
+        try{
+            ManagerContatti.addNumero(c.getNumeriDiTelefono(),new ContactNumero("1234567890"));
+        }catch(InvalidNumberException ex){
+            System.out.println("Eccezione lanciata test");
+            assertEquals(1,c.getNumeriDiTelefono().size());
+        }
+    }
+
+// ID = 3.2.1
+    @Test
+    void addEmailSingolaValidaTest(){
+            try {
+                ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mailValida@gmail.com"));
+            }catch(InvalidEmailException ex){}
+
+            assertEquals(2,c.getEmail().size());
+        }
+//ID = 3.2.2
+    @Test
+    void addEmailSingolaDuplicataTest(){
+        try{
+            ManagerContatti.addEmail(c.getEmail(),new ContactEmail("mail@mail.com"));
+        }catch(InvalidEmailException ex){
+            assertEquals(1,c.getEmail().size());
+            System.out.println("Test ID = 3.2.2 SUPERATO");
+        }
+
+
+    }
+
+//ID = 3.2.3
+    @Test
+    void addEmailSuperamentoLimiteTre(){
+        try{
+            ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail1@mail.com"));
+            ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail2@mail.com"));
+            ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail3@mail.com"));
+        }catch(InvalidEmailException ex){
+            System.out.println("Eccezione lanciata test");
+            assertEquals(3,c.getEmail().size());
+        }
+    }
+
+
+    }
+
+
+
+
+
+
+

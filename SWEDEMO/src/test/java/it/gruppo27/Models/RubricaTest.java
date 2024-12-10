@@ -30,23 +30,35 @@ class RubricaTest {
     }
 
     @Test
-    void addContattoTest() {
-        Contatto c2 = new Contatto("nome2","cognome2","descizione",false);
-        r.addContatto(c2);
+    void addContattoNonDuplicatoTest() {
+        Contatto contattoNonDuplicato= new Contatto("nome2","cognome2","descrizione",false);
+        r.addContatto(contattoNonDuplicato);
         assertEquals(2, r.getContatti().size());
-        //Aggiungo duplicati,la size deve rimanere 2
-        r.addContatto(c2);
-        assertEquals(2, r.getContatti().size());
+    }
+
+    @Test
+    void addContattoDuplicatoTest() throws Exception{
+        //Aggiungo contatto duplicato.Un contatto è duplicato se , ha stesso cognome stesso nome e stessi numeri di telefono
+        Contatto contattoDuplicato = new Contatto("nome","cognome","descrizione",false);
+        contattoDuplicato.addEmail( new ContactEmail("mail@mail.com"));
+        contattoDuplicato.addNumero(new ContactNumero("1234567890"));
+        r.addContatto(contattoDuplicato);
+        assertEquals(1, r.getContatti().size());
 
     }
 
     @Test
-    void removeContattoTest() {
+    void removeContattoInesistenteTest() {
         //rimuovo contatto inesistente
         r.removeContatto( new Contatto("nome2","cognome2","descizione",false));
         assertEquals(1, r.getContatti().size());
-        //rimuovo un contatto esistente
+    }
+
+    @Test
+    void removeContattoEsistente(){
         Contatto c2 = new Contatto("nome2","cognome2","descizione",false);
+        //Aggiungo il contatto
+        r.addContatto(c2);
         r.removeContatto(c2);
         assertEquals(1 , r.getContatti().size());
     }
@@ -70,13 +82,19 @@ class RubricaTest {
     }
 
     @Test
-    void isPresentTest() {
+    void isPresentContattoAssenteTest() {
         //check per contatto non presente in lista
-        Contatto c2 = new Contatto("nome2","cognome2","descizione",false);
-        assertFalse(r.isPresent(c2));
+        Contatto contattoAssente= new Contatto("nome2","cognome2","descizione",false);
+        assertFalse(r.isPresent(contattoAssente));
+    }
+
+    @Test
+
+    void isPresentContattoPresenteTest(){
         //check per contatto presente in lista
-        r.addContatto(c2);
-        assertTrue(r.isPresent(c2));
+        Contatto contattoPresente = new Contatto("nomePresente","cognomePresente","description",false);
+        r.addContatto(contattoPresente);
+        assertTrue(r.isPresent(contattoPresente));
     }
 
     @Test
