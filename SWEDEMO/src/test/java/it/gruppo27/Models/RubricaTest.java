@@ -29,13 +29,16 @@ class RubricaTest {
 
     }
 
+    // ID = 2.1.1
     @Test
     void addContattoNonDuplicatoTest() {
         Contatto contattoNonDuplicato= new Contatto("nome2","cognome2","descrizione",false);
         r.addContatto(contattoNonDuplicato);
         assertEquals(2, r.getContatti().size());
+        System.out.println("Test ID = 2.1.1 SUPERATO");
     }
 
+    // ID = 2.1.2
     @Test
     void addContattoDuplicatoTest() throws Exception{
         //Aggiungo contatto duplicato.Un contatto è duplicato se , ha stesso cognome stesso nome e stessi numeri di telefono
@@ -44,16 +47,20 @@ class RubricaTest {
         contattoDuplicato.addNumero(new ContactNumero("1234567890"));
         r.addContatto(contattoDuplicato);
         assertEquals(1, r.getContatti().size());
+        System.out.println("Test ID = 2.1.2 SUPERATO");
 
     }
 
+    // ID = 2.2.1
     @Test
     void removeContattoInesistenteTest() {
         //rimuovo contatto inesistente
         r.removeContatto( new Contatto("nome2","cognome2","descizione",false));
         assertEquals(1, r.getContatti().size());
+        System.out.println("Test ID = 2.2.1 SUPERATO");
     }
 
+    // ID = 2.2.2
     @Test
     void removeContattoEsistente(){
         Contatto c2 = new Contatto("nome2","cognome2","descizione",false);
@@ -61,48 +68,61 @@ class RubricaTest {
         r.addContatto(c2);
         r.removeContatto(c2);
         assertEquals(1 , r.getContatti().size());
+        System.out.println("Test ID = 2.2.2 SUPERATO");
     }
 
+    // ID = 2.3
     @Test
     void getListaOsservabileTest() throws Exception {
         assertNotNull(r.getListaOsservabile());
+        System.out.println("Test ID = 2.3 SUPERATO");
     }
 
+    // ID = 2.4
     @Test
     void getContattiTest() throws Exception {
         assertNotNull(r.getContatti());
+        System.out.println("Test ID = 2.4 SUPERATO");
     }
 
+    // ID = 2.9
     @Test
     void ricercaContattiTest() {
         assertNotNull(r.ricercaContatti("nome")); //Cerco per nome
         assertNotNull(r.ricercaContatti("cognome"));//cerco per cognome
         assertNotNull(r.ricercaContatti("cognome"+" "+"nome"));//Cerco per cognome e nome
         assertNotNull(r.ricercaContatti("nome"+" "+"cognome"));//cerco per nome e cognome
+        System.out.println("Test ID = 2.9 SUPERATO");
     }
 
+    // ID = 2.5.1
     @Test
     void isPresentContattoAssenteTest() {
         //check per contatto non presente in lista
         Contatto contattoAssente= new Contatto("nome2","cognome2","descizione",false);
         assertFalse(r.isPresent(contattoAssente));
+        System.out.println("Test ID = 2.5.1 SUPERATO");
     }
 
+    // ID = 2.5.2
     @Test
-
     void isPresentContattoPresenteTest(){
         //check per contatto presente in lista
         Contatto contattoPresente = new Contatto("nomePresente","cognomePresente","description",false);
         r.addContatto(contattoPresente);
         assertTrue(r.isPresent(contattoPresente));
+        System.out.println("Test ID = 2.5.2 SUPERATO");
     }
 
+    // ID = 2.6
     @Test
     void deleteAllTest() {
         r.deleteAll();
         assertEquals(0, r.getContatti().size());
+        System.out.println("Test ID = 2.6 SUPERATO");
     }
 
+    // ID = 2.7
     @Test
     void salvaVCFTest() {
         try {
@@ -132,11 +152,10 @@ class RubricaTest {
         assertEquals(normalizedExpectedContent, normalizedFileContent);
         //Pulisco dopo averlo creato
         vcfFile.delete();
-
+        System.out.println("Test ID = 2.7 SUPERATO");
     }
 
-
-
+    // ID = 2.8
     @Test
     void leggiVCFTest() {
         //Salvo la rubrica su file
@@ -170,5 +189,7 @@ class RubricaTest {
             risultatoCompareTo = contattiLettiDaFile.get(i).compareTo(contattiRubricaVecchia.get(i));
             assertTrue(risultatoCompareTo==0);
         }
+
+        System.out.println("Test ID = 2.8 SUPERATO");
     }
 }
