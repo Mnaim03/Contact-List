@@ -43,8 +43,6 @@ public class Contatto implements Comparable<Contatto>{
         this.favoriti = favoriti;
     }
 
-
-
     /**
      * Restituisce il nome del contatto
      * @return il nome del contatto
