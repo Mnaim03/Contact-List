@@ -2,7 +2,6 @@ package it.gruppo27.Controllers;
 
 /**
  * @file FileController.java
- * @brief Gestisce il caricamento e il salvataggio dei file della rubrica.
  */
 
 import it.gruppo27.Exceptions.InvalidEmailException;
@@ -24,8 +23,8 @@ public class FileController {
      * @brief Costruttore della classe FileController.
      * @param[in] rubrica Oggetto che implementa l'interfaccia InterfaceRubrica.
      *
-     * @pre rubrica non puà essere null
-     * @post L'oggetto FileController è inizializzato con una rubrica valida.
+     * 
+     * @post Viene creata una nuova istanza di FileController. 
      */
     public FileController(InterfaceRubrica rubrica) {
         this.rubrica = rubrica;
@@ -48,8 +47,9 @@ public class FileController {
     /**
      * @brief Carica i contatti da un file VCF selezionato dall'utente.
      *
-     * @pre L'utente deve selezionare un file valido.
-     * @post La rubrica contiene tutti i contatti del file caricato.
+     * @pre L'utente deve selezionare un file VCF il cui formato sia valido.
+     * @post La rubrica contiene tutti i contatti del file caricato. 
+     * La rubrica precendente verrà sovrascritta dalla rubrica caricata
      */
     public void uploadFile() {
         FileChooser fileChooser = new FileChooser();

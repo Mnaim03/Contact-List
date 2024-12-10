@@ -1,7 +1,7 @@
 package it.gruppo27.Controllers;
 /**
  * @file TableViewController.java
- * @brief Controller per gestire le operazioni sulla table view presente nell'interfaccia grafica.
+ * 
  */
 import it.gruppo27.Models.Contact.Contatto;
 import it.gruppo27.Managers.AlertManager;
@@ -14,7 +14,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 /**
  * @class TableViewController
- * @brief Controller della TableView che visualizza i contatti
+ * @brief Controller per gestire le operazioni sulla table view presente nell'interfaccia grafica.
  *
  */
 public class TableViewController {

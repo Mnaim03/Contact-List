@@ -2,7 +2,6 @@ package it.gruppo27.Controllers;
 
 /**
  * @file SearchController.java
- * @brief Gestisce la ricerca e i preferiti nei contatti della rubrica.
  */
 
 import it.gruppo27.Models.Contact.Contatto;
@@ -15,7 +14,7 @@ import java.util.List;
 
 /**
  * @class SearchController
- * @brief Classe che gestisce la barra di ricerca e i preferiti della rubrica.
+ * @brief Classe per la gestione della barra di ricerca e i preferiti della rubrica.
  * @invariant La rubrica può essere null
  */
 public class SearchController {
@@ -31,8 +30,7 @@ public class SearchController {
      * @param[in] favoritesButton Pulsante per visualizzare i preferiti.
      * @param[in] rubrica Oggetto che implementa l'interfaccia InterfaceRubrica.
      *
-     * @pre searchBarField != null, favoritesButton != null, rubrica != null
-     * @post L'oggetto SearchController è inizializzato correttamente.
+     * @post Viene creata una nuova istanza di SearchController .
      */
     public SearchController(TextField searchBarField, Button favoritesButton, InterfaceRubrica rubrica) {
         this.searchBarField = searchBarField;
@@ -47,7 +45,6 @@ public class SearchController {
      *
      * @see ricercaContatti()
      *
-     * @pre La rubrica deve contenere contatti.
      * @post In base al contenuto della barra di ricerca , viene aggiornata la lista dei contatti
      */
     public void initSearchBar() {
@@ -67,12 +64,8 @@ public class SearchController {
 
     /**
      * @brief Gestisce il clic sul pulsante dei preferiti.
-     *
-     *
-     *
-     *
-     * @pre La rubrica deve contenere contatti.
-     * @post Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante.
+     * @post Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante. Il text
+     * del pulsante cambierà per far capire all'utente in che lista si trova.
      */
     public void favoritesClick() {
         if (favoritesButton.getText().equals("Favourites")) {

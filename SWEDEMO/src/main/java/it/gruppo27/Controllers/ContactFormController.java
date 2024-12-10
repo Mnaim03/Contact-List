@@ -1,6 +1,5 @@
 /**
  * @file ContactFormController.java
- * @brief Classe che gestisce il modulo per l'aggiunta, modifica e rimozione dei contatti.
  */
 
 package it.gruppo27.Controllers;
@@ -17,7 +16,7 @@ import java.util.List;
 
 /**
  * @class ContactFormController
- * @brief Controller per gestire il modulo dei contatti nella rubrica.
+ * @brief Controller per gestire il modulo , l'aggiunta , la modifica e l'eliminazione di contatti della rubrica .
  *
  * @details Consente di aggiungere, modificare o rimuovere contatti, gestendo sia i dati di input sia la validazione.
  */
@@ -52,7 +51,7 @@ public class ContactFormController {
      * @param[in] tableViewController Controller per la tabella dei contatti.
      * @param[in] tableView Tabella per visualizzare i contatti.
      *
-     * @post Il modulo di contatto è stato inizializzato.
+     * @post una nuova istanza di ContactFormController è stata creata
      */
     public ContactFormController(VBox datiVBox, TextField nameField, TextField surnameField,
                                  TextField[] phoneFields, TextField[] emailFields,
@@ -78,7 +77,7 @@ public class ContactFormController {
      * @brief Aggiunge un nuovo contatto alla rubrica.
      *
      * @pre I campi di input devono contenere dati validi. Almeno uno tra il campo Nome e il campo Cognome deve essere
-     * compilato
+     * compilato nel nuovo contatto.
      * @post Un nuovo contatto è stato aggiunto alla rubrica.
      */
     public void addLista() {
@@ -118,7 +117,7 @@ public class ContactFormController {
      * @param[in] contatto
      *
      * @pre Riceve un contatto valido
-     * @post Il Contatto ha correttamente ricevuto i numeri telefonoci
+     * @post Il Contatto ha correttamente ricevuto i numeri telefonici
      */
     private void aggiungiCellAlContattoDigitato(Contatto contatto) throws InvalidNumberException {
         for (TextField field : phoneFields) {
@@ -155,7 +154,7 @@ public class ContactFormController {
     /**
      * @brief Elimina il contatto selezionato.
      *
-     * @pre Un contatto deve essere selezionato nella tabella.
+     * @pre Almeno un contatto deve essere presente in tabella e selezionato.
      * @post Il contatto selezionato viene rimosso dalla rubrica.
      */
     public void deleteLista() {
@@ -177,7 +176,8 @@ public class ContactFormController {
     /**
      * @brief Aggiorna i dati di un contatto
      *
-     * @pre Le informazioni modificate devono essere valide.
+     * @pre Le nuove informazioni inserite devono essere valide. Almeno uno tra il campo Nome e il campo Cognome deve essere
+     * compilato nel contatto modificato.
      * @post Il contatto modificato è stato aggiornato con le ultime modifiche.
      */
     public void eseguiModifica() {

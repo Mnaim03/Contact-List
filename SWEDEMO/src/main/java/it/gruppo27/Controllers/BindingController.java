@@ -1,7 +1,6 @@
 package it.gruppo27.Controllers;
 /**
  * @file BindingController.java
- * @brief Controller per la gestione dei binding tra i componenti della scena e la gestione degli eventi.
  * 
  */
 import it.gruppo27.Models.Contact.Contatto;
@@ -15,7 +14,7 @@ import javafx.scene.layout.VBox;
 
 /**
  * @class BindingController
- * Classe con l'obiettivo di inizializzare i bindings utili per la gestione dei componenti nell'UI
+ * @brief Classe con l'obiettivo di inizializzare i bindings e gli event linsteners utili per la gestione dei componenti nell'UI
  */
 public class BindingController {
     private final VBox datiVBox;
@@ -48,7 +47,7 @@ public class BindingController {
      * @param[in] favouriteCheckBox CheckBox per contatti preferiti.
      * @param[in] descriptionField Campo di testo per la descrizione.
      *
-     * @post Il BindingController è stato inizializzato.
+     * @post viene creata una nuova istanza di BindingController
      */
     public BindingController(TextField nameField, TextField surnameField,
                              TextField[] phoneFields, TextField[] emailFields,
@@ -85,7 +84,6 @@ public class BindingController {
 
     /**
      * @brief Inizializza il binding che gestisce la visibilità del pulsante di salvataggio.
-     * @pre saveButton,nameField e surnameField non possono essere null 
      * @post Il pulsante di salvataggio sarà visibile solo se nessun contatto è selezionato (dunque l'utente sta creando 
      * un nuovo contatto) e i campi nome o cognome contengono testo(infatti non sarà possibile creare un contatto senza ne nome e cognome).
      */
@@ -122,7 +120,8 @@ public class BindingController {
     
     /**
      * @brief Inizializza il binding per l'abilitazione del pulsante dei preferiti.
-     * @post Il pulsante sarà abilitato solo se il campo di ricerca non contiene testo.
+     * @post Il pulsante per la visualizzazione dei contatti 
+     * preferiti sarà abilitato solo se il campo di ricerca non contiene testo.
      */  
     private void initFavoritesButtonBinding() {
         BooleanBinding favoritesButtonBinding = Bindings.createBooleanBinding(

@@ -4,8 +4,7 @@ package it.gruppo27.Models;
  * @file Rubrica.java
  * @brief File contenente la classe Rubrica per la gestione di una rubrica dei contatti
  * <p>
- * Questo file definisce la classe Rubrica, che implementa un sistema di gestione
- * dei contatti con funzionalità di aggiunta, rimozione, ricerca e esportazione.
+ * 
  * @see Contatto
  * @see ContactEmail
  * @see ContactNumero
@@ -35,22 +34,27 @@ import javafx.collections.ObservableList;
 
 /**
  * @class Rubrica
- * @brief Rappresenta una Rubruca o anche detta address book
- *
- * Questa classe gestisce un una collezzione di Contatti e operazione si quest'ultimi, come aggiunta
- * rimozione, ricerca e esportazione di contatti
- *
- * @note Fa uso di TreeSet per ordinamento efficente dei Contatti e una ObservableList per l'aggiornamento della UI
+ * @brief Classe che implementa un sistema di gestione
+ * dei contatti con funzionalità di aggiunta, rimozione, ricerca di contatti dalla rubrica ed
+ * esportazione e caricamento di un file .
+ * 
  */
 public class Rubrica implements InterfaceRubrica{
     private Set<Contatto> contatti;
+    /**
+     * @note Fa uso di TreeSet per ottenere un ordinamento efficente dei Contatti e non permettere doppioni.
+     * Ordinamento e il fatto che due contatti siano considerati doppioni dipende dalla compareTo dell'oggetto Contatto.
+     */ 
     private ObservableList<Contatto> listContatti;
+    /** @note Il TreeSet manterrà la lista TOTALE dei contatti , l'ObservableArrayList manterrà i contatti OSSERVABILI nella tabella
+         presente nell'interfaccia */ 
 
     /**
      * @brief Costruttore della Classe Rubrica. Iniziallizza la rubrica con un TreeSet e una Observable List
      *
-     * @post i contatti inizializzati sono TreeSet vuoti
-     * @post la listContatti inizializzata è una ObservableList vuota
+     * @post è stata creata una nuova istanza di rubrica.
+     * Come struttura dati per accogliere gli oggetto Contatto è stato scelto un TreeSet
+     * Come struttura dati per accogliere la lista di contatti è stata scelta una observableArrayList
      */
     public Rubrica() {
         this.contatti = new TreeSet<>();
@@ -59,13 +63,13 @@ public class Rubrica implements InterfaceRubrica{
 
     /**
      * @brief Aggiunge un nuovo contatto alla Rubrica.
-     * Il Contatto viene sia aggiunto al TreeSet che all'ObservableList.
+     * Il Contatto viene aggiunto al TreeSet 
      *
      * @param[in] contatto che deve essere aggiunto
      *
      * @pre contatto non deve essere null
-     * @post il contatto è stato aggiunto alla Rubrica
-     * @post La dimensione della rubrica incrementa di 1
+     * @post il contatto è stato aggiunto al TreeSet
+     * @post La dimensione della rubrica aumenta di 1
      */
     public void addContatto(Contatto contatto) {
         contatti.add(contatto);
@@ -73,13 +77,13 @@ public class Rubrica implements InterfaceRubrica{
 
     /**
      * @brief Rimuove un contatto dalla Rubrica.
-     * Il Contatto viene rimosso dal TreeSet e dall'ObservableList.
+     * Il Contatto viene rimosso dal TreeSet.
      *
      * @param[in] contatto che deve essere rimosso
      *
      * @pre contatto non deve essere null
      * @post il contatto è stato rimosso alla Rubrica
-     * @post La dimensione della rubrica idecrementa di 1
+     * @post La dimensione della rubrica diminuisce di 1
      */
     public void removeContatto(Contatto contatto) {
         contatti.remove(contatto);
@@ -97,7 +101,7 @@ public class Rubrica implements InterfaceRubrica{
     /**
      * @brief Ritorna il Set dei Contatti
      *
-     * @return Set contenente tutti i contti
+     * @return Set contenente tutti i contatti
      */
     public Set<Contatto> getContatti(){
         return contatti;
@@ -105,12 +109,12 @@ public class Rubrica implements InterfaceRubrica{
 
     /**
      * @brief Data una sottostringa restituisce la Rubrica contenente i contatti
-     * avetenti la sottostringa nel nome e/o cognome
+     * aventi la sottostringa nel nome e/o cognome
      *
-     * @param[in] stringa da cercre in Rubrica
-     * @return Rubrica contente i esclusivamente i contatti avete al loro interno la sottostringa associata
+     * @param[in] stringa da cercare in Rubrica
+     * @return Rubrica contente esclusivamente i contatti aventi al loro interno la sottostringa passata
      *
-     * @pre stringa non null
+     * 
      */
     public Rubrica ricercaContatti(String stringa){
     Rubrica restituita = new Rubrica(); 
@@ -128,12 +132,11 @@ public class Rubrica implements InterfaceRubrica{
     }
 
     /**
-     * @brief Verifica la presenza o assenza di un contatto
+     * @brief Verifica la presenza o assenza di un contatto all'interno del TreeSet (rubrica totale)
      *
      * @param[in] c contatto da verificare
      * @return booleano che indica la presenza o assenza di un contatto
      *
-     * @pre c non deve essere null
      * @post Ritorna true se la presenza è confermata, altrimenti ritorna false
      */
     public boolean isPresent(Contatto c){
@@ -148,7 +151,7 @@ public class Rubrica implements InterfaceRubrica{
     /**
      * @brief Rimuove tutti i contatti dalla Rubrica
      *
-     * @post contatti and listContatti si svuotano
+     * @post contatti e listContatti si svuotano
      */
     public void deleteAll(){
         contatti.clear();
@@ -165,14 +168,16 @@ public class Rubrica implements InterfaceRubrica{
     }
 
     /**
-     * @brief Salve i contatti in un file VCF.
-     * importa tutti i contatti in un formato VCF (Virtual Contact File).
+     * @brief Salva i contatti in un file VCF.
+     * Esporta tutti i contatti in un formato VCF (Virtual Contact File) e li salva all'interno di un file.
      *
      * @param[in] filename indicante il percorso del file VCF
      * @throws IOException in caso di errore nella scrittura
      *
      * @pre filename deve essere un perscorso valido
-     * @post tutti i contatti sono correttamente salvati
+     * @post tutti i contatti sono correttamente salvati all'interno del file il cui nome è passato come parametro.
+     * Il file può essere aperto utilizzando una qualsiasi applicazione di gestione dei contatti che supporta il formato VCF
+     * su qualsiasi sistema operativo.
      */
     public void salvaVCF(String filename) throws IOException {
         try(FileWriter fw = new FileWriter(filename)){

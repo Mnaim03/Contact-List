@@ -1,6 +1,5 @@
 /**
  * @file Controller.java
- * @brief Classe principale per gestire il flusso dell'applicazione della rubrica.
  */
 package it.gruppo27.Controllers;
 
