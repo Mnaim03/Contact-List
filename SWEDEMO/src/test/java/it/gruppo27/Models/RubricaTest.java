@@ -113,7 +113,7 @@ class RubricaTest {
         String normalizedExpectedContent = expectedContent.replace("\r\n", "\n");
 
         assertEquals(normalizedExpectedContent, normalizedFileContent);
-        //Pulisco dopo averlo creato 
+        //Pulisco dopo averlo creato
         vcfFile.delete();
 
     }
