@@ -77,7 +77,8 @@ public class ContactFormController {
     /**
      * @brief Aggiunge un nuovo contatto alla rubrica.
      *
-     * @pre I campi di input devono contenere dati validi.
+     * @pre I campi di input devono contenere dati validi. Almeno uno tra il campo Nome e il campo Cognome deve essere
+     * compilato
      * @post Un nuovo contatto è stato aggiunto alla rubrica.
      */
     public void addLista() {

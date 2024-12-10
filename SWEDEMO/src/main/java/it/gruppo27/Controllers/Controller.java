@@ -65,7 +65,13 @@ public class Controller implements Initializable {
 
     /**
      * @brief Inizializza i controller secondari.
-     *
+     * @see tableController.initializeTable() per l'implementazione dell'inizializzazione del controller che gestisce
+     * la table view.
+       @see searchController.initSearchBar() per l'implementazione dell'inizializzazione del controller che gestisce la 
+       * barra di ricerca
+       @see bindingController.initBindings() per l'implementazione dell'inizializzazione del controller che gestisce 
+       * i binding
+       * @see ContactFormController per l'implementazione della classe da cui dipende la gestione dei form dei contatti
      * @post Tutti i controller secondari sono configurati e funzionanti.
      */
     private void initializeControllers() {
@@ -153,7 +159,7 @@ public class Controller implements Initializable {
      * @brief Carica contatti da un file.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
-     *
+     * @see fileController.uploadFile() per l'implementazione dell'upload di un file
      * @post I contatti sono stati caricati nella rubrica.
      */
     @FXML
@@ -165,7 +171,7 @@ public class Controller implements Initializable {
      * @brief Modifica un contatto selezionato.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
-     *
+     * @see formController.eseguiModifica() per l'implementazione della modifica
      * @post I dettagli del contatto selezionato sono stati aggiornati.
      */
     @FXML
@@ -177,7 +183,7 @@ public class Controller implements Initializable {
      * @brief Gestisce il clic sul pulsante dei preferiti.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
-     *
+     * @see searchController.favoritesClick() per informazioni sull'implementazione della lista dei preferiti
      * @post Lo stato della lista dei preferiti è stato aggiornato.
      */
     @FXML
@@ -189,7 +195,7 @@ public class Controller implements Initializable {
      * @brief Attiva il modulo di aggiunta di un nuovo contatto.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
-     *
+     * @see formController.clearAllFields() per informazioni sul modo in cui avviene la pulizia dei campi 
      * @post Il modulo di inserimento contatti viene reso visibile , permettendo la creazione di nuovi contatti.
      */
     @FXML

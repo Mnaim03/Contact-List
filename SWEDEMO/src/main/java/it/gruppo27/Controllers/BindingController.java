@@ -99,7 +99,6 @@ public class BindingController {
 
     /**
      * @brief Inizializza il binding per l'abilitazione del pulsante dapply.
-     * @pre nameField,surnameField,phoneFields , emailFields , descriptionField , favouriteCheckBox non devono essere null
      * @post Il pulsante sarà abilitato se almeno tra nameField e surnameField contiene testo
      * e sono state apportate modifiche al contatto
      */
@@ -123,7 +122,6 @@ public class BindingController {
     
     /**
      * @brief Inizializza il binding per l'abilitazione del pulsante dei preferiti.
-     * @pre searchBarField e favoritesButtonBinding non sono null 
      * @post Il pulsante sarà abilitato solo se il campo di ricerca non contiene testo.
      */  
     private void initFavoritesButtonBinding() {
@@ -137,7 +135,6 @@ public class BindingController {
     /**
      * @brief Configura la tabella per gestire eventi di selezione dei contatti.
      * @pre deve esserci almeno un contatto da poter selezionare all'interno della tabella.
-     * tableView,datiVBox,contactFormController e applyButton non possono essere null.
      * @post Quando un contatto all'interno della tabella 
      * viene cliccato due volte, i suoi dettagli vengono mostrati nel modulo.
      */
