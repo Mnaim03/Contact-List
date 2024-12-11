@@ -123,7 +123,7 @@ public class Rubrica implements InterfaceRubrica{
     for(Contatto tmp : contatti){
         nomecognome = tmp.getNome()+" "+tmp.getCognome(); 
         cognomenome = tmp.getCognome()+" "+tmp.getNome();
-        System.out.println(nomecognome);
+
         if(nomecognome.contains(stringa) || cognomenome.contains(stringa)){
         restituita.addContatto(tmp);
         }

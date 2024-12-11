@@ -85,14 +85,27 @@ class RubricaTest {
         System.out.println("Test ID = 2.4 SUPERATO");
     }
 
-    // ID = 2.9
+    // ID = 2.9.1
     @Test
     void ricercaContattiTest() {
-        assertNotNull(r.ricercaContatti("nome")); //Cerco per nome
-        assertNotNull(r.ricercaContatti("cognome"));//cerco per cognome
-        assertNotNull(r.ricercaContatti("cognome"+" "+"nome"));//Cerco per cognome e nome
-        assertNotNull(r.ricercaContatti("nome"+" "+"cognome"));//cerco per nome e cognome
+        assertEquals(1,r.ricercaContatti("nome").getContatti().size()); //Cerco per nome
+        assertEquals(1,r.ricercaContatti("cognome").getContatti().size());//cerco per cognome
+        assertEquals(1,r.ricercaContatti("cognome"+" "+"nome").getContatti().size());//Cerco per cognome e nome
+        assertEquals(1,r.ricercaContatti("nome"+" "+"cognome").getContatti().size());//cerco per nome e cognome
         System.out.println("Test ID = 2.9 SUPERATO");
+    }
+
+
+    @Test
+    void ricercaContattiParzialeTest(){
+        Contatto mario = new Contatto("Mario","Giordano","",false);
+        Contatto marinella = new Contatto("Marinella","Rocca","",false);
+        r.addContatto(mario);
+        r.addContatto(marinella);
+        assertEquals(1,r.ricercaContatti("Marin").getContatti().size()); //Solo marinella
+        assertEquals(2,r.ricercaContatti("Mar").getContatti().size()); //Mar deve cercarmi entrambi
+
+
     }
 
     // ID = 2.5.1
