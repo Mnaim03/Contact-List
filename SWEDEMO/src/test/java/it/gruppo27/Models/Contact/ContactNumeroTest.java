@@ -13,14 +13,17 @@ class ContactNumeroTest {
         num = new ContactNumero("3898537006");
     }
 
-    // ID = 4.1
+    // ID = 4.1.1
     @Test
-    void isValidNumber() {
+    void isValidNumberNumeroValidoTest() {
         assertTrue(num.isValidNumber());
-        //check per numero invalido
-        ContactNumero num1 = new ContactNumero("0");
-        assertFalse(num1.isValidNumber());
-        System.out.println("Test ID = 4.1 SUPERATO");
+        System.out.println("Test ID = 4.1.1 SUPERATO");
+    }
+    @Test
+    void isValidNumberNumeroNonValidTest(){
+        ContactNumero numeroNonValido = new ContactNumero("12345");
+        assertFalse(numeroNonValido.isValidNumber());
+        System.out.println("TEST ID = 4.1.2 SUPERATO");
     }
 
     // ID = 4.2
@@ -30,24 +33,34 @@ class ContactNumeroTest {
         System.out.println("Test ID = 4.2 SUPERATO");
     }
 
-    // ID = 4.3
+    // ID = 4.3.1
     @Test
-    void isNumeroDiCasa() {
+    void isNumeroDiCasaNumeroNonDiCasaTest() {
         assertFalse(num.isNumeroDiCasa());
-        ContactNumero num1 = new ContactNumero("089555444");
-        assertTrue(num1.isNumeroDiCasa());
-        System.out.println("Test ID = 4.3 SUPERATO");
+        System.out.println("Test ID = 4.3.1 SUPERATO");
+    }
+    @Test
+    void isNumeroDiCasaNumeroDiCasaTest(){
+        ContactNumero numeroDiCasa = new ContactNumero("089761388");
+        assertTrue(numeroDiCasa.isNumeroDiCasa());
+        System.out.println("Test ID=4.3.2 SUPERATO");
     }
 
     // ID = 4.4
     @Test
-    void testEquals() {
+    void testEqualsNumeriUgualiTest() {
         //Caso numeri uguali
-        ContactNumero numeroUguale = new ContactNumero("3898537006");
-        assertTrue(num.equals(numeroUguale));
-        //Caso numeri diversi
-        ContactNumero numeroDiverso = new ContactNumero("1234567890");
-        assertFalse(num.equals(numeroDiverso));
-        System.out.println("Test ID = 4.4 SUPERATO");
+        ContactNumero numeroUgualeANum = new ContactNumero("3898537006");
+        assertTrue(num.equals(numeroUgualeANum));
+        System.out.println("Test ID = 4.4.1 SUPERATO");
+    }
+
+
+    @Test
+    void testEqualsNumeriDiversiTest(){
+        ContactNumero numeroDiversoDaNum = new ContactNumero("1234567890");
+        assertFalse(num.equals(numeroDiversoDaNum));
+        System.out.println("Test ID=4.4.2 SUPERATO");
+
     }
 }
