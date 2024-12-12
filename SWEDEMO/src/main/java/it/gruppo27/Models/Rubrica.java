@@ -294,9 +294,10 @@ public class Rubrica implements InterfaceRubrica{
             for (Note nota : card.getNotes()) {
                 if (nota.getValue().equals("FAVORITO")) c.setFavoriti(true);
             }
+            r.addContatto(c);
         }
 
-        r.addContatto(c);
+
     }
 
         return r;

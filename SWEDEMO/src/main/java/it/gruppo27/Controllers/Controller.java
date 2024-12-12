@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 /**
  * @class Controller
- * @brief Classe principale che integra le funzioni di gestione della rubrica.
+ * @brief Classe principale che integra le funzioni di gestione della rubrica.Funge da coordinatore tra gli altri controller e le attività dell'utente
  * @details Gestisce la tabella dei contatti, il modulo di modifica/aggiunta, e altre operazioni come salvataggio e caricamento.
  */
 public class Controller implements Initializable {

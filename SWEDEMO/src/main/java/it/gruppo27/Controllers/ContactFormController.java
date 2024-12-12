@@ -216,7 +216,7 @@ public class ContactFormController {
     /**
      * @brief Ripulisce le caselle testuali.
      *
-     * @post Le caselle sono ripulite del testo che contenevano prima.
+     * @post Le caselle sono ripulite del testo che contenevano prima della chiamata del metodo .
      */
     public void clearAllFields() {
         nameField.clear();
@@ -230,7 +230,7 @@ public class ContactFormController {
     /**
      * @brief Verifica se ci sono cambiamenti nel modulo del contatto selezionato .
      *
-     * @return True se ci sono cambiamenti, false altrimenti.
+     * .
      * @post Restituisce <code>true</code> se ci sono cambiamenti(tra i numeri di telefono ,emails , e altri dettagli del contatto selezionato), <code>false</code> altrimenti.
      */
     public boolean verificaCambiamenti() {
@@ -269,7 +269,7 @@ public class ContactFormController {
      * Metodo che ha l'obiettivo di visualizzare il modulo con tutti i campi riempiti con i dettagli del contatto , quando si seleziona quest'ultimo  nella tableView
      *
      * @param[in] tableView Tabella dei contatti.
-     * @post I listener sono configurati per la selezione dei contatti.Quando si seleziona un contatto dalla tableView , vengono mostrati i dettagli nel modulo di fianco che compare
+     * @post I listener sono configurati per la selezione dei contatti.Quando si seleziona un contatto dalla tableView , vengono mostrati i dettagli nel modulo che compare di fianco
      */
     public void initialize(TableView<Contatto> tableView) {
         tableView.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {

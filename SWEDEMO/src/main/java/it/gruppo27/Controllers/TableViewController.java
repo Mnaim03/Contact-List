@@ -60,12 +60,12 @@ public class TableViewController {
     }
     
     /**
-     * @brief Eliminazione di tutti i contatti dalla rubrica.
+     * @brief Gestisce l'eliminazione di tutti i contatti della rubrica
      *
-     * Mostra  un messaggio di conferma per chiedere all'utente se vuole procedere con l'eliminazione dell'intera rubrica.
+     * Metodo che elimina tutti i contatti della rubrica.Mostra un messaggio di conferma per chiedere all'utente se vuole procedere con l'eliminazione dell'intera rubrica.
      * 
      * @pre ci deve essere almeno un contatto salvato all'interno della rubrica
-     * @post tutti i contatti vengono eliminati rubrica , mostrando una tabella vuota.
+     * @post tutti i contatti vengono eliminati dalla rubrica , mostrando una rubrica vuota.
      */
     public void deleteAll() {
         if(rubrica.getContatti().size() > 0) {
@@ -84,8 +84,9 @@ public class TableViewController {
     /**
      * @brief Aggiorna la vista della tabella.
      *
-     * Reimposta la lista osservabile legata alla tabella con i contatti correnti presenti nella rubrica.
-     * @post all'utente viene mostrata una table view aggiornata in base alle operazioni eseguite.
+     * Reimposta la lista osservabile legata alla tabella con i contatti correnti presenti nella rubrica , per aggiornare la rubrica ad ogni cambiamento.
+     * @post all'utente viene mostrata una table view aggiornata in base alle operazioni eseguite,conservando la coerenza tra struttura dati effettiva e la lista osservabile .
+     * utilizzata solamente per l'aspetto visivo
      */
     public void updateView() {
         rubrica.getListaOsservabile().setAll(rubrica.getContatti());

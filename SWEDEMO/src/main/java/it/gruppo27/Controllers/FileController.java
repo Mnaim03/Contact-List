@@ -33,7 +33,7 @@ public class FileController {
     /**
      * @brief Salva i contatti della rubrica in un file VCF.
      *
-     * @post Un file VCF è stato creato e contiene tutti i contatti della rubrica presenti al momento del salvataggio.
+     * @post Viene creato un file .vcf  che contiene tutti i contatti della rubrica presenti al momento del salvataggio.
      */
     public void saveFile() {
         try {

@@ -41,9 +41,9 @@ public class SearchController {
     /**
      * @brief Inizializza il comportamento della barra di ricerca,permettendo di cercare i contatti in base alla sottostringa digitata
      *
-     * See also: getContatti()
      *
-     * @see ricercaContatti()
+     *
+     * @see rubrica.ricercaContatti() , per l'algoritmo implementato per la ricerca dei contatti  ,
      *
      * @post In base al contenuto della barra di ricerca , viene aggiornata la lista dei contatti
      */

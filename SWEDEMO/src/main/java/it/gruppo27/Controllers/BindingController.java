@@ -14,7 +14,7 @@ import javafx.scene.layout.VBox;
 
 /**
  * @class BindingController
- * @brief Classe con l'obiettivo di inizializzare i bindings e gli event linsteners utili per la gestione dei componenti nell'UI
+ * @brief Classe con l'obiettivo di inizializzare i bindings e gli event listeners utili per la gestione dei componenti nell'UI
  */
 public class BindingController {
     private final VBox datiVBox;
@@ -97,7 +97,7 @@ public class BindingController {
 
     /**
      * @brief Inizializza il binding per l'abilitazione del pulsante dapply.
-     * @post Il pulsante sarà abilitato se almeno tra nameField e surnameField contiene testo
+     * @post Il pulsante sarà abilitato se almeno uno tra nameField e surnameField contiene testo
      * e sono state apportate modifiche al contatto
      */
     private void initApplyButtonBinding() {
