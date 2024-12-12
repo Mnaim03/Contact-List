@@ -32,6 +32,7 @@ class ContactEmailTest {
     void isValidEmailMailNonValidaTest() {
         ContactEmail emailNonValida = new ContactEmail("mailmail.it");
         assertFalse(emailNonValida.isValidEmail());
+        System.out.println("Test ID=5.2.2 SUPERATO");
 
     }
 
@@ -43,7 +44,7 @@ class ContactEmailTest {
         assertTrue(emailUguale.equals(e));
         System.out.println("Test ID = 5.3.1 SUPERATO");
     }
-
+    // ID = 5.3.2
     @Test
     void equalsMailDiverseTest(){
         ContactEmail mailDiversa = new ContactEmail("maildiversa@gmail.com");

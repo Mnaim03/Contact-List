@@ -19,6 +19,7 @@ class ContactNumeroTest {
         assertTrue(num.isValidNumber());
         System.out.println("Test ID = 4.1.1 SUPERATO");
     }
+    // ID = 4.1.2
     @Test
     void isValidNumberNumeroNonValidTest(){
         ContactNumero numeroNonValido = new ContactNumero("12345");
@@ -39,6 +40,7 @@ class ContactNumeroTest {
         assertFalse(num.isNumeroDiCasa());
         System.out.println("Test ID = 4.3.1 SUPERATO");
     }
+    // ID = 4.3.2
     @Test
     void isNumeroDiCasaNumeroDiCasaTest(){
         ContactNumero numeroDiCasa = new ContactNumero("089761388");
@@ -46,7 +48,7 @@ class ContactNumeroTest {
         System.out.println("Test ID=4.3.2 SUPERATO");
     }
 
-    // ID = 4.4
+    // ID = 4.4.1
     @Test
     void testEqualsNumeriUgualiTest() {
         //Caso numeri uguali
@@ -55,7 +57,7 @@ class ContactNumeroTest {
         System.out.println("Test ID = 4.4.1 SUPERATO");
     }
 
-
+    // ID = 4.4.2
     @Test
     void testEqualsNumeriDiversiTest(){
         ContactNumero numeroDiversoDaNum = new ContactNumero("1234567890");

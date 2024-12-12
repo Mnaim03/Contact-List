@@ -92,10 +92,10 @@ class RubricaTest {
         assertEquals(1,r.ricercaContatti("cognome").getContatti().size());//cerco per cognome
         assertEquals(1,r.ricercaContatti("cognome"+" "+"nome").getContatti().size());//Cerco per cognome e nome
         assertEquals(1,r.ricercaContatti("nome"+" "+"cognome").getContatti().size());//cerco per nome e cognome
-        System.out.println("Test ID = 2.9 SUPERATO");
+        System.out.println("Test ID = 2.9.1 SUPERATO");
     }
 
-
+    // ID = 2.9.2
     @Test
     void ricercaContattiParzialeTest(){
         Contatto mario = new Contatto("Mario","Giordano","",false);
@@ -104,6 +104,7 @@ class RubricaTest {
         r.addContatto(marinella);
         assertEquals(1,r.ricercaContatti("Marin").getContatti().size()); //Solo marinella
         assertEquals(2,r.ricercaContatti("Mar").getContatti().size()); //Mar deve cercarmi entrambi
+        System.out.println("Test ID = 2.9.2  SUPERATO");
 
 
     }
