@@ -250,11 +250,12 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Attiva il modulo di aggiunta di un nuovo contatto. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Il modulo di inserimento contatti è stato attivato. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>formController.clearAllFields() per informazioni sul modo in cui avviene la pulizia dei campi </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Il modulo di inserimento contatti viene reso visibile , permettendo la creazione di nuovi contatti. </dd></dl>
 
 </div>
 </div>
@@ -318,10 +319,11 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Elimina tutti i contatti dalla rubrica. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>tableController.deleteAll() per ulteriori dettagli sull'implementazione dell'eliminazione di tutti i contatti</dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>La rubrica è stata svuotata. </dd></dl>
 
 </div>
@@ -352,10 +354,11 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Elimina il contatto selezionato. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>formController.deleteLista() per ulteriori dettagli sull'implementazione dell'eliminazione di un contatto</dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Il contatto selezionato è stato rimosso. </dd></dl>
 
 </div>
@@ -386,10 +389,11 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Modifica un contatto selezionato. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>formController.eseguiModifica() per l'implementazione della modifica </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>I dettagli del contatto selezionato sono stati aggiornati. </dd></dl>
 
 </div>
@@ -420,10 +424,11 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Gestisce il clic sul pulsante dei preferiti. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>searchController.favoritesClick() per informazioni sull'implementazione della lista dei preferiti </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Lo stato della lista dei preferiti è stato aggiornato. </dd></dl>
 
 </div>
@@ -483,6 +488,13 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 </div><div class="memdoc">
 
 <p>Inizializza i controller secondari. </p>
+<dl class="section see"><dt>See also</dt><dd>tableController.initializeTable() per l'implementazione dell'inizializzazione del controller che gestisce la table view. </dd>
+<dd>
+searchController.initSearchBar() per l'implementazione dell'inizializzazione del controller che gestisce la barra di ricerca </dd>
+<dd>
+bindingController.initBindings() per l'implementazione dell'inizializzazione del controller che gestisce i binding </dd>
+<dd>
+<a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Controller per gestire il modulo , l&#39;aggiunta , la modifica e l&#39;eliminazione di contatti della rubric...">ContactFormController</a> per l'implementazione della classe da cui dipende la gestione dei form dei contatti </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Tutti i controller secondari sono configurati e funzionanti. </dd></dl>
 
 </div>
@@ -513,10 +525,11 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Salva i contatti su file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>fileController.saveFile() per l'implementazione effettiva del salvataggio sul file </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>I dati sono stati salvati su file. </dd></dl>
 
 </div>
@@ -547,10 +560,11 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <p>Carica contatti da un file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section see"><dt>See also</dt><dd>fileController.uploadFile() per l'implementazione dell'upload di un file </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>I contatti sono stati caricati nella rubrica. </dd></dl>
 
 </div>

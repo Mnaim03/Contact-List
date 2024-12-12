@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['tableviewcontroller_2ejava_0',['TableViewController.java',['../_table_view_controller_8java.html',1,'']]]
+  ['searchcontroller_2ejava_0',['SearchController.java',['../_search_controller_8java.html',1,'']]]
 ];

@@ -9,6 +9,7 @@ var searchData=
   ['contactformcontroller_2ejava_6',['ContactFormController.java',['../_contact_form_controller_8java.html',1,'']]],
   ['contactnumero_7',['ContactNumero',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html',1,'it.gruppo27.Models.Contact.ContactNumero'],['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#ae2c297d871c060854147736eddfebdb0',1,'it.gruppo27.Models.Contact.ContactNumero.ContactNumero()']]],
   ['contatto_8',['Contatto',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html',1,'it.gruppo27.Models.Contact.Contatto'],['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html#a74c2470525976b9d794a5059b8ff6188',1,'it.gruppo27.Models.Contact.Contatto.Contatto()']]],
-  ['controller_9',['Controller',['../classit_1_1gruppo27_1_1_controllers_1_1_controller.html',1,'it::gruppo27::Controllers']]],
-  ['controller_2ejava_10',['Controller.java',['../_controller_8java.html',1,'']]]
+  ['contatto_2ejava_9',['Contatto.java',['../_contatto_8java.html',1,'']]],
+  ['controller_10',['Controller',['../classit_1_1gruppo27_1_1_controllers_1_1_controller.html',1,'it::gruppo27::Controllers']]],
+  ['controller_2ejava_11',['Controller.java',['../_controller_8java.html',1,'']]]
 ];

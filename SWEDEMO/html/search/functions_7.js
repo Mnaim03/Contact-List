@@ -12,6 +12,7 @@ var searchData=
   ['invalidemailexception_9',['InvalidEmailException',['../classit_1_1gruppo27_1_1_exceptions_1_1_invalid_email_exception.html#a3279f9473e754bfc2443bc119614d023',1,'it::gruppo27::Exceptions::InvalidEmailException']]],
   ['invalidnumberexception_10',['InvalidNumberException',['../classit_1_1gruppo27_1_1_exceptions_1_1_invalid_number_exception.html#a5dcb76f90d532af17980ac268e5cb748',1,'it::gruppo27::Exceptions::InvalidNumberException']]],
   ['isnumerodicasa_11',['isNumeroDiCasa',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#a9ca71ba0f5088da0f07d6d29dfac519d',1,'it::gruppo27::Models::Contact::ContactNumero']]],
-  ['isvalidemail_12',['isValidEmail',['../interfaceit_1_1gruppo27_1_1interfaces_1_1_checker_email.html#ada57114fb158e97f0ae083e6a54dc90d',1,'it.gruppo27.interfaces.CheckerEmail.isValidEmail()'],['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_email.html#a407ebb9d5b6de7ea465b6130b87f7376',1,'it.gruppo27.Models.Contact.ContactEmail.isValidEmail()']]],
-  ['isvalidnumber_13',['isValidNumber',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#afdeafcad4f13a3b0b6fd89ad5bb951a2',1,'it::gruppo27::Models::Contact::ContactNumero']]]
+  ['ispresent_12',['isPresent',['../classit_1_1gruppo27_1_1_models_1_1_rubrica.html#a84a289c06c1d60afc9a821fe3d68afcc',1,'it::gruppo27::Models::Rubrica']]],
+  ['isvalidemail_13',['isValidEmail',['../interfaceit_1_1gruppo27_1_1interfaces_1_1_checker_email.html#ada57114fb158e97f0ae083e6a54dc90d',1,'it.gruppo27.interfaces.CheckerEmail.isValidEmail()'],['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_email.html#a407ebb9d5b6de7ea465b6130b87f7376',1,'it.gruppo27.Models.Contact.ContactEmail.isValidEmail()']]],
+  ['isvalidnumber_14',['isValidNumber',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#afdeafcad4f13a3b0b6fd89ad5bb951a2',1,'it::gruppo27::Models::Contact::ContactNumero']]]
 ];

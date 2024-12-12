@@ -96,6 +96,9 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">it.gruppo27.Models.Rubrica Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta, rimozione, ricerca di contatti dalla rubrica ed esportazione e caricamento di un file .  
+ <a href="#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for it.gruppo27.Models.Rubrica:</div>
 <div class="dyncontent">
@@ -108,38 +111,47 @@ Inheritance diagram for it.gruppo27.Models.Rubrica:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a79a7f5ea9642b954c6f4a68dc12996f8" id="r_a79a7f5ea9642b954c6f4a68dc12996f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79a7f5ea9642b954c6f4a68dc12996f8">Rubrica</a> ()</td></tr>
+<tr class="memdesc:a79a7f5ea9642b954c6f4a68dc12996f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della Classe <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. Iniziallizza la rubrica con un TreeSet e una Observable List.  <br /></td></tr>
+<tr class="separator:a79a7f5ea9642b954c6f4a68dc12996f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a9cb4f696750f76be447cc772dd159e" id="r_a2a9cb4f696750f76be447cc772dd159e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a9cb4f696750f76be447cc772dd159e">addContatto</a> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> contatto)</td></tr>
+<tr class="memdesc:a2a9cb4f696750f76be447cc772dd159e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge un nuovo contatto alla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. Il Contatto viene aggiunto al TreeSet.  <br /></td></tr>
 <tr class="separator:a2a9cb4f696750f76be447cc772dd159e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6bbe9fd57158834f800693bad95430" id="r_add6bbe9fd57158834f800693bad95430"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add6bbe9fd57158834f800693bad95430">removeContatto</a> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> contatto)</td></tr>
-<tr class="memdesc:add6bbe9fd57158834f800693bad95430"><td class="mdescLeft">&#160;</td><td class="mdescRight">rimuove un contatto dalla rubrica  <br /></td></tr>
+<tr class="memdesc:add6bbe9fd57158834f800693bad95430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove un contatto dalla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. Il Contatto viene rimosso dal TreeSet.  <br /></td></tr>
 <tr class="separator:add6bbe9fd57158834f800693bad95430"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c062945c27b56b544d52c369af3d7db" id="r_a3c062945c27b56b544d52c369af3d7db"><td class="memItemLeft" align="right" valign="top">ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c062945c27b56b544d52c369af3d7db">getListaOsservabile</a> ()</td></tr>
+<tr class="memdesc:a3c062945c27b56b544d52c369af3d7db"><td class="mdescLeft">&#160;</td><td class="mdescRight">ritorna l'ObservableList dei contatti  <br /></td></tr>
 <tr class="separator:a3c062945c27b56b544d52c369af3d7db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3dc89b7caae88d1b4e5595f680df6f5" id="r_ac3dc89b7caae88d1b4e5595f680df6f5"><td class="memItemLeft" align="right" valign="top">Set&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3dc89b7caae88d1b4e5595f680df6f5">getContatti</a> ()</td></tr>
-<tr class="memdesc:ac3dc89b7caae88d1b4e5595f680df6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">metodo getter  <br /></td></tr>
+<tr class="memdesc:ac3dc89b7caae88d1b4e5595f680df6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ritorna il Set dei Contatti.  <br /></td></tr>
 <tr class="separator:ac3dc89b7caae88d1b4e5595f680df6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac72bdc87b419c6f433e601e9cd06200b" id="r_ac72bdc87b419c6f433e601e9cd06200b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html">Rubrica</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac72bdc87b419c6f433e601e9cd06200b">ricercaContatti</a> (String stringa)</td></tr>
-<tr class="memdesc:ac72bdc87b419c6f433e601e9cd06200b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><br  />
-  <br /></td></tr>
+<tr class="memdesc:ac72bdc87b419c6f433e601e9cd06200b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data una sottostringa restituisce la <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a> contenente i contatti aventi la sottostringa nel nome e/o cognome.  <br /></td></tr>
 <tr class="separator:ac72bdc87b419c6f433e601e9cd06200b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a84a289c06c1d60afc9a821fe3d68afcc" id="r_a84a289c06c1d60afc9a821fe3d68afcc"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a84a289c06c1d60afc9a821fe3d68afcc">isPresent</a> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> c)</td></tr>
+<tr class="memdesc:a84a289c06c1d60afc9a821fe3d68afcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica la presenza o assenza di un contatto all'interno del TreeSet (rubrica totale)  <br /></td></tr>
 <tr class="separator:a84a289c06c1d60afc9a821fe3d68afcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec75d429ec1b77554f9633a0c83e4df3" id="r_aec75d429ec1b77554f9633a0c83e4df3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec75d429ec1b77554f9633a0c83e4df3">deleteAll</a> ()</td></tr>
+<tr class="memdesc:aec75d429ec1b77554f9633a0c83e4df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rimuove tutti i contatti dalla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>.  <br /></td></tr>
 <tr class="separator:aec75d429ec1b77554f9633a0c83e4df3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a42ef81ac8fcd33f5071de5542875d6e8" id="r_a42ef81ac8fcd33f5071de5542875d6e8"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42ef81ac8fcd33f5071de5542875d6e8">toString</a> ()</td></tr>
 <tr class="separator:a42ef81ac8fcd33f5071de5542875d6e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ae37a25aeb6965f845c9c60a3965b8d" id="r_a1ae37a25aeb6965f845c9c60a3965b8d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ae37a25aeb6965f845c9c60a3965b8d">salvaVCF</a> (String filename)  throws IOException </td></tr>
+<tr class="memdesc:a1ae37a25aeb6965f845c9c60a3965b8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva i contatti in un file VCF. Esporta tutti i contatti in un formato VCF (Virtual Contact File) e li salva all'interno di un file.  <br /></td></tr>
 <tr class="separator:a1ae37a25aeb6965f845c9c60a3965b8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae87b9cfa6951d82d681e96b243bee40a" id="r_ae87b9cfa6951d82d681e96b243bee40a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html">Rubrica</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae87b9cfa6951d82d681e96b243bee40a">leggiVCF</a> (String filename)  throws IOException, <a class="el" href="classit_1_1gruppo27_1_1_exceptions_1_1_invalid_email_exception.html">InvalidEmailException</a>, <a class="el" href="classit_1_1gruppo27_1_1_exceptions_1_1_invalid_number_exception.html">InvalidNumberException</a> </td></tr>
+<tr class="memdesc:ae87b9cfa6951d82d681e96b243bee40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">legge i contatti in un file VCF. Esporta tutti i contatti da un formato VCF (Virtual Contact File).  <br /></td></tr>
 <tr class="separator:ae87b9cfa6951d82d681e96b243bee40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html">it.gruppo27.interfaces.InterfaceRubrica</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a77af9497e83f086c96f7f999b1039e62" id="r_a77af9497e83f086c96f7f999b1039e62"><td class="memItemLeft" align="right" valign="top"><a id="a77af9497e83f086c96f7f999b1039e62" name="a77af9497e83f086c96f7f999b1039e62"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>aggiungiNumeriDiTelefonoAVCard</b> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> c, VCard card)</td></tr>
+<tr class="memitem:a77af9497e83f086c96f7f999b1039e62" id="r_a77af9497e83f086c96f7f999b1039e62"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77af9497e83f086c96f7f999b1039e62">aggiungiNumeriDiTelefonoAVCard</a> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> c, VCard card)</td></tr>
+<tr class="memdesc:a77af9497e83f086c96f7f999b1039e62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiungi i numeri telefonoci a una VCard.  <br /></td></tr>
 <tr class="separator:a77af9497e83f086c96f7f999b1039e62"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ddd49788f5d8acd577ea34c447d8905" id="r_a6ddd49788f5d8acd577ea34c447d8905"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ddd49788f5d8acd577ea34c447d8905">aggiungiEmailsAVCard</a> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> c, VCard card)</td></tr>
+<tr class="memdesc:a6ddd49788f5d8acd577ea34c447d8905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiungi i le email a una VCard.  <br /></td></tr>
 <tr class="separator:a6ddd49788f5d8acd577ea34c447d8905"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -147,10 +159,33 @@ Private Attributes</h2></td></tr>
 <tr class="memitem:a5caa4617c48c7ed0472e6e00ae661665" id="r_a5caa4617c48c7ed0472e6e00ae661665"><td class="memItemLeft" align="right" valign="top"><a id="a5caa4617c48c7ed0472e6e00ae661665" name="a5caa4617c48c7ed0472e6e00ae661665"></a>
 Set&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>contatti</b></td></tr>
 <tr class="separator:a5caa4617c48c7ed0472e6e00ae661665"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a690b4bd0ec77d27a12f4c14d442be96d" id="r_a690b4bd0ec77d27a12f4c14d442be96d"><td class="memItemLeft" align="right" valign="top"><a id="a690b4bd0ec77d27a12f4c14d442be96d" name="a690b4bd0ec77d27a12f4c14d442be96d"></a>
-ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>listContatti</b></td></tr>
+<tr class="memitem:a690b4bd0ec77d27a12f4c14d442be96d" id="r_a690b4bd0ec77d27a12f4c14d442be96d"><td class="memItemLeft" align="right" valign="top">ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a690b4bd0ec77d27a12f4c14d442be96d">listContatti</a></td></tr>
 <tr class="separator:a690b4bd0ec77d27a12f4c14d442be96d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta, rimozione, ricerca di contatti dalla rubrica ed esportazione e caricamento di un file . </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a79a7f5ea9642b954c6f4a68dc12996f8" name="a79a7f5ea9642b954c6f4a68dc12996f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a7f5ea9642b954c6f4a68dc12996f8">&#9670;&#160;</a></span>Rubrica()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">it.gruppo27.Models.Rubrica.Rubrica </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Costruttore della Classe <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. Iniziallizza la rubrica con un TreeSet e una Observable List. </p>
+<dl class="section note"><dt>Note</dt><dd>Il TreeSet manterrà la lista TOTALE dei contatti , l'ObservableArrayList manterrà i contatti OSSERVABILI nella tabella presente nell'interfaccia </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>è stata creata una nuova istanza di rubrica. Come struttura dati per accogliere gli oggetto Contatto è stato scelto un TreeSet Come struttura dati per accogliere la lista di contatti è stata scelta una observableArrayList </dd></dl>
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a2a9cb4f696750f76be447cc772dd159e" name="a2a9cb4f696750f76be447cc772dd159e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2a9cb4f696750f76be447cc772dd159e">&#9670;&#160;</a></span>addContatto()</h2>
@@ -166,7 +201,18 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Aggiunge un nuovo contatto alla rubrica. COntemporaneamente tiene aggiornata la lista e il treeSet </p>
+
+<p>Aggiunge un nuovo contatto alla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. Il Contatto viene aggiunto al TreeSet. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">contatto</td><td>che deve essere aggiunto</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>contatto non deve essere null </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>il contatto è stato aggiunto al TreeSet </dd>
+<dd>
+La dimensione della rubrica aumenta di 1 </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#aa47e9e825627abe5668a5576280785e1">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -198,7 +244,61 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Metodo invocato in fase di creazione di una vCard. Aggiunge tutte le email del contatto alla vCard </p>
+
+<p>Aggiungi i le email a una VCard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>contatto con cui associare le email </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">card</td><td>VCard a cui assorcare le emial</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>c non deve essere null </dd>
+<dd>
+card non deve essere null </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>le email sono state associate/salvate correttamente </dd></dl>
+
+</div>
+</div>
+<a id="a77af9497e83f086c96f7f999b1039e62" name="a77af9497e83f086c96f7f999b1039e62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77af9497e83f086c96f7f999b1039e62">&#9670;&#160;</a></span>aggiungiNumeriDiTelefonoAVCard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void it.gruppo27.Models.Rubrica.aggiungiNumeriDiTelefonoAVCard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a></td>          <td class="paramname"><span class="paramname"><em>c</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">VCard</td>          <td class="paramname"><span class="paramname"><em>card</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aggiungi i numeri telefonoci a una VCard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>contatto con cui associare i numeri telefonici </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">card</td><td>VCard a cui assorcare i numeri telefico</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>c non deve essere null </dd>
+<dd>
+card non deve essere null </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>i numeri telefonici sono stati associati/salvati correttamente </dd></dl>
 
 </div>
 </div>
@@ -216,10 +316,9 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Rimuove tutti i contatti dalla rubrica. </p>
-<p>Il metodo elimina tutti i contatti dalla rubrica. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>c'è almeno un contatto in rubrica </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>La rubrica è vuota dopo l'esecuzione del metodo. </dd></dl>
+
+<p>Rimuove tutti i contatti dalla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. </p>
+<dl class="section post"><dt>Postcondition</dt><dd>contatti e listContatti si svuotano </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a5a0139167307f4739e22650f1eb6fa08">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -240,8 +339,8 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
       </table>
 </div><div class="memdoc">
 
-<p>metodo getter </p>
-<dl class="section return"><dt>Returns</dt><dd>il set dei contatti della rubrica al momento della chiamata </dd></dl>
+<p>Ritorna il Set dei Contatti. </p>
+<dl class="section return"><dt>Returns</dt><dd>Set contenente tutti i contatti </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a2cd73154592a40abb511b8964177aa58">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -261,9 +360,9 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Restituisce una lista osservabile di contatti. </p>
-<p>Il metodo consente di ottenere una lista dei contatti che può essere osservata per eventuali modifiche. </p>
-<dl class="section return"><dt>Returns</dt><dd>Una lista osservabile di contatti. </dd></dl>
+
+<p>ritorna l'ObservableList dei contatti </p>
+<dl class="section return"><dt>Returns</dt><dd>ObservableList contentenente tutti i contatti </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a14dfb9be06a986f870ce54381a3282f6">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -284,6 +383,16 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
       </table>
 </div><div class="memdoc">
 
+<p>Verifica la presenza o assenza di un contatto all'interno del TreeSet (rubrica totale) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">c</td><td>contatto da verificare </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>booleano che indica la presenza o assenza di un contatto</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Ritorna true se la presenza è confermata, altrimenti ritorna false </dd></dl>
+
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
 </div>
@@ -302,32 +411,30 @@ ObservableList&lt; <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contac
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Legge un file .vcf (vCard) e carica i contatti al suo interno nella rubrica. </p>
-<p>Questo metodo esamina un file .vcf che contiene informazioni sui contatti e le carica all'interno della rubrica. Ogni contatto viene analizzato per estrarre i dati come nome, cognome, numeri di telefono ed email. In caso di errori nel file, vengono lanciate eccezioni specifiche per segnalarli. </p>
+
+<p>legge i contatti in un file VCF. Esporta tutti i contatti da un formato VCF (Virtual Contact File). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>Il percorso del file .vcf da leggere. Il file deve essere nel formato vCard standard. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>indicante il percorso del file VCF </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Una nuova rubrica che contiene i contatti letti dal file VCF. </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">IOException</td><td>Se si verifica un errore durante la lettura del file, come un file inesistente o accessibile. </td></tr>
-    <tr><td class="paramname">InvalidEmailException</td><td>Se una o più email nel file non sono valide. </td></tr>
-    <tr><td class="paramname">InvalidNumberException</td><td>Se uno o più numeri di telefono nel file non sono validi.</td></tr>
+    <tr><td class="paramname">IOException</td><td>in caso di errore nella lettura </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>Il file specificato deve esistere e deve essere accessibile in lettura. </dd>
-<dd>
-Il file deve essere formattato correttamente come file VCF. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Se il file è letto correttamente, i contatti vengono aggiunti alla rubrica. </dd>
-<dd>
-Se ci sono errori nei dati (email o numeri non validi), viene sollevata l'eccezione corrispondente. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>InvalidEmailException Per informazioni sulle eccezioni relative alla validità delle email. </dd>
-<dd>
-InvalidNumberException Per informazioni sulle eccezioni relative alla validità dei numeri di telefono. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a> che contiene i contatti letti </dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">InvalidEmailException</td><td>in caso viene lette un'email invalida </td></tr>
+    <tr><td class="paramname">InvalidNumberException</td><td>in caso viene letto un numero telefonico invalido</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>filename deve essere un perscorso valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>tutti i contatti sono stati correttamenti letti </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a3317f3bf300a31f8ace3b2f6ff720fda">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -348,13 +455,17 @@ InvalidNumberException Per informazioni sulle eccezioni relative alla validità 
       </table>
 </div><div class="memdoc">
 
-<p>rimuove un contatto dalla rubrica </p>
+<p>Rimuove un contatto dalla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>. Il Contatto viene rimosso dal TreeSet. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">contatto</td><td></td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">contatto</td><td>che deve essere rimosso</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>contatto non deve essere null </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>il contatto è stato rimosso alla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a> </dd>
+<dd>
+La dimensione della rubrica diminuisce di 1 </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a52023adf1fd601e5c994e14ea06a9462">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -375,15 +486,14 @@ InvalidNumberException Per informazioni sulle eccezioni relative alla validità 
       </table>
 </div><div class="memdoc">
 
-<p><br  />
- </p>
+<p>Data una sottostringa restituisce la <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a> contenente i contatti aventi la sottostringa nel nome e/o cognome. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stringa</td><td>la sottostringa del nome o del cognome digitata </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">stringa</td><td>da cercare in <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a> </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>la nuova rubrica contenente tutti i contatti corrispondenti alla ricerca </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a> contente esclusivamente i contatti aventi al loro interno la sottostringa passata </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a3828fa3bc7f83e4b43484086fb907f35">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -403,23 +513,22 @@ InvalidNumberException Per informazioni sulle eccezioni relative alla validità 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Esporta i contatti della rubrica in un file .vcf (vCard). </p>
-<p>Questo metodo consente di esportare tutti i contatti presenti nella rubrica in un file con formato VCF (vCard). Il formato VCF è uno standard utilizzato per memorizzare informazioni sui contatti, come nome, numero di telefono, email e altre informazioni pertinenti. </p>
+
+<p>Salva i contatti in un file VCF. Esporta tutti i contatti in un formato VCF (Virtual Contact File) e li salva all'interno di un file. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">filename</td><td>Il percorso del file in cui verranno salvati i contatti in formato .vcf. Il file verrà creato nella posizione specificata. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">filename</td><td>indicante il percorso del file VCF </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>La rubrica non è vuota </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Viene creato un nuovo file .vcf contenente i dati della rubrica nella posizione specificata </dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
-    <tr><td class="paramname">IOException</td><td>Se si verifica un errore durante la scrittura del file, ad esempio se la destinazione non è accessibile o se si verifica un errore di I/O. </td></tr>
+    <tr><td class="paramname">IOException</td><td>in caso di errore nella scrittura</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html">Rubrica</a> Per maggiori dettagli su come la rubrica gestisce i contatti. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>filename deve essere un perscorso valido </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>tutti i contatti sono correttamente salvati all'interno del file il cui nome è passato come parametro. Il file può essere aperto utilizzando una qualsiasi applicazione di gestione dei contatti che supporta il formato VCF su qualsiasi sistema operativo. </dd></dl>
 
 <p>Implements <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html#a765be71aa7efc76bb25a34201c8d06e4">it.gruppo27.interfaces.InterfaceRubrica</a>.</p>
 
@@ -447,8 +556,32 @@ InvalidNumberException Per informazioni sulle eccezioni relative alla validità 
 
 </div>
 </div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a690b4bd0ec77d27a12f4c14d442be96d" name="a690b4bd0ec77d27a12f4c14d442be96d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690b4bd0ec77d27a12f4c14d442be96d">&#9670;&#160;</a></span>listContatti</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ObservableList&lt;<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a>&gt; it.gruppo27.Models.Rubrica.listContatti</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section note"><dt>Note</dt><dd>Fa uso di TreeSet per ottenere un ordinamento efficente dei Contatti e non permettere doppioni. Ordinamento e il fatto che due contatti siano considerati doppioni dipende dalla compareTo dell'oggetto Contatto. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/main/java/it/gruppo27/Models/<b>Rubrica.java</b></li>
+<li>src/main/java/it/gruppo27/Models/<a class="el" href="_rubrica_8java.html">Rubrica.java</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

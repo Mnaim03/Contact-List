@@ -8,6 +8,7 @@ var searchData=
   ['aggiungicellalcontattodigitato_5',['aggiungiCellAlContattoDigitato',['../classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html#a96b4011aef00c1ad9718bedc8c88901c',1,'it::gruppo27::Controllers::ContactFormController']]],
   ['aggiungiemailsalcontattodigitato_6',['aggiungiEmailsAlContattoDigitato',['../classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html#a08bfad898307fb7b8a897eaf121add96',1,'it::gruppo27::Controllers::ContactFormController']]],
   ['aggiungiemailsavcard_7',['aggiungiEmailsAVCard',['../classit_1_1gruppo27_1_1_models_1_1_rubrica.html#a6ddd49788f5d8acd577ea34c447d8905',1,'it::gruppo27::Models::Rubrica']]],
-  ['alertmanager_8',['AlertManager',['../classit_1_1gruppo27_1_1_managers_1_1_alert_manager.html',1,'it::gruppo27::Managers']]],
-  ['alertmanager_2ejava_9',['AlertManager.java',['../_alert_manager_8java.html',1,'']]]
+  ['aggiunginumeriditelefonoavcard_8',['aggiungiNumeriDiTelefonoAVCard',['../classit_1_1gruppo27_1_1_models_1_1_rubrica.html#a77af9497e83f086c96f7f999b1039e62',1,'it::gruppo27::Models::Rubrica']]],
+  ['alertmanager_9',['AlertManager',['../classit_1_1gruppo27_1_1_managers_1_1_alert_manager.html',1,'it::gruppo27::Managers']]],
+  ['alertmanager_2ejava_10',['AlertManager.java',['../_alert_manager_8java.html',1,'']]]
 ];

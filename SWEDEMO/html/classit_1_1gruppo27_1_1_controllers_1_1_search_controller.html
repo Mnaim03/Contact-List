@@ -96,16 +96,16 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Classe che gestisce la barra di ricerca e i preferiti della rubrica.  
+<p>Classe per la gestione della barra di ricerca e i preferiti della rubrica.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9d927e2e148a8be1330c6137496139f5" id="r_a9d927e2e148a8be1330c6137496139f5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d927e2e148a8be1330c6137496139f5">SearchController</a> (TextField searchBarField, Button favoritesButton, <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html">InterfaceRubrica</a> rubrica)</td></tr>
-<tr class="memdesc:a9d927e2e148a8be1330c6137496139f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_search_controller.html" title="Classe che gestisce la barra di ricerca e i preferiti della rubrica.">SearchController</a>.  <br /></td></tr>
+<tr class="memdesc:a9d927e2e148a8be1330c6137496139f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_search_controller.html" title="Classe per la gestione della barra di ricerca e i preferiti della rubrica.">SearchController</a>.  <br /></td></tr>
 <tr class="separator:a9d927e2e148a8be1330c6137496139f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21350270be93aefb5451ec6e3612eb9c" id="r_a21350270be93aefb5451ec6e3612eb9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a21350270be93aefb5451ec6e3612eb9c">initSearchBar</a> ()</td></tr>
-<tr class="memdesc:a21350270be93aefb5451ec6e3612eb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizializza il comportamento della barra di ricerca.  <br /></td></tr>
+<tr class="memdesc:a21350270be93aefb5451ec6e3612eb9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizializza il comportamento della barra di ricerca,permettendo di cercare i contatti in base alla sottostringa digitata.  <br /></td></tr>
 <tr class="separator:a21350270be93aefb5451ec6e3612eb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac48fc13f88da6375df86ee9cd08274a9" id="r_ac48fc13f88da6375df86ee9cd08274a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac48fc13f88da6375df86ee9cd08274a9">favoritesClick</a> ()</td></tr>
 <tr class="memdesc:ac48fc13f88da6375df86ee9cd08274a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il clic sul pulsante dei preferiti.  <br /></td></tr>
@@ -124,7 +124,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 <tr class="separator:a056c3e744d20bfa3913f2c1e8a1647b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classe che gestisce la barra di ricerca e i preferiti della rubrica. </p>
+<div class="textblock"><p>Classe per la gestione della barra di ricerca e i preferiti della rubrica. </p>
 <dl class="section invariant"><dt>Invariant</dt><dd>La rubrica può essere null </dd></dl>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9d927e2e148a8be1330c6137496139f5" name="a9d927e2e148a8be1330c6137496139f5"></a>
@@ -151,7 +151,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
       </table>
 </div><div class="memdoc">
 
-<p>Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_search_controller.html" title="Classe che gestisce la barra di ricerca e i preferiti della rubrica.">SearchController</a>. </p>
+<p>Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_search_controller.html" title="Classe per la gestione della barra di ricerca e i preferiti della rubrica.">SearchController</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">searchBarField</td><td>Campo di testo per la ricerca. </td></tr>
@@ -160,8 +160,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>searchBarField != null, favoritesButton != null, rubrica != null </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>L'oggetto <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_search_controller.html" title="Classe che gestisce la barra di ricerca e i preferiti della rubrica.">SearchController</a> è inizializzato correttamente. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Viene creata una nuova istanza di <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_search_controller.html" title="Classe per la gestione della barra di ricerca e i preferiti della rubrica.">SearchController</a> . </dd></dl>
 
 </div>
 </div>
@@ -182,10 +181,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 </div><div class="memdoc">
 
 <p>Gestisce il clic sul pulsante dei preferiti. </p>
-<p>see also: getFavourite()</p>
-<dl class="section see"><dt>See also</dt><dd>getFavourite()</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>La rubrica deve contenere contatti. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante. Il text del pulsante cambierà per far capire all'utente in che lista si trova. </dd></dl>
 
 </div>
 </div>
@@ -204,11 +200,10 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
       </table>
 </div><div class="memdoc">
 
-<p>Inizializza il comportamento della barra di ricerca. </p>
+<p>Inizializza il comportamento della barra di ricerca,permettendo di cercare i contatti in base alla sottostringa digitata. </p>
 <p>See also: getContatti()</p>
 <dl class="section see"><dt>See also</dt><dd>ricercaContatti()</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>La rubrica deve contenere contatti. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>La barra di ricerca aggiorna dinamicamente la lista dei contatti </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>In base al contenuto della barra di ricerca , viene aggiornata la lista dei contatti </dd></dl>
 
 </div>
 </div>

@@ -96,13 +96,13 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica.  
+<p>Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file .vcf .  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a06a6da214e9b3b4d452c3def414a03b1" id="r_a06a6da214e9b3b4d452c3def414a03b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06a6da214e9b3b4d452c3def414a03b1">FileController</a> (<a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html">InterfaceRubrica</a> rubrica)</td></tr>
-<tr class="memdesc:a06a6da214e9b3b4d452c3def414a03b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_file_controller.html" title="Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica.">FileController</a>.  <br /></td></tr>
+<tr class="memdesc:a06a6da214e9b3b4d452c3def414a03b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_file_controller.html" title="Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file ....">FileController</a>.  <br /></td></tr>
 <tr class="separator:a06a6da214e9b3b4d452c3def414a03b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5d5e94c4245344cf3bb6b2ae5c9ec9de" id="r_a5d5e94c4245344cf3bb6b2ae5c9ec9de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d5e94c4245344cf3bb6b2ae5c9ec9de">saveFile</a> ()</td></tr>
 <tr class="memdesc:a5d5e94c4245344cf3bb6b2ae5c9ec9de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Salva i contatti della rubrica in un file VCF.  <br /></td></tr>
@@ -118,7 +118,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 <tr class="separator:acd66b42585e6669751ba2cbcf91202cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica. </p>
+<div class="textblock"><p>Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file .vcf . </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a06a6da214e9b3b4d452c3def414a03b1" name="a06a6da214e9b3b4d452c3def414a03b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a06a6da214e9b3b4d452c3def414a03b1">&#9670;&#160;</a></span>FileController()</h2>
@@ -135,15 +135,14 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
       </table>
 </div><div class="memdoc">
 
-<p>Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_file_controller.html" title="Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica.">FileController</a>. </p>
+<p>Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_file_controller.html" title="Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file ....">FileController</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">rubrica</td><td>Oggetto che implementa l'interfaccia InterfaceRubrica.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>rubrica != null </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>L'oggetto <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_file_controller.html" title="Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica.">FileController</a> è inizializzato con una rubrica valida. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Viene creata una nuova istanza di <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_file_controller.html" title="Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file ....">FileController</a>. </dd></dl>
 
 </div>
 </div>
@@ -164,7 +163,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 </div><div class="memdoc">
 
 <p>Salva i contatti della rubrica in un file VCF. </p>
-<dl class="section post"><dt>Postcondition</dt><dd>Un file VCF è stato creato e contiene tutti i contatti della rubrica. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Un file VCF è stato creato e contiene tutti i contatti della rubrica presenti al momento del salvataggio. </dd></dl>
 
 </div>
 </div>
@@ -184,8 +183,8 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 </div><div class="memdoc">
 
 <p>Carica i contatti da un file VCF selezionato dall'utente. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>L'utente deve selezionare un file valido. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>La rubrica contiene tutti i contatti del file caricato. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>L'utente deve selezionare un file VCF il cui formato sia valido. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>La rubrica contiene tutti i contatti del file caricato. La rubrica precendente verrà sovrascritta dalla rubrica caricata </dd></dl>
 
 </div>
 </div>
