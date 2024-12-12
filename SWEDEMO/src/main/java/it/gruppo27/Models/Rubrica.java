@@ -252,21 +252,21 @@ public class Rubrica implements InterfaceRubrica{
     public Rubrica leggiVCF(String filename) throws IOException, InvalidEmailException, InvalidNumberException {
     Rubrica r = new Rubrica();
     try (FileReader fr = new FileReader(filename)) {
-        List<VCard> vcards = Ezvcard.parse(fr).all();
+        List<VCard> vcards = Ezvcard.parse(fr).all(); //Ottengo la lista di VCard dal file "filename"
         Contatto c = null;
-        for (VCard card : vcards) {
-            // Handle name parsing safely
-            String fullName = card.getFormattedName().getValue();
+        for (VCard card : vcards) { //Scorriamo tutte le VCard del file letto
+
+            String fullName = card.getFormattedName().getValue(); //Leggo nome e cognome
 
             String nome;
             try {
-                nome = card.getFormattedName().getValue().split(" ")[0];
+                nome = card.getFormattedName().getValue().split(" ")[0]; //Poichè in fase di salvataggio abbiamo scritto nome e cognome separati da uno spazio , possiamo sempre prendere nome e cognome usando la split con lo spazio come carattere di divisione
             } catch (ArrayIndexOutOfBoundsException ex) {
                 nome = "";
             }
             String descrizione ="";
 ;
-            if (card.getExtendedProperty("X-DESCRIPTION") != null) {
+            if (card.getExtendedProperty("X-DESCRIPTION") != null) { //Se ha il campo descrizione , leggiti la descrizione
                 descrizione = card.getExtendedProperty("X-DESCRIPTION").getValue();
             }
             //Lo split se non trova niente lancia eccezione.
@@ -291,9 +291,10 @@ public class Rubrica implements InterfaceRubrica{
                 c.addEmail(new ContactEmail(em.getValue()));
             }
             //Verifico se è tra i favoriti il contatto
-            for (Note nota : card.getNotes()) {
+            for (Note nota : card.getNotes()) { //Se ha come nota che è un contatto tra i favoriti , setta a true la proprietà per favorito
                 if (nota.getValue().equals("FAVORITO")) c.setFavoriti(true);
             }
+
             r.addContatto(c);
         }
 
