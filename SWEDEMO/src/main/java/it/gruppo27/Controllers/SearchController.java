@@ -13,10 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @class SearchController
- * @brief Classe per la gestione della barra di ricerca e i preferiti della rubrica.
- * @invariant La rubrica può essere null
+ * La classe SearchController gestisce l'interfaccia di ricerca e la visualizzazione
+ * dei contatti in una rubrica, permettendo di filtrare i contatti per nome,cognome , o per una sottostringa di questi
+ * o di visualizzare
+ * solo i contatti preferiti.
  */
+
 public class SearchController {
     private final TextField searchBarField;
     private final Button favoritesButton;
@@ -24,7 +26,7 @@ public class SearchController {
 
 
     /**
-     * @brief Costruttore della classe SearchController.
+     *  Costruttore della classe SearchController.
      *
      * @param[in] searchBarField Campo di testo per la ricerca.
      * @param[in] favoritesButton Pulsante per visualizzare i preferiti.
@@ -39,13 +41,19 @@ public class SearchController {
     }
 
     /**
-     * @brief Inizializza il comportamento della barra di ricerca,permettendo di cercare i contatti in base alla sottostringa digitata
+     *  Inizializza il comportamento della barra di ricerca,permettendo di cercare i contatti in
+     * base alla sottostringa digitata.Ad ogni cambiamento nella barra di ricerca , che sia l'aggiunta di un nuovo
+     * carattere alla query di ricerca oppure l'eliminazione di un carattere, viene effettuato l'aggiornamento
+     * della lista osservabile con i nuovi risultati corrispondenti alla ricerca. Si mantiene quindi sempre coerente
+     * lo stato della rubrica con quello della lista osservabile
      *
      *
      *
-     * @see rubrica.ricercaContatti() , per l'algoritmo implementato per la ricerca dei contatti  ,
      *
-     * @post In base al contenuto della barra di ricerca , viene aggiornata la lista dei contatti
+     *
+     * @see rubrica.ricercaContatti() , per l'algoritmo implementato per la ricerca dei contatti
+     *
+     * @post Viene aggiornata la tabella ad ogni cambiamento della query inserita per la ricerca
      */
     public void initSearchBar() {
         searchBarField.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -63,10 +71,24 @@ public class SearchController {
     }
 
     /**
-     * @brief Gestisce il clic sul pulsante dei preferiti.
-     * @post Mostra i contatti preferiti o tutti i contatti, a seconda dello stato del pulsante. Il text
-     * del pulsante cambierà per far capire all'utente in che lista si trova.
+     * Alterna la visualizzazione dei contatti tra tutti i contatti e i contatti preferiti.
+     *
+     * Questo metodo viene attivato da un clic sul pulsante "favoritesButton". A seconda
+     * del testo attuale del pulsante, esegue una delle seguenti azioni:
+     * 1. Filtra e visualizza solo i contatti preferiti, aggiornando il testo del pulsante
+     *    a "See all contacts".
+     * 2. Ripristina l'intera lista dei contatti, aggiornando il testo del pulsante a "Favourites".
+     *
+     * Funzionalità:
+     * - Se il testo del pulsante è "Favourites", il metodo:
+     *   - Cambia il testo del pulsante in "See all contacts".
+     *   - Crea una lista temporanea di contatti preferiti (usando il metodo `getFavourite` di ogni contatto).
+     *   - Aggiorna la lista osservabile di contatti nella rubrica con i contatti preferiti.
+     * - Altrimenti, il metodo:
+     *   - Cambia il testo del pulsante in "Favourites".
+     *   - Ripristina la lista osservabile di contatti nella rubrica con l'intera lista di contatti.
      */
+
     public void favoritesClick() {
         if (favoritesButton.getText().equals("Favourites")) {
             favoritesButton.setText("See all contacts");

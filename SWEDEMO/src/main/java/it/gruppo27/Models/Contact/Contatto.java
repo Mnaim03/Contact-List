@@ -17,9 +17,8 @@ import java.util.List;
  * e indirizzi email(da 0 a 3) e una descrizione associati, inoltre è possibile aggiungere il contatto tra i preferiti.
  * 
  * La classe implementa l'interfaccia Comparable, consentendo di ordinare i contatti in base al loro cognome
- * (nome in caso di cognomi uguali). Se due contatti avranno nome , cognome , i 3 numeri di telefono e le 3 email identici
- * verranno considerati identici , e dunque uno dei due verrà considerato doppione (con questo non si vuol dire che un doppione 
- * non verrà aggiunto alla Rubrica, questo dipende da quale struttura dati ospiterà i contatti all'interno della rubrica) .
+ * (nome in caso di cognomi uguali). Se due contatti hanno nome , cognome ,i 3 numeri di telefono identici e le 3 mail uguali
+ * verranno considerati uguali , e dunque uno dei due verrà considerato doppione .
  * 
  * 
  * @see ContactNumero per la gestione dei numeri di telefono.
@@ -82,13 +81,14 @@ public class Contatto implements Comparable<Contatto>{
     public String getDescrizione() { return descrizione; }
     
     /**
-     * @brief mi dice se un contatto è stato aggiunto o meno ai preferiti
-     * @return true se il contatto è tra i preferiti , sennò false
+     * @brief Fornisce informazioni sulla presenza del contatto nella lista dei preferiti o meno
+     *
+     * @return <code>true</code> se il contatto è tra i preferiti , <code>false</code>  altrimenti
      */
     public boolean getFavourite() { return favoriti; }
 
     /**
-     * @brief Imposta il nome del contatto
+     * @brief Setta il nome del contatto
      * @param nome il nome da inserire per il contatto
      * @post il nome del contatto è aggiornato con il valore fornito
      */
@@ -189,16 +189,17 @@ public class Contatto implements Comparable<Contatto>{
         if (confrontoNome != 0) {
             return confrontoNome;
         }
-
+//Solo se hanno lo stesso numero di numeri di telefono faccio il controllo per risparmiare risorse
         if (this.numeriDiTelefono.size() == altro.numeriDiTelefono.size()) {
             boolean condNumeri=this.numeriDiTelefono.containsAll(altro.numeriDiTelefono);
             if(condNumeri) {
                 if (this.emails.size() == altro.emails.size()){
                     boolean condEmail=this.emails.containsAll(altro.emails);
-                    if (condEmail) return 0;
+                    if (condEmail) return 0; //Se sono arrivato fin qui hanno tutto uguale
                 }
             }
         }
+
         return 1;
     }
     /**

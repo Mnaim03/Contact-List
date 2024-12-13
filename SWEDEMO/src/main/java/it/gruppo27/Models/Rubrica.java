@@ -46,15 +46,14 @@ public class Rubrica implements InterfaceRubrica{
      * Ordinamento e il fatto che due contatti siano considerati doppioni dipende dalla compareTo dell'oggetto Contatto.
      */ 
     private ObservableList<Contatto> listContatti;
-    /** @note Il TreeSet manterrà la lista TOTALE dei contatti , l'ObservableArrayList manterrà i contatti OSSERVABILI nella tabella
-         presente nell'interfaccia */ 
+
 
     /**
-     * @brief Costruttore della Classe Rubrica. Iniziallizza la rubrica con un TreeSet e una Observable List
+     * @brief Costruttore della Classe Rubrica. Inizializza la rubrica con un TreeSet e una Observable List
      *
      * @post è stata creata una nuova istanza di rubrica.
      * Come struttura dati per accogliere gli oggetto Contatto è stato scelto un TreeSet
-     * Come struttura dati per accogliere la lista di contatti è stata scelta una observableArrayList
+     * Come struttura dati per accogliere la lista di contatti in modo da facilitarci per la gestione della view è stata scelta una observableArrayList
      */
     public Rubrica() {
         this.contatti = new TreeSet<>();
@@ -77,7 +76,7 @@ public class Rubrica implements InterfaceRubrica{
 
     /**
      * @brief Rimuove un contatto dalla Rubrica.
-     * Il Contatto viene rimosso dal TreeSet.
+     *
      *
      * @param[in] contatto che deve essere rimosso
      *
@@ -92,10 +91,10 @@ public class Rubrica implements InterfaceRubrica{
     /**
      * @brief ritorna l'ObservableList dei contatti
      *
-     * @return ObservableList contentenente tutti i contatti
+     * @return ObservableList contenente tutti i contatti
      */
     public ObservableList<Contatto> getListaOsservabile(){
-    return listContatti; 
+    return listContatti;
     }
 
     /**
@@ -109,10 +108,10 @@ public class Rubrica implements InterfaceRubrica{
 
     /**
      * @brief Data una sottostringa restituisce la Rubrica contenente i contatti
-     * aventi la sottostringa nel nome e/o cognome
+     * aventi la sottostringa nel nome o cognome
      *
-     * @param[in] stringa da cercare in Rubrica
-     * @return Rubrica contente esclusivamente i contatti aventi al loro interno la sottostringa passata
+     * @param[in] stringa  la query di ricerca , in base alla quale filtrare la rubrica
+     * @return Rubrica contenente esclusivamente i contatti aventi al loro interno la sottostringa passata
      *
      * 
      */
@@ -132,12 +131,12 @@ public class Rubrica implements InterfaceRubrica{
     }
 
     /**
-     * @brief Verifica la presenza o assenza di un contatto all'interno del TreeSet (rubrica totale)
+     * @brief Verifica la presenza o assenza di un contatto all'interno della rubrica
      *
-     * @param[in] c contatto da verificare
-     * @return booleano che indica la presenza o assenza di un contatto
+     * @param[in] c contatto di cui verificare la presenza
+     * @return <code>true</code> se il contatto è presente ,<code>false</code> altrimenti
      *
-     * @post Ritorna true se la presenza è confermata, altrimenti ritorna false
+     *
      */
     public boolean isPresent(Contatto c){
         for(Contatto tmp : contatti){
@@ -158,6 +157,10 @@ public class Rubrica implements InterfaceRubrica{
         listContatti.clear();
     }
 
+    /**
+     * Metodo che elabora la rappresentazione testuale della rubrica
+     * @return String la rappresentazione testuale dello stato della rubrica
+     */
     @Override
     public String toString(){
         StringBuffer sb = new StringBuffer("La mia rubrica: "+"\n");
@@ -169,14 +172,15 @@ public class Rubrica implements InterfaceRubrica{
 
     /**
      * @brief Salva i contatti in un file VCF.
-     * Esporta tutti i contatti in un formato VCF (Virtual Contact File) e li salva all'interno di un file.
-     *
+     * Esporta tutti i contatti in un formato VCF  e li salva all'interno di un file.
+     *Il file può essere aperto utilizzando una qualsiasi applicazione di gestione dei contatti che supporta il formato VCF
+     *su qualsiasi sistema operativo.
      * @param[in] filename indicante il percorso del file VCF
      * @throws IOException in caso di errore nella scrittura
      *
-     * @pre filename deve essere un perscorso valido
+     * @pre filename deve essere un percorso valido
      * @post tutti i contatti sono correttamente salvati all'interno del file il cui nome è passato come parametro.
-     * Il file può essere aperto utilizzando una qualsiasi applicazione di gestione dei contatti che supporta il formato VCF
+     *  che supporta il formato VCF
      * su qualsiasi sistema operativo.
      */
     public void salvaVCF(String filename) throws IOException {
@@ -197,22 +201,24 @@ public class Rubrica implements InterfaceRubrica{
     }
 
     /**
-     * @brief Aggiungi i numeri telefonoci a una VCard
-     *
+     * @brief Aggiungi i numeri di telefono a una VCard
+     * Associa i numeri di telefono alla VCard , settando opportunamente il tipo di numero : Cellulare o Casa
      * @param[in] c contatto con cui associare i numeri telefonici
-     * @param card VCard a cui assorcare i numeri telefico
+     * @param card VCard a cui associare i numeri telefonici
      *
      * @pre c non deve essere null
      * @pre card non deve essere null
-     * @post i numeri telefonici sono stati associati/salvati correttamente
+     * @post i numeri telefonici sono stati associati correttamente alla VCard
      */
     private void aggiungiNumeriDiTelefonoAVCard(Contatto c,VCard card){
         for(ContactNumero numero : c.getNumeriDiTelefono()){
+       //creo un oggetto di tipo Telephone che abbia come numero quello del contatto
        Telephone telefono = new Telephone(numero.getAssociatedNumber());
-       if(numero.isNumeroDiCasa()) telefono.getTypes().add(TelephoneType.HOME);
+       if(numero.isNumeroDiCasa()) telefono.getTypes().add(TelephoneType.HOME); //Setto il tipo CASA
        else{
-       telefono.getTypes().add(TelephoneType.CELL);
+       telefono.getTypes().add(TelephoneType.CELL); //Setto il tipo CELLULARE
        }
+       //Aggiungi il numero di telefono alla card
        card.addTelephoneNumber(telefono);
         }
     }
@@ -221,7 +227,7 @@ public class Rubrica implements InterfaceRubrica{
      * @brief Aggiungi i le email a una VCard
      *
      * @param[in] c contatto con cui associare le email
-     * @param card VCard a cui assorcare le emial
+     * @param card VCard a cui associare le email
      *
      * @pre c non deve essere null
      * @pre card non deve essere null

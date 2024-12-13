@@ -106,7 +106,7 @@ public class Controller implements Initializable {
 
     /**
      * @brief Aggiunge un nuovo contatto alla rubrica.
-     *
+     * @see formController.addLista()
      * @param[in] event Evento generato dal clic sul pulsante.
      * @post Un nuovo contatto è stato aggiunto alla rubrica.
      */
@@ -182,7 +182,7 @@ public class Controller implements Initializable {
      * @brief Gestisce il clic sul pulsante dei preferiti.
      *
      * @param[in] event Evento generato dal clic sul pulsante.
-     * @see searchController.favoritesClick() per informazioni sull'implementazione della lista dei preferiti
+     * @see searchController.favoritesClick() per informazioni sull'implementazione della lista dei preferiti e della sua gestione
      * @post Lo stato della lista dei preferiti è stato aggiornato.
      */
     @FXML
@@ -191,7 +191,7 @@ public class Controller implements Initializable {
     }
 
     /**
-     * @brief Attiva il modulo di aggiunta di un nuovo contatto.
+     * @brief Rende visibile il modulo di aggiunta di un nuovo contatto alla pressione del pulsante "New Contact" , presente nel menu a tendina "Contact".
      *
      * @param[in] event Evento generato dal clic sul pulsante.
      * @see formController.clearAllFields() per informazioni sul modo in cui avviene la pulizia dei campi 

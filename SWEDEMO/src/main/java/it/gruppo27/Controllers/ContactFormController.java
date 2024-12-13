@@ -16,9 +16,10 @@ import java.util.List;
 
 /**
  * @class ContactFormController
- * @brief Controller per gestire il modulo , l'aggiunta , la modifica e l'eliminazione di contatti della rubrica .
+ * @brief Questa classe si occupa di gestire il modulo di contatto per un'applicazione di gestione della rubrica.
+ *  Consente di aggiungere, modificare e rimuovere contatti. Inoltre, gestisce i dati di input e valida le informazioni
+ * fornite dall'utente.
  *
- * @details Consente di aggiungere, modificare o rimuovere contatti, gestendo sia i dati di input sia la validazione.
  */
 public class ContactFormController {
     private final VBox datiVBox;
@@ -78,7 +79,7 @@ public class ContactFormController {
      *
      * @pre I campi di input devono contenere dati validi. Almeno uno tra il campo Nome e il campo Cognome deve essere
      * compilato nel nuovo contatto.
-     * @post Un nuovo contatto è stato aggiunto alla rubrica.
+     * @post Un nuovo contatto viene aggiunto alla rubrica.
      */
     public void addLista() {
         try {
@@ -90,6 +91,7 @@ public class ContactFormController {
             );
 
             aggiungiCellAlContattoDigitato(newContact);
+
             aggiungiEmailsAlContattoDigitato(newContact);
 
             if (rubrica.isPresent(newContact)) {
@@ -98,6 +100,7 @@ public class ContactFormController {
             }
 
             rubrica.addContatto(newContact);
+            //Aggiorno la view
             rubrica.getListaOsservabile().setAll(rubrica.getContatti());
             AlertManager.showAlert("Success","Contact Added","New contact added to Addressbook");
             clearAllFields();
@@ -153,7 +156,7 @@ public class ContactFormController {
 
     /**
      * @brief Elimina il contatto selezionato.
-     *
+     * Il metodo prevede l'eliminazione del contatto selezionato , chiedendo una conferma prima dell'operazione definitiva
      * @pre Almeno un contatto deve essere presente in tabella e selezionato.
      * @post Il contatto selezionato viene rimosso dalla rubrica.
      */
@@ -177,8 +180,9 @@ public class ContactFormController {
      * @brief Aggiorna i dati di un contatto
      *
      * @pre Le nuove informazioni inserite devono essere valide. Almeno uno tra il campo Nome e il campo Cognome deve essere
-     * compilato nel contatto modificato.
-     * @post Il contatto modificato è stato aggiornato con le ultime modifiche.
+     * compilato nel contatto modificato. Ci dev'essere una modifica valida in almeno un campo
+     * @see BindingController.initApplyButtonBinding()  , per vedere dettagli su come è stata gestita la logica di abilitazione del pulsante apply
+     * @post Il contatto modificato è stato aggiornato con le modifiche apportate.
      */
     public void eseguiModifica() {
         if (selectedContact != null) {
@@ -266,8 +270,8 @@ public class ContactFormController {
     /**
      * @brief Inizializza il comportamento da rispettare quando si seleziona un elemento nella tabella.
      *
-     * Metodo che ha l'obiettivo di visualizzare il modulo con tutti i campi riempiti con i dettagli del contatto , quando si seleziona quest'ultimo  nella tableView
-     *
+     * Metodo che ha l'obiettivo di visualizzare il modulo con tutti i campi riempiti con i dettagli del contatto , quando si seleziona quest'ultimo nella tableView
+     * @see populateFields() per dettagli su come viene gestito il riempimento delle textfields form quando si seleziona un contatto
      * @param[in] tableView Tabella dei contatti.
      * @post I listener sono configurati per la selezione dei contatti.Quando si seleziona un contatto dalla tableView , vengono mostrati i dettagli nel modulo che compare di fianco
      */
@@ -283,7 +287,7 @@ public class ContactFormController {
 
     /**
      * @brief Popola i campi del modulo con i dettagli del contatto selezionato.
-     *
+     * Rende visibili i pulsanti delete e apply. Inoltre , associa ad ogni textfield il valore corrispondente , scorrendo i dettagli del contatto in maniera semplice
      * @param[in] contact Il contatto da visualizzare.
      * @post I campi del modulo sono aggiornati con i dati del contatto.
      */

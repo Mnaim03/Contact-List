@@ -12,7 +12,7 @@ import java.util.Optional;
 public class AlertManager {
 
     /**
-     * @brief Mostra un alert , per rendere noto all'utente l'esito di un'operazione
+     * @brief Mostra un alert,per rendere noto all'utente l'esito di un'operazione
      * @param title titolo dell'alert
      * @param header intestazione dell'alert
      * @param content contenuto dell'alert
@@ -29,7 +29,7 @@ public class AlertManager {
     }
     
     /**
-     * @brief Mostra un alert per chiedere conferma all'utente per avviare l'operazione selezionata
+     * @brief Mostra un alert per chiedere conferma all'utente per eseguire in maniera definitiva l'operazione selezionata
      * @param title titolo dell'alert
      * @param header intestazione dell'alert
      * @param content contenuto dell'alert

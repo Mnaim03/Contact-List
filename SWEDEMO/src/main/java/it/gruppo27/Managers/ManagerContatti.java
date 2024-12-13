@@ -19,7 +19,7 @@ import java.util.List;
  * - Gestire errori legati alla presenza di numeri o email duplicati o invalidi.
  *
  * <p>
- * La classe utilizza due limiti fissi:
+ * La classe utilizza due limiti fissi , per evitare le costanti HARD-CODED:
  * - MAX_NUMERI: il numero massimo di numeri di telefono che un contatto può avere.
  * - MAX_EMAIL: il numero massimo di email che un contatto può avere.
  * </p>

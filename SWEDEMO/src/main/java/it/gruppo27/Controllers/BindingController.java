@@ -14,7 +14,14 @@ import javafx.scene.layout.VBox;
 
 /**
  * @class BindingController
- * @brief Classe con l'obiettivo di inizializzare i bindings e gli event listeners utili per la gestione dei componenti nell'UI
+ * @brief Controller per gestire i bindings e gli event listeners dei componenti dell'interfaccia utente .
+ *
+ * La classe si occupa di:
+ * - Configurare i bindings per la visibilità e l'abilitazione di pulsanti.
+ * - Gestire eventi come la selezione di contatti nella tabella e l'aggiornamento dei campi di input.
+ * - Coordinare l'interazione tra i vari componenti dell'interfaccia e il modello dati.
+ *
+ *
  */
 public class BindingController {
     private final VBox datiVBox;
@@ -85,7 +92,7 @@ public class BindingController {
     /**
      * @brief Inizializza il binding che gestisce la visibilità del pulsante di salvataggio.
      * @post Il pulsante di salvataggio sarà visibile solo se nessun contatto è selezionato (dunque l'utente sta creando 
-     * un nuovo contatto) e i campi nome o cognome contengono testo(infatti non sarà possibile creare un contatto senza ne nome e cognome).
+     * un nuovo contatto) e i campi nome o cognome contengono testo(infatti non sarà possibile creare un contatto senza ne nome ne cognome).
      */
     private void initSaveButtonBinding() {
         BooleanBinding visible = tableView.getSelectionModel().selectedItemProperty().isNull()
@@ -96,16 +103,20 @@ public class BindingController {
     }
 
     /**
-     * @brief Inizializza il binding per l'abilitazione del pulsante dapply.
+     * @brief Inizializza il binding per l'abilitazione del pulsante apply.
      * @post Il pulsante sarà abilitato se almeno uno tra nameField e surnameField contiene testo
-     * e sono state apportate modifiche al contatto
+     * e  , allo stesso tempo , sono state apportate modifiche al contatto , tale per cui ha senso
+     * riflettere la modifica(Di fatti se non c'è alcuna modifica rispetto allo stato attuale del contatto
+     * il pulsante sarà disabilitato)
      */
     private void initApplyButtonBinding() {
-        BooleanBinding applyButtonBinding = Bindings.createBooleanBinding(
+        /*Definiamo il binding per il pulsante apply , che deve essere abilitato
+        * quando almeno un campo tra nome e cognome e abilitato e ci sono stati cambiamenti validi*/
+        BooleanBinding abilitatoApply = Bindings.createBooleanBinding(
                 ()-> !(nameField.getText().isEmpty() && surnameField.getText().isEmpty()) && contactFormController.verificaCambiamenti(),
                 nameField.textProperty(),
                 surnameField.textProperty(),
-                phoneFields[0].textProperty(),
+                phoneFields[0].textProperty(), //Di seguito le proprietà da utilizzare per verificare i cambiamenti
                 phoneFields[1].textProperty(),
                 phoneFields[2].textProperty(),
                 emailFields[0].textProperty(),
@@ -115,17 +126,17 @@ public class BindingController {
                 favouriteCheckBox.selectedProperty()
         );
 
-        applyButton.disableProperty().bind(applyButtonBinding.not());
+        applyButton.disableProperty().bind(abilitatoApply.not());
     }
     
     /**
      * @brief Inizializza il binding per l'abilitazione del pulsante dei preferiti.
      * @post Il pulsante per la visualizzazione dei contatti 
-     * preferiti sarà abilitato solo se il campo di ricerca non contiene testo.
+     * preferiti sarà abilitato solo se il campo di ricerca è vuoto(non contiene testo).
      */  
     private void initFavoritesButtonBinding() {
         BooleanBinding favoritesButtonBinding = Bindings.createBooleanBinding(
-                () -> !searchBarField.getText().isEmpty(),
+                () -> !searchBarField.getText().isEmpty(), // se c'è almeno un carattere nella searchBar è disabilitato
                 searchBarField.textProperty()
         );
         favoritesButton.disableProperty().bind(favoritesButtonBinding);

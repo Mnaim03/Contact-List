@@ -46,7 +46,7 @@ public class TableViewController {
     /**
      * @brief Inizializza la tabella e imposta i dati.
      *
-     * Configura le colonne della tabella e assegna la lista osservabile dei contatti.
+     * Configura le colonne della tabella e crea il legame tra la lista osservabile e la tableView , rispettando il viewModel .
      * Imposta anche un messaggio di placeholder se la tabella è vuota.
      * 
      * @pre tableView , nomeClm , surnameClm non possono essere null.
@@ -84,7 +84,7 @@ public class TableViewController {
     /**
      * @brief Aggiorna la vista della tabella.
      *
-     * Reimposta la lista osservabile legata alla tabella con i contatti correnti presenti nella rubrica , per aggiornare la rubrica ad ogni cambiamento.
+     * Reimposta la lista osservabile legata alla tabella con i contatti correnti presenti nella rubrica , per aggiornare la tableView ad ogni cambiamento.
      * @post all'utente viene mostrata una table view aggiornata in base alle operazioni eseguite,conservando la coerenza tra struttura dati effettiva e la lista osservabile .
      * utilizzata solamente per l'aspetto visivo
      */

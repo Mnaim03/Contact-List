@@ -14,7 +14,7 @@ import java.io.IOException;
 
 /**
  * @class FileController
- * @brief Classe che gestisce operazioni sui file come salvataggio e caricamento della rubrica su file .vcf .
+ * @brief Classe che gestisce operazioni sui file quali salvataggio e caricamento della rubrica su file .vcf .
  */
 public class FileController {
     private final InterfaceRubrica rubrica;
@@ -45,11 +45,12 @@ public class FileController {
     }
 
     /**
-     * @brief Carica i contatti da un file VCF selezionato dall'utente.
+     * Carica i contatti da un file VCF selezionato dall'utente.
+     * La rubrica precedente verrà sovrascritta dalla rubrica caricata
      *
      * @pre L'utente deve selezionare un file VCF il cui formato sia valido.
      * @post La rubrica contiene tutti i contatti del file caricato. 
-     * La rubrica precendente verrà sovrascritta dalla rubrica caricata
+     *
      */
     public void uploadFile() {
         FileChooser fileChooser = new FileChooser();

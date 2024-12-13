@@ -59,7 +59,11 @@ public class ContactEmail implements CheckerEmail{
         return email.matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
     }
 
-
+    /**
+     * Stabilisce la relazione di uguaglianza tra due oggetti di tipo ContactEmail
+     * @param obj
+     * @return <code>true</code> se i due oggetti sono uguali , <code>false</code> altrimenti
+     */
     public boolean equals(Object obj){
         if(obj==null) return false;
         if(obj==this) return true;
