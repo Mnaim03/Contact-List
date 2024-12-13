@@ -8,6 +8,9 @@ import javafx.scene.control.ButtonType;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * @brief classe per la gestione degli alert , sia di conferma che alert di base , per informare l'utente dello stato dell'operazione effettuata
+ */
 
 public class AlertManager {
 

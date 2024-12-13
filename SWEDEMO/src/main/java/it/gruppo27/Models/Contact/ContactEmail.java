@@ -7,7 +7,7 @@ package it.gruppo27.Models.Contact;
 import it.gruppo27.interfaces.CheckerEmail;
 
 /**
- * La classe <code>ContactEmail</code> rappresenta una email associata a un contatto.
+ * @brief La classe <code>ContactEmail</code> rappresenta una email associata a un contatto.
  * <p>
  * Ogni istanza di <code>ContactEmail</code> contiene una singola email come String che può essere verificata
  * per la sua validità tramite il metodo <code>isValidEmail()</code>, che controlla se l'email

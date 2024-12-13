@@ -5,7 +5,7 @@
 package it.gruppo27.interfaces;
 
 /**
- * L'interfaccia <code>CheckerNumber</code> definisce un contratto per le classi che devono implementare
+ * @brief L'interfaccia <code>CheckerNumber</code> definisce un contratto per le classi che devono implementare
  * la logica di validazione di un numero di telefono. Ogni classe che implementa questa interfaccia dovrà
  * fornire una propria implementazione del metodo <code>isValidNumber()</code>, che permette di verificare
  * se un numero di telefono è valido.

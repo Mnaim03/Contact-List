@@ -8,7 +8,7 @@ import it.gruppo27.Exceptions.InvalidNumberException;
 import java.util.List;
 
 /**
- * La classe <code>GestoreContatti</code> è responsabile per la gestione dei contatti, in particolare
+ * @brief La classe <code>GestoreContatti</code> è responsabile per la gestione dei contatti, in particolare
  * per l'aggiunta di numeri di telefono ed email ai contatti esistenti. Questa classe implementa metodi
  * statici che permettono di aggiungere nuovi numeri e email ai contatti, rispettando i limiti massimi
  * e verificando la validità dei dati.

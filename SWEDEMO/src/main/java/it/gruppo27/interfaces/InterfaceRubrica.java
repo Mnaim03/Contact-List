@@ -14,7 +14,7 @@ import java.util.Set;
 import javafx.collections.ObservableList;
 
 /**
- * L'interfaccia <code>InterfaceRubrica</code> definisce un contratto per le classi che implementano
+ * @brief  L'interfaccia <code>InterfaceRubrica</code> definisce un contratto per le classi che implementano
  * una rubrica di contatti. Le classi che implementano questa interfaccia devono fornire i metodi necessari
  * per gestire e manipolare i contatti, inclusi l'aggiunta, la rimozione, la ricerca e la gestione dei dati
  * di contatto, nonché l'esportazione e l'importazione dei dati in formato VCF (vCard).

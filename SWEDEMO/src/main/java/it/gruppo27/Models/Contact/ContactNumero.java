@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * La classe <code>ContactNumero</code> rappresenta un numero  associato a un contatto.
+ * @brief La classe <code>ContactNumero</code> rappresenta un numero  associato a un contatto.
  * <p>
  * Ogni istanza di <code>ContactNumero</code> contiene un singolo numero come String che può essere verificato
  * per la sua validità tramite il metodo <code>isValidNumber()</code>, che controlla se il numero
