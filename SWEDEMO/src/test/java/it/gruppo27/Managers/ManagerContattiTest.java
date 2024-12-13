@@ -41,7 +41,6 @@ class ManagerContattiTest {
             ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("1987654321"));
             ManagerContatti.addNumero(c.getNumeriDiTelefono(), new ContactNumero("2987654321"));
         }catch(InvalidNumberException ex){
-            System.out.println("Eccezione lanciata test");
             assertEquals(3,c.getNumeriDiTelefono().size());
             System.out.println("Test ID = 3.1.3 SUPERATO");
         }
@@ -91,7 +90,6 @@ class ManagerContattiTest {
             ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail2@mail.com"));
             ManagerContatti.addEmail(c.getEmail(), new ContactEmail("mail3@mail.com"));
         }catch(InvalidEmailException ex){
-            System.out.println("Eccezione lanciata test");
             assertEquals(3,c.getEmail().size());
             System.out.println("Test ID = 3.2.3 SUPERATO");
         }
