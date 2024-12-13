@@ -7,7 +7,7 @@ package it.gruppo27.interfaces;
 
 
 /**
- * L'interfaccia <code>CheckerEmail</code> definisce un contratto per le classi che devono implementare
+ * @brief L'interfaccia <code>CheckerEmail</code> definisce un contratto per le classi che devono implementare
  * la logica di validazione di un indirizzo email. Ogni classe che implementa questa interfaccia dovrà
  * fornire una propria implementazione del metodo <code>isValidEmail()</code>, che permette di verificare
  * se un indirizzo email è valido.

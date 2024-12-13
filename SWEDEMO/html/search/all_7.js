@@ -15,5 +15,5 @@ var searchData=
   ['isnumerodicasa_12',['isNumeroDiCasa',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#a9ca71ba0f5088da0f07d6d29dfac519d',1,'it::gruppo27::Models::Contact::ContactNumero']]],
   ['ispresent_13',['isPresent',['../classit_1_1gruppo27_1_1_models_1_1_rubrica.html#a84a289c06c1d60afc9a821fe3d68afcc',1,'it::gruppo27::Models::Rubrica']]],
   ['isvalidemail_14',['isValidEmail',['../interfaceit_1_1gruppo27_1_1interfaces_1_1_checker_email.html#ada57114fb158e97f0ae083e6a54dc90d',1,'it.gruppo27.interfaces.CheckerEmail.isValidEmail()'],['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_email.html#a407ebb9d5b6de7ea465b6130b87f7376',1,'it.gruppo27.Models.Contact.ContactEmail.isValidEmail()']]],
-  ['isvalidnumber_15',['isValidNumber',['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#afdeafcad4f13a3b0b6fd89ad5bb951a2',1,'it::gruppo27::Models::Contact::ContactNumero']]]
+  ['isvalidnumber_15',['isValidNumber',['../interfaceit_1_1gruppo27_1_1interfaces_1_1_checker_number.html#ad54fa27e98c236021b765cddb37bc153',1,'it.gruppo27.interfaces.CheckerNumber.isValidNumber()'],['../classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html#afdeafcad4f13a3b0b6fd89ad5bb951a2',1,'it.gruppo27.Models.Contact.ContactNumero.isValidNumber()']]]
 ];

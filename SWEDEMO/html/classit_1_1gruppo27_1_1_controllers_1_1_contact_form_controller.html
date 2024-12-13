@@ -97,19 +97,19 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.">Controller</a> per gestire il modulo , l'aggiunta , la modifica e l'eliminazione di contatti della rubrica .  
+<p>Questa classe si occupa di gestire il modulo di contatto per un'applicazione di gestione della rubrica. Consente di aggiungere, modificare e rimuovere contatti. Inoltre, gestisce i dati di input e valida le informazioni fornite dall'utente.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4e4c800802023eaa6ea7a41e5d0b1f3d" id="r_a4e4c800802023eaa6ea7a41e5d0b1f3d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e4c800802023eaa6ea7a41e5d0b1f3d">ContactFormController</a> (VBox datiVBox, TextField nameField, TextField surnameField, TextField[] phoneFields, TextField[] emailFields, TextField descriptionField, CheckBox favouriteCheckBox, Button applyButton, Button deleteButton, <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_rubrica.html">InterfaceRubrica</a> rubrica, <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_table_view_controller.html">TableViewController</a> tableViewController, TableView tableView)</td></tr>
-<tr class="memdesc:a4e4c800802023eaa6ea7a41e5d0b1f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Controller per gestire il modulo , l&#39;aggiunta , la modifica e l&#39;eliminazione di contatti della rubric...">ContactFormController</a>.  <br /></td></tr>
+<tr class="memdesc:a4e4c800802023eaa6ea7a41e5d0b1f3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Questa classe si occupa di gestire il modulo di contatto per un&#39;applicazione di gestione della rubric...">ContactFormController</a>.  <br /></td></tr>
 <tr class="separator:a4e4c800802023eaa6ea7a41e5d0b1f3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a735614c63463377d1c8494ea36f54351" id="r_a735614c63463377d1c8494ea36f54351"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a735614c63463377d1c8494ea36f54351">addLista</a> ()</td></tr>
 <tr class="memdesc:a735614c63463377d1c8494ea36f54351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiunge un nuovo contatto alla rubrica.  <br /></td></tr>
 <tr class="separator:a735614c63463377d1c8494ea36f54351"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a514e05fd6467e43f47490faac02d60fe" id="r_a514e05fd6467e43f47490faac02d60fe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a514e05fd6467e43f47490faac02d60fe">deleteLista</a> ()</td></tr>
-<tr class="memdesc:a514e05fd6467e43f47490faac02d60fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina il contatto selezionato.  <br /></td></tr>
+<tr class="memdesc:a514e05fd6467e43f47490faac02d60fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Elimina il contatto selezionato. Il metodo prevede l'eliminazione del contatto selezionato , chiedendo una conferma prima dell'operazione definitiva.  <br /></td></tr>
 <tr class="separator:a514e05fd6467e43f47490faac02d60fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7cb324acd57fd582b0e6c9efe955e90" id="r_ac7cb324acd57fd582b0e6c9efe955e90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7cb324acd57fd582b0e6c9efe955e90">eseguiModifica</a> ()</td></tr>
 <tr class="memdesc:ac7cb324acd57fd582b0e6c9efe955e90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiorna i dati di un contatto.  <br /></td></tr>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a0141eb56f6dd8ea2d6cb5934961a4f11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizializza il comportamento da rispettare quando si seleziona un elemento nella tabella.  <br /></td></tr>
 <tr class="separator:a0141eb56f6dd8ea2d6cb5934961a4f11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab28a9609de2ade046ee72230eff81007" id="r_ab28a9609de2ade046ee72230eff81007"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab28a9609de2ade046ee72230eff81007">populateFields</a> (<a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html">Contatto</a> contact)</td></tr>
-<tr class="memdesc:ab28a9609de2ade046ee72230eff81007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Popola i campi del modulo con i dettagli del contatto selezionato.  <br /></td></tr>
+<tr class="memdesc:ab28a9609de2ade046ee72230eff81007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Popola i campi del modulo con i dettagli del contatto selezionato. Rende visibili i pulsanti delete e apply. Inoltre , associa ad ogni textfield il valore corrispondente , scorrendo i dettagli del contatto in maniera semplice.  <br /></td></tr>
 <tr class="separator:ab28a9609de2ade046ee72230eff81007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -179,8 +179,7 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
 <tr class="separator:aa232a68c769444cb85f3c0d9bc7cdd3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.">Controller</a> per gestire il modulo , l'aggiunta , la modifica e l'eliminazione di contatti della rubrica . </p>
-<p>Consente di aggiungere, modificare o rimuovere contatti, gestendo sia i dati di input sia la validazione. </p>
+<div class="textblock"><p>Questa classe si occupa di gestire il modulo di contatto per un'applicazione di gestione della rubrica. Consente di aggiungere, modificare e rimuovere contatti. Inoltre, gestisce i dati di input e valida le informazioni fornite dall'utente. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4e4c800802023eaa6ea7a41e5d0b1f3d" name="a4e4c800802023eaa6ea7a41e5d0b1f3d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4e4c800802023eaa6ea7a41e5d0b1f3d">&#9670;&#160;</a></span>ContactFormController()</h2>
@@ -251,7 +250,7 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
       </table>
 </div><div class="memdoc">
 
-<p>Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Controller per gestire il modulo , l&#39;aggiunta , la modifica e l&#39;eliminazione di contatti della rubric...">ContactFormController</a>. </p>
+<p>Costruttore della classe <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Questa classe si occupa di gestire il modulo di contatto per un&#39;applicazione di gestione della rubric...">ContactFormController</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">datiVBox</td><td>Contenitore del modulo di contatto. </td></tr>
@@ -264,12 +263,12 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
     <tr><td class="paramdir">[in]</td><td class="paramname">applyButton</td><td>Pulsante per applicare modifiche. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">deleteButton</td><td>Pulsante per eliminare un contatto. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">rubrica</td><td>Interfaccia della rubrica. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">tableViewController</td><td><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.">Controller</a> per la tabella dei contatti. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">tableViewController</td><td><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.Funge da coordinatore tra gli alt...">Controller</a> per la tabella dei contatti. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">tableView</td><td>Tabella per visualizzare i contatti.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section post"><dt>Postcondition</dt><dd>una nuova istanza di <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Controller per gestire il modulo , l&#39;aggiunta , la modifica e l&#39;eliminazione di contatti della rubric...">ContactFormController</a> è stata creata </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>una nuova istanza di <a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Questa classe si occupa di gestire il modulo di contatto per un&#39;applicazione di gestione della rubric...">ContactFormController</a> è stata creata </dd></dl>
 
 </div>
 </div>
@@ -291,7 +290,7 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
 
 <p>Aggiunge un nuovo contatto alla rubrica. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>I campi di input devono contenere dati validi. Almeno uno tra il campo Nome e il campo Cognome deve essere compilato nel nuovo contatto. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Un nuovo contatto è stato aggiunto alla rubrica. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Un nuovo contatto viene aggiunto alla rubrica. </dd></dl>
 
 </div>
 </div>
@@ -381,7 +380,7 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
 </div><div class="memdoc">
 
 <p>Ripulisce le caselle testuali. </p>
-<dl class="section post"><dt>Postcondition</dt><dd>Le caselle sono ripulite del testo che contenevano prima. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Le caselle sono ripulite del testo che contenevano prima della chiamata del metodo . </dd></dl>
 
 </div>
 </div>
@@ -400,7 +399,7 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
       </table>
 </div><div class="memdoc">
 
-<p>Elimina il contatto selezionato. </p>
+<p>Elimina il contatto selezionato. Il metodo prevede l'eliminazione del contatto selezionato , chiedendo una conferma prima dell'operazione definitiva. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>Almeno un contatto deve essere presente in tabella e selezionato. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Il contatto selezionato viene rimosso dalla rubrica. </dd></dl>
 
@@ -422,8 +421,9 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
 </div><div class="memdoc">
 
 <p>Aggiorna i dati di un contatto. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>Le nuove informazioni inserite devono essere valide. Almeno uno tra il campo Nome e il campo Cognome deve essere compilato nel contatto modificato. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Il contatto modificato è stato aggiornato con le ultime modifiche. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>Le nuove informazioni inserite devono essere valide. Almeno uno tra il campo Nome e il campo Cognome deve essere compilato nel contatto modificato. Ci dev'essere una modifica valida in almeno un campo </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_binding_controller.html#a7a2b6301b8176e9372b0bae0d72bc80a" title="Inizializza il binding per l&#39;abilitazione del pulsante apply.">BindingController.initApplyButtonBinding()</a> , per vedere dettagli su come è stata gestita la logica di abilitazione del pulsante apply </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Il contatto modificato è stato aggiornato con le modifiche apportate. </dd></dl>
 
 </div>
 </div>
@@ -443,14 +443,14 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
 </div><div class="memdoc">
 
 <p>Inizializza il comportamento da rispettare quando si seleziona un elemento nella tabella. </p>
-<p>Metodo che ha l'obiettivo di visualizzare il modulo con tutti i campi riempiti con i dettagli del contatto , quando si seleziona quest'ultimo nella tableView</p>
+<p>Metodo che ha l'obiettivo di visualizzare il modulo con tutti i campi riempiti con i dettagli del contatto , quando si seleziona quest'ultimo nella tableView </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="#ab28a9609de2ade046ee72230eff81007" title="Popola i campi del modulo con i dettagli del contatto selezionato. Rende visibili i pulsanti delete e...">populateFields()</a> per dettagli su come viene gestito il riempimento delle textfields form quando si seleziona un contatto </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">tableView</td><td>Tabella dei contatti. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section post"><dt>Postcondition</dt><dd>I listener sono configurati per la selezione dei contatti.Quando si seleziona un contatto dalla tableView , vengono mostrati i dettagli nel modulo di fianco che compare </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>I listener sono configurati per la selezione dei contatti.Quando si seleziona un contatto dalla tableView , vengono mostrati i dettagli nel modulo che compare di fianco </dd></dl>
 
 </div>
 </div>
@@ -469,7 +469,7 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
       </table>
 </div><div class="memdoc">
 
-<p>Popola i campi del modulo con i dettagli del contatto selezionato. </p>
+<p>Popola i campi del modulo con i dettagli del contatto selezionato. Rende visibili i pulsanti delete e apply. Inoltre , associa ad ogni textfield il valore corrispondente , scorrendo i dettagli del contatto in maniera semplice. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">contact</td><td>Il contatto da visualizzare. </td></tr>
@@ -496,7 +496,6 @@ final TableView&#160;</td><td class="memItemRight" valign="bottom"><b>tableView<
 </div><div class="memdoc">
 
 <p>Verifica se ci sono cambiamenti nel modulo del contatto selezionato . </p>
-<dl class="section return"><dt>Returns</dt><dd>True se ci sono cambiamenti, false altrimenti. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Restituisce <code>true</code> se ci sono cambiamenti(tra i numeri di telefono ,emails , e altri dettagli del contatto selezionato), <code>false</code> altrimenti. </dd></dl>
 
 </div>

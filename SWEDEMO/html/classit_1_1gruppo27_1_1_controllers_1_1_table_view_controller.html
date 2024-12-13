@@ -96,7 +96,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.">Controller</a> per gestire le operazioni sulla table view presente nell'interfaccia grafica.  
+<p><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.Funge da coordinatore tra gli alt...">Controller</a> per gestire le operazioni sulla table view presente nell'interfaccia grafica.  
  <a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -108,7 +108,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a1376120979ed21bb23cf117a78b5b0c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inizializza la tabella e imposta i dati.  <br /></td></tr>
 <tr class="separator:a1376120979ed21bb23cf117a78b5b0c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f6cf2718872d7f26295ba3ea9e4622d" id="r_a6f6cf2718872d7f26295ba3ea9e4622d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f6cf2718872d7f26295ba3ea9e4622d">deleteAll</a> ()</td></tr>
-<tr class="memdesc:a6f6cf2718872d7f26295ba3ea9e4622d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eliminazione di tutti i contatti dalla rubrica.  <br /></td></tr>
+<tr class="memdesc:a6f6cf2718872d7f26295ba3ea9e4622d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce l'eliminazione di tutti i contatti della rubrica.  <br /></td></tr>
 <tr class="separator:a6f6cf2718872d7f26295ba3ea9e4622d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98f49f08ade6c0be36b415d66efb1261" id="r_a98f49f08ade6c0be36b415d66efb1261"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98f49f08ade6c0be36b415d66efb1261">updateView</a> ()</td></tr>
 <tr class="memdesc:a98f49f08ade6c0be36b415d66efb1261"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aggiorna la vista della tabella.  <br /></td></tr>
@@ -130,7 +130,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 <tr class="separator:afe7135226ea52afc2a705ba6f4b3e8d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.">Controller</a> per gestire le operazioni sulla table view presente nell'interfaccia grafica. </p>
+<div class="textblock"><p><a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_controller.html" title="Classe principale che integra le funzioni di gestione della rubrica.Funge da coordinatore tra gli alt...">Controller</a> per gestire le operazioni sulla table view presente nell'interfaccia grafica. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a50f19db889083d488e902ecf3b95d69d" name="a50f19db889083d488e902ecf3b95d69d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a50f19db889083d488e902ecf3b95d69d">&#9670;&#160;</a></span>TableViewController()</h2>
@@ -191,10 +191,10 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
       </table>
 </div><div class="memdoc">
 
-<p>Eliminazione di tutti i contatti dalla rubrica. </p>
-<p>Mostra un messaggio di conferma per chiedere all'utente se vuole procedere con l'eliminazione dell'intera rubrica.</p>
+<p>Gestisce l'eliminazione di tutti i contatti della rubrica. </p>
+<p>Metodo che elimina tutti i contatti della rubrica.Mostra un messaggio di conferma per chiedere all'utente se vuole procedere con l'eliminazione dell'intera rubrica.</p>
 <dl class="section pre"><dt>Precondition</dt><dd>ci deve essere almeno un contatto salvato all'interno della rubrica </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>tutti i contatti vengono eliminati rubrica , mostrando una tabella vuota. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>tutti i contatti vengono eliminati dalla rubrica , mostrando una rubrica vuota. </dd></dl>
 
 </div>
 </div>
@@ -214,7 +214,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 </div><div class="memdoc">
 
 <p>Inizializza la tabella e imposta i dati. </p>
-<p>Configura le colonne della tabella e assegna la lista osservabile dei contatti. Imposta anche un messaggio di placeholder se la tabella è vuota.</p>
+<p>Configura le colonne della tabella e crea il legame tra la lista osservabile e la tableView , rispettando il viewModel . Imposta anche un messaggio di placeholder se la tabella è vuota.</p>
 <dl class="section pre"><dt>Precondition</dt><dd>tableView , nomeClm , surnameClm non possono essere null. </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>mostra una tableView vuota, con due colonne ,che cambia in base alle modifiche della lista osservabile dei contatti </dd></dl>
 
@@ -236,7 +236,7 @@ final <a class="el" href="interfaceit_1_1gruppo27_1_1interfaces_1_1_interface_ru
 </div><div class="memdoc">
 
 <p>Aggiorna la vista della tabella. </p>
-<p>Reimposta la lista osservabile legata alla tabella con i contatti correnti presenti nella rubrica. </p><dl class="section post"><dt>Postcondition</dt><dd>all'utente viene mostrata una table view aggiornata in base alle operazioni eseguite. </dd></dl>
+<p>Reimposta la lista osservabile legata alla tabella con i contatti correnti presenti nella rubrica , per aggiornare la tableView ad ogni cambiamento. </p><dl class="section post"><dt>Postcondition</dt><dd>all'utente viene mostrata una table view aggiornata in base alle operazioni eseguite,conservando la coerenza tra struttura dati effettiva e la lista osservabile . utilizzata solamente per l'aspetto visivo </dd></dl>
 
 </div>
 </div>

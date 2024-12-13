@@ -126,10 +126,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a4e6b8f9ebf92cc8c9ffc2c20af3ba7fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restituisce la descrizione del contatto.  <br /></td></tr>
 <tr class="separator:a4e6b8f9ebf92cc8c9ffc2c20af3ba7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e82c0984eff147825a30917a4ae17f1" id="r_a4e82c0984eff147825a30917a4ae17f1"><td class="memItemLeft" align="right" valign="top">boolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e82c0984eff147825a30917a4ae17f1">getFavourite</a> ()</td></tr>
-<tr class="memdesc:a4e82c0984eff147825a30917a4ae17f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">mi dice se un contatto è stato aggiunto o meno ai preferiti  <br /></td></tr>
+<tr class="memdesc:a4e82c0984eff147825a30917a4ae17f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fornisce informazioni sulla presenza del contatto nella lista dei preferiti o meno.  <br /></td></tr>
 <tr class="separator:a4e82c0984eff147825a30917a4ae17f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ddc598f061af59cecc3f15273f254a5" id="r_a6ddc598f061af59cecc3f15273f254a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ddc598f061af59cecc3f15273f254a5">setNome</a> (String nome)</td></tr>
-<tr class="memdesc:a6ddc598f061af59cecc3f15273f254a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta il nome del contatto.  <br /></td></tr>
+<tr class="memdesc:a6ddc598f061af59cecc3f15273f254a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setta il nome del contatto.  <br /></td></tr>
 <tr class="separator:a6ddc598f061af59cecc3f15273f254a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3de1ef30c1ea50beec1cf48d27bb8499" id="r_a3de1ef30c1ea50beec1cf48d27bb8499"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3de1ef30c1ea50beec1cf48d27bb8499">setCognome</a> (String cognome)</td></tr>
 <tr class="memdesc:a3de1ef30c1ea50beec1cf48d27bb8499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Imposta il cognome del contatto.  <br /></td></tr>
@@ -176,7 +176,7 @@ boolean&#160;</td><td class="memItemRight" valign="bottom"><b>favoriti</b></td><
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Ogni oggetto della classe <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contatto.html" title="Ogni oggetto della classe Contatto è identificato dal suo nome e cognome e può avere una lista di num...">Contatto</a> è identificato dal suo nome e cognome e può avere una lista di numeri di telefono(da 0 a 3) e indirizzi email(da 0 a 3) e una descrizione associati, inoltre è possibile aggiungere il contatto tra i preferiti. </p>
-<p>La classe implementa l'interfaccia Comparable, consentendo di ordinare i contatti in base al loro cognome (nome in caso di cognomi uguali). Se due contatti avranno nome , cognome , i 3 numeri di telefono e le 3 email identici verranno considerati identici , e dunque uno dei due verrà considerato doppione (con questo non si vuol dire che un doppione non verrà aggiunto alla <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_rubrica.html" title="Classe che implementa un sistema di gestione dei contatti con funzionalità di aggiunta,...">Rubrica</a>, questo dipende da quale struttura dati ospiterà i contatti all'interno della rubrica) .</p>
+<p>La classe implementa l'interfaccia Comparable, consentendo di ordinare i contatti in base al loro cognome (nome in caso di cognomi uguali). Se due contatti hanno nome , cognome ,i 3 numeri di telefono identici e le 3 mail uguali verranno considerati uguali , e dunque uno dei due verrà considerato doppione .</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_numero.html">ContactNumero</a> per la gestione dei numeri di telefono. </dd>
 <dd>
 <a class="el" href="classit_1_1gruppo27_1_1_models_1_1_contact_1_1_contact_email.html">ContactEmail</a> per la gestione delle email. </dd>
@@ -409,8 +409,8 @@ ManagerContatti per la gestione delle operazioni di aggiunta e validazione dei n
       </table>
 </div><div class="memdoc">
 
-<p>mi dice se un contatto è stato aggiunto o meno ai preferiti </p>
-<dl class="section return"><dt>Returns</dt><dd>true se il contatto è tra i preferiti , sennò false </dd></dl>
+<p>Fornisce informazioni sulla presenza del contatto nella lista dei preferiti o meno. </p>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> se il contatto è tra i preferiti , <code>false</code> altrimenti </dd></dl>
 
 </div>
 </div>
@@ -547,7 +547,7 @@ ManagerContatti per la gestione delle operazioni di aggiunta e validazione dei n
       </table>
 </div><div class="memdoc">
 
-<p>Imposta il nome del contatto. </p>
+<p>Setta il nome del contatto. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">nome</td><td>il nome da inserire per il contatto </td></tr>

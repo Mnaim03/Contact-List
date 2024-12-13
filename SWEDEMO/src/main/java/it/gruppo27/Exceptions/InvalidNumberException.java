@@ -5,20 +5,10 @@
 package it.gruppo27.Exceptions;
 
 /**
- * La classe <code>InvalidEmailException</code> è un'eccezione controllata personalizzata che estende la classe <code>Exception</code>.
+ * @brief La classe <code>InvalidEmailException</code> è un'eccezione controllata personalizzata che estende la classe <code>Exception</code>.
  * Questa eccezione viene utilizzata per segnalare errori relativi a un numero non valido, per esempio quando si inseriscono dei caratteri
  * invece che dei numeri , oppure quando la stringa numerica non è abbastanza lunga per essere considerata un numero di telefono valido
- *
- * <p>
- * Un esempio di quando questa eccezione potrebbe essere sollevata include:
- * - L'aggiunta di un numero già presente nella lista dei numeri di un contatto.
- * - L'inserimento di un numero che non rispetta il formato corretto
- * </p>
- *
- * <p>
- * La classe estende la classe <code>Exception</code>, il che significa che è una <i>checked exception</i>, ovvero deve essere
- * gestita esplicitamente nel codice tramite un blocco <code>try-catch</code> o essere dichiarata nel metodo con <code>throws</code>.
- * </p>
+
  *
  *
  */

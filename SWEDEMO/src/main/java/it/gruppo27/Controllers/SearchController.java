@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * La classe SearchController gestisce l'interfaccia di ricerca e la visualizzazione
+ * @brief La classe SearchController gestisce l'interfaccia di ricerca e la visualizzazione
  * dei contatti in una rubrica, permettendo di filtrare i contatti per nome,cognome , o per una sottostringa di questi
  * o di visualizzare
  * solo i contatti preferiti.

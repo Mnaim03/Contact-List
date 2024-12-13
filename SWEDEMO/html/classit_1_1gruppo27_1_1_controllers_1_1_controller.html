@@ -97,7 +97,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>Classe principale che integra le funzioni di gestione della rubrica.  
+<p>Classe principale che integra le funzioni di gestione della rubrica.Funge da coordinatore tra gli altri controller e le attività dell'utente.  
  <a href="#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for it.gruppo27.Controllers.Controller:</div>
@@ -139,7 +139,7 @@ Private Member Functions</h2></td></tr>
 <tr class="memdesc:a5d4ff337936e29c3b7901fd46ffb0741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gestisce il clic sul pulsante dei preferiti.  <br /></td></tr>
 <tr class="separator:a5d4ff337936e29c3b7901fd46ffb0741"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a153905f7719c7f8de8fbdc24e22caab5" id="r_a153905f7719c7f8de8fbdc24e22caab5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a153905f7719c7f8de8fbdc24e22caab5">activeSave</a> (ActionEvent event)</td></tr>
-<tr class="memdesc:a153905f7719c7f8de8fbdc24e22caab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attiva il modulo di aggiunta di un nuovo contatto.  <br /></td></tr>
+<tr class="memdesc:a153905f7719c7f8de8fbdc24e22caab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rende visibile il modulo di aggiunta di un nuovo contatto alla pressione del pulsante "New Contact" , presente nel menu a tendina "Contact".  <br /></td></tr>
 <tr class="separator:a153905f7719c7f8de8fbdc24e22caab5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -221,7 +221,7 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 <tr class="separator:ab1d36679aea54b6f88b58d1222a17902"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Classe principale che integra le funzioni di gestione della rubrica. </p>
+<div class="textblock"><p>Classe principale che integra le funzioni di gestione della rubrica.Funge da coordinatore tra gli altri controller e le attività dell'utente. </p>
 <p>Gestisce la tabella dei contatti, il modulo di modifica/aggiunta, e altre operazioni come salvataggio e caricamento. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a153905f7719c7f8de8fbdc24e22caab5" name="a153905f7719c7f8de8fbdc24e22caab5"></a>
@@ -247,7 +247,7 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 </table>
 </div><div class="memdoc">
 
-<p>Attiva il modulo di aggiunta di un nuovo contatto. </p>
+<p>Rende visibile il modulo di aggiunta di un nuovo contatto alla pressione del pulsante "New Contact" , presente nel menu a tendina "Contact". </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
@@ -283,6 +283,7 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
 </div><div class="memdoc">
 
 <p>Aggiunge un nuovo contatto alla rubrica. </p>
+<dl class="section see"><dt>See also</dt><dd>formController.addLista() </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">event</td><td>Evento generato dal clic sul pulsante. </td></tr>
@@ -428,7 +429,7 @@ Button&#160;</td><td class="memItemRight" valign="bottom"><b>saveButton</b></td>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd>searchController.favoritesClick() per informazioni sull'implementazione della lista dei preferiti </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>searchController.favoritesClick() per informazioni sull'implementazione della lista dei preferiti e della sua gestione </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Lo stato della lista dei preferiti è stato aggiornato. </dd></dl>
 
 </div>
@@ -494,7 +495,7 @@ searchController.initSearchBar() per l'implementazione dell'inizializzazione del
 <dd>
 bindingController.initBindings() per l'implementazione dell'inizializzazione del controller che gestisce i binding </dd>
 <dd>
-<a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Controller per gestire il modulo , l&#39;aggiunta , la modifica e l&#39;eliminazione di contatti della rubric...">ContactFormController</a> per l'implementazione della classe da cui dipende la gestione dei form dei contatti </dd></dl>
+<a class="el" href="classit_1_1gruppo27_1_1_controllers_1_1_contact_form_controller.html" title="Questa classe si occupa di gestire il modulo di contatto per un&#39;applicazione di gestione della rubric...">ContactFormController</a> per l'implementazione della classe da cui dipende la gestione dei form dei contatti </dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>Tutti i controller secondari sono configurati e funzionanti. </dd></dl>
 
 </div>
